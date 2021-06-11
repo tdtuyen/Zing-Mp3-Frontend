@@ -11,6 +11,7 @@ import { DemoAuthGuardComponent } from './demo-auth-guard/demo-auth-guard.compon
 import { LogoutComponent } from './logout/logout.component';
 import {LayoutModule} from './layout/layout.module';
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
