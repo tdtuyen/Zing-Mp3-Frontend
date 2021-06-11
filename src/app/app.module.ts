@@ -11,13 +11,14 @@ import { DemoAuthGuardComponent } from './demo-auth-guard/demo-auth-guard.compon
 import { LogoutComponent } from './logout/logout.component';
 
 import {LayoutModule} from './layout/layout.module';
+import {RegisterComponent} from "./register/register.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DemoAuthGuardComponent,
-    LogoutComponent,
+    LogoutComponent,RegisterComponent
   ],
   imports: [
     BrowserModule,

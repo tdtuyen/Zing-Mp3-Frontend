@@ -4,6 +4,7 @@ import {LoginComponent} from './login/login.component';
 import {DemoAuthGuardComponent} from './demo-auth-guard/demo-auth-guard.component';
 import {AuthGuard} from './helper/auth-guard';
 import {HomeLayoutComponent} from './layout/home-layout/home-layout.component';
+import {RegisterComponent} from "./register/register.component";
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'logout',
