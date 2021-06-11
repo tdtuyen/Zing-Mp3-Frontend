@@ -6,14 +6,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
+import { QuicklinkComponent } from './quicklink/quicklink.component';
 
 
 @NgModule({
-    declarations: [NavbarComponent, HeaderComponent, FooterComponent, BannerComponent],
+    declarations: [NavbarComponent, HeaderComponent, FooterComponent, BannerComponent, QuicklinkComponent],
     exports: [
         NavbarComponent,
         FooterComponent,
-        BannerComponent
+        BannerComponent,
+        QuicklinkComponent
     ],
     imports: [
         CommonModule,

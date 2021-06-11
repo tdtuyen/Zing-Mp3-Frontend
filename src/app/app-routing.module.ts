@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    // loadChildren: () => import('./ho/user.module').then(module => module.UserModule)
+    loadChildren: () => import('./user/user.module').then(module => module.UserModule)
   },
   {
     path: 'login',
