@@ -4,13 +4,14 @@ import {LoginComponent} from './login/login.component';
 import {DemoAuthGuardComponent} from './demo-auth-guard/demo-auth-guard.component';
 import {AuthGuard} from './helper/auth-guard';
 import {HomeLayoutComponent} from './layout/home-layout/home-layout.component';
+import {RegisterComponent} from './register/register.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
-    // loadChildren: () => import('./user/user.module').then(module => module.UserModule)
+    loadChildren: () => import('./user/user.module').then(module => module.UserModule)
   },
   {
     path: 'login',
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'logout',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'demo',
