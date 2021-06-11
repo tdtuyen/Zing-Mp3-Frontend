@@ -4,18 +4,16 @@ import { CommonModule } from '@angular/common';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import {SharedModule} from '../shared/shared.module';
-import {PlaylistModule} from '../user/playlist/playlist.module';
 import {UserModule} from '../user/user.module';
 
 
 @NgModule({
   declarations: [HomeLayoutComponent],
-  imports: [
-    CommonModule,
-    LayoutRoutingModule,
-    SharedModule,
-    UserModule,
-    PlaylistModule
-  ]
+    imports: [
+        CommonModule,
+        LayoutRoutingModule,
+        SharedModule,
+        UserModule
+    ]
 })
 export class LayoutModule { }
