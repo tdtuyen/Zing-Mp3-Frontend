@@ -8,10 +8,13 @@ import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
-  declarations: [NavbarComponent, HeaderComponent, FooterComponent],
-  imports: [
-    CommonModule,
-    SharedRoutingModule
-  ]
+    declarations: [NavbarComponent, HeaderComponent, FooterComponent],
+    exports: [
+        NavbarComponent
+    ],
+    imports: [
+        CommonModule,
+        SharedRoutingModule
+    ]
 })
 export class SharedModule { }
