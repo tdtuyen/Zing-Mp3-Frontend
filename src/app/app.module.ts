@@ -9,6 +9,7 @@ import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
 import {JwtInterceptor} from './helper/jwt-interceptor';
 import { DemoAuthGuardComponent } from './demo-auth-guard/demo-auth-guard.component';
 import { LogoutComponent } from './logout/logout.component';
+import {LayoutModule} from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,8 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
-
+    FormsModule,
+    LayoutModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
