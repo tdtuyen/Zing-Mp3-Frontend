@@ -13,14 +13,15 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   // tslint:disable-next-line:max-line-length
-    declarations: [NavbarComponent, HeaderComponent, FooterComponent, BannerComponent, QuicklinkComponent, BannerComponent, SidebarComponent],
+    declarations: [NavbarComponent, HeaderComponent, FooterComponent, BannerComponent, QuicklinkComponent, BannerComponent, SidebarComponent, HeaderComponent],
     exports: [
         NavbarComponent,
         FooterComponent,
         BannerComponent,
         QuicklinkComponent,
         BannerComponent,
-        SidebarComponent
+        SidebarComponent,
+        HeaderComponent
     ],
     imports: [
         CommonModule,

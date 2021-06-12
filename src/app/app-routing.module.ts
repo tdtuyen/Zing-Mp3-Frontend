@@ -6,6 +6,7 @@ import {AuthGuard} from './helper/auth-guard';
 import {HomeLayoutComponent} from './layout/home-layout/home-layout.component';
 import {RegisterComponent} from "./login-register/register/register.component";
 import {LogoutComponent} from './logout/logout.component';
+import {DetailLayoutComponent} from './layout/detail-layout/detail-layout.component';
 
 
 const routes: Routes = [
@@ -15,16 +16,21 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then(module => module.UserModule)
   },
   {
+    path: 'detail',
+    component: DetailLayoutComponent,
+    loadChildren: () => import('./user/user.module').then(module => module.UserModule)
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
-  {
-    path: 'register',
-    component: RegisterComponent
-  },
+  // {
+  //   path: 'register',
+  //   component: RegisterComponent
+  // },
   {
     path: 'logout',
-    component: LogoutComponent
+    component: LoginComponent
   },
   {
     path: 'demo',
