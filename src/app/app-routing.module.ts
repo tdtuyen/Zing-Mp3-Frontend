@@ -4,13 +4,19 @@ import {LoginComponent} from './login/login.component';
 import {DemoAuthGuardComponent} from './demo-auth-guard/demo-auth-guard.component';
 import {AuthGuard} from './helper/auth-guard';
 import {HomeLayoutComponent} from './layout/home-layout/home-layout.component';
-import {RegisterComponent} from "./register/register.component";
+import {RegisterComponent} from './register/register.component';
+import {DetailLayoutComponent} from './layout/detail-layout/detail-layout.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: HomeLayoutComponent,
+    loadChildren: () => import('./user/user.module').then(module => module.UserModule)
+  },
+  {
+    path: 'detail',
+    component: DetailLayoutComponent,
     loadChildren: () => import('./user/user.module').then(module => module.UserModule)
   },
   {

@@ -5,19 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JwtInterceptor} from './helper/jwt-interceptor';
 import { DemoAuthGuardComponent } from './demo-auth-guard/demo-auth-guard.component';
 import { LogoutComponent } from './logout/logout.component';
 import {LayoutModule} from './layout/layout.module';
-import {RegisterComponent} from "./register/register.component";
+import {RegisterComponent} from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DemoAuthGuardComponent,
-    LogoutComponent,RegisterComponent
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
