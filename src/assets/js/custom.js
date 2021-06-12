@@ -1,20 +1,22 @@
-/*-------------------------------------  
+/*-------------------------------------
 	Template: anonymous
 	Author : admin
-	Copyright © 2019-20	
+	Copyright © 2019-20
 ---------------------------------------*/
 //----- custom js  code --------//
 ! function($) {
     "use strict";
     var tpj = jQuery,
         revapi24;
-		
+    $(document).ready(function (){
+
+
 		// Preloader //
     jQuery(window).on("load", function() {
             jQuery("#status").fadeOut(), jQuery("#preloader").delay(350).fadeOut("slow")
         }),
 
- /*--- Responsive Menu Start ----*/		
+ /*--- Responsive Menu Start ----*/
 		$("#toggle").on("click", function() {
             $("#sidebar").width(), 0 == $("#sidebar").offset().left ? $("#sidebar").animate({
                 left: -500
@@ -38,8 +40,8 @@
             })
         }(jQuery), $("#toggle").on("click", function() {
             this.classList.toggle("change"), $(".ss_menu").slideToggle()
-        }), 
-		
+        })
+    });
 		// Main Slider Animation //
 		jQuery(document).ready(function($) {
             ! function(e) {
@@ -62,7 +64,7 @@
             }), $(document).on("click", function(e) {
                 e.target.closest("#search_open") || $("#search_open").slideUp()
             }),
-			
+
 //----- Magnific popup-video -------//
 
 			$(".test-popup-link").magnificPopup({
@@ -189,9 +191,9 @@
                         }
                     }
                 })
-            }), 
-			
-			 /*--- partner js code Start ----*/	
+            }),
+
+			 /*--- partner js code Start ----*/
 			$(document).ready(function() {
                 $(".partner_slider_wraper .owl-carousel").owlCarousel({
                     loop: !0,
@@ -221,9 +223,9 @@
                         }
                     }
                 })
-            }), 
-			
-			 /*--- event slider js  ----*/	
+            }),
+
+			 /*--- event slider js  ----*/
 			$(document).ready(function() {
                 $(".event_single_slider .owl-carousel").owlCarousel({
                     loop: !0,
@@ -268,8 +270,8 @@
                     prevEl: ".swiper-button-prev"
                 }
             });
-			
-			 /*--- magnific popup Start ----*/	
+
+			 /*--- magnific popup Start ----*/
             $(".test-popup-link").magnificPopup({
                 type: "iframe",
                 iframe: {
@@ -283,8 +285,8 @@
                     }
                 }
             });
-			
-			 /*--- multiple choice Start ----*/	
+
+			 /*--- multiple choice Start ----*/
             var SampleJSONData2 = [{
                     id: 17,
                     title: "1.  Tujhe Kitna Chahne Lage "
@@ -374,9 +376,9 @@
                     source: SampleJSONData1,
                     isMultiple: !0
                 })
-            }), 
-			
-			 /*--- contact form Start ----*/		
+            }),
+
+			 /*--- contact form Start ----*/
 			$(".submitForm").on("click", function() {
                 var e = $(this),
                     t = e.closest("form"),
