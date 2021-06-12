@@ -1,10 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './login-register/login/login.component';
 import {DemoAuthGuardComponent} from './demo-auth-guard/demo-auth-guard.component';
 import {AuthGuard} from './helper/auth-guard';
 import {HomeLayoutComponent} from './layout/home-layout/home-layout.component';
-import {RegisterComponent} from "./register/register.component";
+import {RegisterComponent} from "./login-register/register/register.component";
+import {LogoutComponent} from './logout/logout.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'logout',
-    component: LoginComponent
+    component: LogoutComponent
   },
   {
     path: 'demo',

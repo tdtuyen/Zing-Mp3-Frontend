@@ -7,20 +7,25 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
 import { QuicklinkComponent } from './quicklink/quicklink.component';
+import {LoginRegisterModule} from '../login-register/login-register.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
-    declarations: [NavbarComponent, HeaderComponent, FooterComponent, BannerComponent, QuicklinkComponent, BannerComponent],
+  // tslint:disable-next-line:max-line-length
+    declarations: [NavbarComponent, HeaderComponent, FooterComponent, BannerComponent, QuicklinkComponent, BannerComponent, SidebarComponent],
     exports: [
         NavbarComponent,
         FooterComponent,
         BannerComponent,
         QuicklinkComponent,
-      BannerComponent
+        BannerComponent,
+        SidebarComponent
     ],
     imports: [
         CommonModule,
-        SharedRoutingModule
+        SharedRoutingModule,
+        LoginRegisterModule
     ]
 })
 export class SharedModule { }
