@@ -16,7 +16,8 @@ import { QuicklinkComponent } from './quicklink/quicklink.component';
         FooterComponent,
         BannerComponent,
         QuicklinkComponent,
-      BannerComponent
+        BannerComponent,
+        HeaderComponent
     ],
     imports: [
         CommonModule,

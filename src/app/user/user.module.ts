@@ -10,11 +10,21 @@ import {NewPlaylistComponent} from './playlist/new-playlist/new-playlist.compone
 import {TopPlaylistComponent} from './playlist/top-playlist/top-playlist.component';
 import {AblumComponent} from './ablum/ablum.component';
 import {CreatePlaylistComponent} from './playlist/create-playlist/create-playlist.component';
+import {EditPlaylistComponent} from './playlist/edit-playlist/edit-playlist.component';
+import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.component';
 
 
 @NgModule({
-  // tslint:disable-next-line:max-line-length
-  declarations: [NewPlaylistComponent, TopPlaylistComponent, AblumComponent, FeatureArtitsComponent, TopSongComponent, TreandingSongsComponent , CreatePlaylistComponent],
+  declarations: [NewPlaylistComponent,
+    TopPlaylistComponent,
+    AblumComponent,
+    FeatureArtitsComponent,
+    TopSongComponent,
+    TreandingSongsComponent,
+    CreatePlaylistComponent,
+    EditPlaylistComponent,
+    ListPlaylistComponent
+  ],
   exports: [
     FeatureArtitsComponent,
     TopSongComponent,
@@ -22,7 +32,9 @@ import {CreatePlaylistComponent} from './playlist/create-playlist/create-playlis
     NewPlaylistComponent,
     TopPlaylistComponent,
     AblumComponent,
-    CreatePlaylistComponent
+    CreatePlaylistComponent,
+    EditPlaylistComponent,
+    ListPlaylistComponent
   ],
   imports: [
     CommonModule,

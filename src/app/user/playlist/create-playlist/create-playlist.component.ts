@@ -12,4 +12,7 @@ export class CreatePlaylistComponent implements OnInit {
   ngOnInit() {
   }
 
+  date($scope) {
+    $scope.date = new Date();
+  }
 }
