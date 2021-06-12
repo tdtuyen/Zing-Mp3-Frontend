@@ -9,6 +9,7 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
 import { SongListComponent } from './song-list/song-list.component';
 import { SongDeleteComponent } from './song-delete/song-delete.component';
 import { SongEditComponent } from './song-edit/song-edit.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { SongEditComponent } from './song-edit/song-edit.component';
   imports: [
     CommonModule,
     SongRoutingModule,
+    FormsModule,
   ]
 })
 export class SongModule { }
