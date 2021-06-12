@@ -11,13 +11,14 @@ import { DemoAuthGuardComponent } from './demo-auth-guard/demo-auth-guard.compon
 import { LogoutComponent } from './logout/logout.component';
 import {LayoutModule} from './layout/layout.module';
 import {RegisterComponent} from "./register/register.component";
+import { CreatePlaylistComponent } from './user/playlist/create-playlist/create-playlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DemoAuthGuardComponent,
-    LogoutComponent,RegisterComponent
+    LogoutComponent,RegisterComponent, CreatePlaylistComponent
   ],
   imports: [
     BrowserModule,
