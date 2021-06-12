@@ -4,29 +4,37 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { LoginComponent } from './login-register/login/login.component';
-import {FormsModule, NgForm, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JwtInterceptor} from './helper/jwt-interceptor';
 import { DemoAuthGuardComponent } from './demo-auth-guard/demo-auth-guard.component';
-import { LogoutComponent } from './logout/logout.component';
 import {LayoutModule} from './layout/layout.module';
-
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {UploadModule} from './upload/upload.module';
+import {LogoutModule} from './logout/logout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoAuthGuardComponent,
-    LogoutComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-    LayoutModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule,
+        LayoutModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireStorageModule,
+        AngularFireDatabaseModule,
+        UploadModule,
+      LogoutModule
 
-  ],
+
+    ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
     useClass: JwtInterceptor,
