@@ -12,7 +12,12 @@ import {AblumComponent} from './ablum/ablum.component';
 
 
 @NgModule({
-  declarations: [NewPlaylistComponent, TopPlaylistComponent, AblumComponent,FeatureArtitsComponent,TopSongComponent,TreandingSongsComponent],
+  declarations: [NewPlaylistComponent,
+    TopPlaylistComponent,
+    AblumComponent,
+    FeatureArtitsComponent,
+    TopSongComponent,
+    TreandingSongsComponent],
   exports: [
     FeatureArtitsComponent,
     TopSongComponent,
