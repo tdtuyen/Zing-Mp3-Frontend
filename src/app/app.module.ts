@@ -4,12 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {JwtInterceptor} from './helper/jwt-interceptor';
 import { DemoAuthGuardComponent } from './demo-auth-guard/demo-auth-guard.component';
 import {LayoutModule} from './layout/layout.module';
-import {RegisterComponent} from './register/register.component';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {AngularFireStorageModule} from '@angular/fire/storage';
@@ -20,9 +18,7 @@ import {LogoutModule} from './logout/logout.module';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     DemoAuthGuardComponent,
-    RegisterComponent
   ],
     imports: [
         BrowserModule,
