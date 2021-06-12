@@ -102,13 +102,18 @@
                           <i class="fas fa-lock"></i>
                         </div>
                         <div>
-                          <input type="button" class="form-control" value="Tải ảnh đại diên">
+                          <input type="file" (change)="onFileChanged($event)">
+                          <!--  <mat-progress-bar *ngIf="checkUploadAvatar" mode="indeterminate"></mat-progress-bar>-->
+                          <div style="margin-bottom: 10px; margin-top: 10px ">
+                            <button (click)="onUpload()" class="btn btn-primary"
+                                    *ngIf="downloadURL?!selectedFile:selectedFile">Upload Avatar Playlist</button>
+                          </div>
+                          <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+                            <img [src]="downloadURL" style="width: 300px; height: auto">
+                          </div>
                         </div>
-                        <div ng-app ng-controller="date">
-                          {{date | date:'yyyy-MM-dd'}}
-                        </div>
-                      </div>
-                      <div class="lang_apply_btn_wrapper m24_cover">
+
+                        <div class="lang_apply_btn_wrapper m24_cover">
                         <div class="lang_apply_btn">
 
                           <a href="#">Add Playlist</a>
