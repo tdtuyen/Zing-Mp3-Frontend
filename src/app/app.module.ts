@@ -14,6 +14,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {UploadModule} from './upload/upload.module';
 import {LogoutModule} from './logout/logout.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {LogoutModule} from './logout/logout.module';
         AngularFireStorageModule,
         AngularFireDatabaseModule,
         UploadModule,
-      LogoutModule
+      LogoutModule,
+      ModalModule.forRoot()
 
 
     ],

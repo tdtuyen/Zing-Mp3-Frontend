@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../service/user/user.service';
 import {User} from '../../model/user';
 import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
+
+
 
 function comparePassword(c: AbstractControl) {
   const v = c.value;
@@ -25,10 +28,12 @@ function checkDob(control: AbstractControl) {
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  status = '';
+  // @ts-ignore
+  // @Input() messageEvent: any = false;
   checkSuccess: any = {
     messagedb: '',
     message: '',
+    status: false
   };
   error1: any = {
     message : 'dbusername'
@@ -45,6 +50,7 @@ export class RegisterComponent implements OnInit {
     })
   });
   submitted = false;
+  @Output() openModel = new EventEmitter<boolean>();
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
@@ -65,6 +71,7 @@ export class RegisterComponent implements OnInit {
     this.checkSuccess = {
       messagedb: '',
       message: '',
+      status: false
     };
     if (this.registerForm.valid) {
 
@@ -76,7 +83,13 @@ export class RegisterComponent implements OnInit {
       this.userService.register(user).subscribe((data) => {
         this.submitted = false;
         this.registerForm.reset();
-      }, (data) => {
+        this.checkSuccess.status = true;
+        this.openModel.emit(true);
+        // this.messageEvent = true;
+        // this.router.navigate(['']).finally(() => {
+        // });
+        alert('thanh cong');
+        }, (data) => {
         console.log('data === ', data);
         console.log('json data ===', data.error);
         console.log('json data ===', this.error1.message);
@@ -93,5 +106,17 @@ export class RegisterComponent implements OnInit {
         console.log(this.checkSuccess);
       });
     }
+
   }
+  opensweetalert() {
+    Swal.fire(
+      'Good job!',
+      'You clicked the button!',
+      'success',
+    ).then((result) => {
+      if (result.isConfirmed) {
+      }
+    });
+  }
+
 }
