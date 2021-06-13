@@ -14,7 +14,7 @@ export class HomeLayoutComponent implements OnInit {
   //   this.status = $event;
   // }
   // private modalService: BsModalService
-  openModel: boolean;
+  // openModel: boolean;
   constructor() { }
 
   ngOnInit() {

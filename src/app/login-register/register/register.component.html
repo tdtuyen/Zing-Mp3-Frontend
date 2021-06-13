@@ -7,7 +7,10 @@
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
           <div class="m24_language_box m24_cover">
             <h1>Register</h1>
-            <p>for unlimited music streaming & a personalised experience</p>
+            <div *ngIf="checkSuccess.status">
+              <p style="color: green"> <strong>Register successfully <i class="fa fa-check" aria-hidden="true"></i></strong> </p>
+            </div>
+
           </div>
           <div class="login_form_wrapper">
               <div class="icon_form comments_form">
@@ -58,7 +61,6 @@
           <div class="lang_apply_btn_wrapper m24_cover">
             <div  class="lang_apply_btn">
               <button  class="button_like_a" type="submit"> register</button>
-
             </div>
             <div class="cancel_wrapper">
               <a href="#" class="" data-dismiss="modal">cancel</a>
@@ -73,4 +75,5 @@
     </div>
   </div>
 </div>
+
 

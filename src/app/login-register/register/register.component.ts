@@ -84,11 +84,6 @@ export class RegisterComponent implements OnInit {
         this.submitted = false;
         this.registerForm.reset();
         this.checkSuccess.status = true;
-        this.openModel.emit(true);
-        // this.messageEvent = true;
-        // this.router.navigate(['']).finally(() => {
-        // });
-        alert('thanh cong');
         }, (data) => {
         console.log('data === ', data);
         console.log('json data ===', data.error);
@@ -113,10 +108,7 @@ export class RegisterComponent implements OnInit {
       'Good job!',
       'You clicked the button!',
       'success',
-    ).then((result) => {
-      if (result.isConfirmed) {
-      }
-    });
+    );
   }
 
 }
