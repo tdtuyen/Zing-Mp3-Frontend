@@ -11,22 +11,29 @@
           </div>
           <div class="login_form_wrapper">
               <div class="icon_form comments_form">
-                <input type="text" formControlName="userName" class="form-control" name="first_name" placeholder="Enter your user name">
+                <input type="text" formControlName="username" class="form-control" name="first_name" placeholder="Enter your user name">
                 <i class="fas fa-user"></i>
               </div>
 
-              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="registerForm.get('userName').errors && submitted">
-                <span style="color: red" *ngIf="registerForm.get('userName').hasError('required')">User name is required</span>
-                <span style="color: red" *ngIf="registerForm.get('userName').hasError('minlength')">User name must min 6 digits.</span>
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="registerForm.get('username').errors && submitted">
+                <span style="color: red" *ngIf="registerForm.get('username').hasError('required')">User name is required</span>
+                <span style="color: red" *ngIf="registerForm.get('username').hasError('minlength')">User name must min 6 digits.</span>
               </div>
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbusername'">
+                <span style="color: red" >{{checkSuccess.message}}</span>
+              </div>
+
               <div class="icon_form comments_form">
-                <input type="text" formControlName="email" class="form-control" name="full_name" placeholder="Enter Email Address*">
+                <input type="text" formControlName="phone" class="form-control" name="full_name" placeholder="Enter phone*">
                 <i class="fas fa-envelope"></i>
               </div>
 
-              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && registerForm.get('email').errors">
-                <span style="color: red" *ngIf="registerForm.get('email').hasError('required')">Email is required</span>
-                <span style="color: red" *ngIf="registerForm.get('email').hasError('email')">Email not invalid.</span>
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && registerForm.get('phone').errors">
+                <span style="color: red" *ngIf="registerForm.get('phone').hasError('required')">Phone is required</span>
+                <span style="color: red" *ngIf="registerForm.get('phone').hasError('pattern')">Phone must start with +84 followed by 9 or 10 digits.</span>
+              </div>
+              <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbphone'">
+                <span style="color: red" >{{checkSuccess.message}}</span>
               </div>
               <div formGroupName="pwGroup">
                 <div class="icon_form comments_form">
