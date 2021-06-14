@@ -13,47 +13,27 @@
     </div>
 
     <div class="m24_header_right_Wrapper d-none d-sm-none d-md-none d-lg-none d-xl-block">
-      <div class="m24_signin_wrapper" style="margin-top: 7px">
+      <div class="m24_signin_wrapper" style="margin-top: 7px" *ngIf="!currentUser">
         <a href="#" data-toggle="modal" data-target="#login_modal">Login / </a>
         <a href="#" data-toggle="modal" data-target="#register_modal">Register</a>
       </div>
-
-<!--      <div class="crm_message_dropbox_wrapper">-->
-<!--        <div class="nice-select budge_noti_wrapper" tabindex="0">-->
-<!--          <ul class="list pullDown">-->
-<!--            <li><a href="#"></a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <div class="crm_mess_main_box_wrapper">-->
-<!--                <a href="#" data-toggle="modal" data-target="#login_modal">Login</a>-->
-<!--              </div>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <div class="crm_mess_main_box_wrapper">-->
-<!--                <a href="#register_modal" data-toggle="modal">register here</a>-->
-<!--              </div>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <div class="crm_mess_main_box_wrapper">-->
-<!--                <div class="crm_mess_img_wrapper">-->
-<!--                  <img src="images/nt3.jpg" alt="img">-->
-<!--                </div>-->
-<!--                <div class="crm_mess_img_cont_wrapper">-->
-<!--                  <h4>merry with you<span>01:30PM</span></h4>-->
-<!--                  <p>love song</p>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </li>-->
-
-<!--            <li>-->
-<!--              <div class="crm_mess_all_main_box_wrapper">-->
-<!--                <p><a href="#">See All</a>-->
-<!--                </p>-->
-<!--              </div>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
+      <div *ngIf="currentUser">
+        <div class="crm_message_dropbox_wrapper" *ngIf="currentUser" style="padding-left: 20px">
+          <div class="nice-select budge_noti_wrapper" tabindex="0">
+            <a  href="#" class="blog_image" ><img style="width: 45px;height: 45px;border-radius: 50%;display: inline" src="{{currentUser.avatar}}" alt="img"></a>
+            <p style="display: inline"> </p>
+            <ul class="list pullDown" style="height: 100px;width: 200px">
+              <li><a routerLink="user/edit">Edit profile</a>
+              </li>
+              <li><a style="padding-left: 17px;font-size:17px;" routerLink="#" (click)="logout()">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="m24_signin_wrapper" style="margin-top: 7px;">
+          <a href="#" >{{currentUser.username}}</a>
+        </div>
+      </div>
 
     </div>
 

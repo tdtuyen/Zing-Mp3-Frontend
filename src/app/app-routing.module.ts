@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then(module => module.UserModule)
   },
   {
-    path: 'detail',
+    path: 'user',
     component: DetailLayoutComponent,
     loadChildren: () => import('./user/user.module').then(module => module.UserModule)
   },
@@ -30,7 +30,7 @@ const routes: Routes = [
   //   component: RegisterComponent
   // },
   {
-    path: 'logout',
+    path: 'allsongs',
     component: LogoutComponent
   },
   {
