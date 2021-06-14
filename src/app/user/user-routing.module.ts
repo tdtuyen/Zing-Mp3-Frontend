@@ -9,22 +9,29 @@ import {CreatePlaylistComponent} from './playlist/create-playlist/create-playlis
 import {EditPlaylistComponent} from './playlist/edit-playlist/edit-playlist.component';
 import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.component';
 import {AuthGuard} from '../helper/auth-guard';
+import {UserEditComponent} from './user-edit/user-edit.component';
 
 
 const routes: Routes = [
   {
-    path: 'playlist/create' ,
+    path: 'edit' ,
+    component: UserEditComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'playlists/create' ,
     component: CreatePlaylistComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'playlist/edits' ,
+    path: 'playlists/edit' ,
     component: EditPlaylistComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'playlist/list' ,
-    component: ListPlaylistComponent
+    path: 'yourplaylists' ,
+    component: ListPlaylistComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'playlist/delete' ,
@@ -34,22 +41,27 @@ const routes: Routes = [
   {
     path: 'songs',
     component: SongDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'list',
+    path: 'yoursongs',
     component: SongListComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'edit',
+    path: 'songs/edit',
     component: SongEditComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'create',
+    path: 'songs/create',
     component: SongCreateComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'delete',
-    component: SongDeleteComponent
+    path: 'songs/delete',
+    component: SongDeleteComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
