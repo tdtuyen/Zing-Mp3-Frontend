@@ -1,56 +1,67 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {SongDetailComponent} from "./song/song-detail/song-detail.component";
-import {SongListComponent} from "./song/song-list/song-list.component";
-import {SongCreateComponent} from "./song/song-create/song-create.component";
-import {SongEditComponent} from "./song/song-edit/song-edit.component";
-import {SongDeleteComponent} from "./song/song-delete/song-delete.component";
+import {SongDetailComponent} from './song/song-detail/song-detail.component';
+import {SongListComponent} from './song/song-list/song-list.component';
+import {SongCreateComponent} from './song/song-create/song-create.component';
+import {SongEditComponent} from './song/song-edit/song-edit.component';
+import {SongDeleteComponent} from './song/song-delete/song-delete.component';
 import {CreatePlaylistComponent} from './playlist/create-playlist/create-playlist.component';
 import {EditPlaylistComponent} from './playlist/edit-playlist/edit-playlist.component';
 import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.component';
-import {TopSongComponent} from "./song/top-song/top-song.component";
+import {AuthGuard} from '../helper/auth-guard';
+import {UserEditComponent} from './user-edit/user-edit.component';
 
 
 const routes: Routes = [
   {
-    path: 'playlist/create' ,
-    component: CreatePlaylistComponent
+    path: 'edit' ,
+    component: UserEditComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'playlist/edits' ,
-    component: EditPlaylistComponent
+    path: 'playlists/create' ,
+    component: CreatePlaylistComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'playlist/list' ,
-    component: ListPlaylistComponent
+    path: 'playlists/edit' ,
+    component: EditPlaylistComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'yourplaylists' ,
+    component: ListPlaylistComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'playlist/delete' ,
-    component: EditPlaylistComponent
+    component: EditPlaylistComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path:"songs",
+    path: 'songs',
     component: SongDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path:"songs/list",
+    path: 'yoursongs',
     component: SongListComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path:"songs/edit",
+    path: 'songs/edit',
     component: SongEditComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path:"songs/create",
+    path: 'songs/create',
     component: SongCreateComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path:"songs/delete",
-    component: SongDeleteComponent
-  },
-  {
-    path:"songs/top",
-    component: TopSongComponent
+    path: 'songs/delete',
+    component: SongDeleteComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
