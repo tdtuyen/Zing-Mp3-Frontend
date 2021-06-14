@@ -9,25 +9,9 @@
   var tpj = jQuery,
     revapi24;
   $(document).ready(function () {
-
     // Preloader //
     jQuery(window).on("load", function () {
       jQuery("#status").fadeOut(), jQuery("#preloader").delay(350).fadeOut("slow")
-    }),
-
-      /*--- Responsive Menu Start ----*/
-      $("#toggle").on("click", function () {
-        $("#sidebar").width(), 0 == $("#sidebar").offset().left ? $("#sidebar").animate({
-          left: -500
-        }, "slow") : $("#sidebar").animate({
-          left: "0"
-        }, "slow")
-      }), $("#toggle_close").on("click", function () {
-      $("#sidebar").width(), 0 == $("#sidebar").offset().left ? $("#sidebar").animate({
-        left: -500
-      }, "slow") : $("#sidebar").animate({
-        left: "0"
-      }, "slow")
     }),
       function (e) {
         e(document).ready(function () {
