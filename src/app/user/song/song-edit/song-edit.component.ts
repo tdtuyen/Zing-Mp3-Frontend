@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../../../service/authentication.service";
 
 @Component({
   selector: 'app-song-edit',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SongEditComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthenticationService) { }
 
-  ngOnInit() {
+  avatar = '';
+  files = '';
+  onChangeAvatar($event) {
+    this.avatar = $event;
+    console.log('avatar ===>', this.avatar);
+  }
+  onChangeFile($event) {
+    this.files = $event;
+    console.log('files ===>', this.files);
+  }
+
+  ngOnInit(): void {
   }
 
 }

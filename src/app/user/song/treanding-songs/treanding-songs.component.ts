@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Song} from "../../../model/song";
+import {SongService} from "../../../service/song.service";
 
 @Component({
   selector: 'app-treanding-songs',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TreandingSongsComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  songs: Song[] = [];
+
+  constructor(private songService: SongService) {
   }
 
+  ngOnInit() {
+    this.getTopView();
+  }
+
+  getTopView() {
+    this.songService.getTopView().subscribe(songs=> {
+      this.songs = songs;
+    },error => {console.log("error", error)});
+  }
 }

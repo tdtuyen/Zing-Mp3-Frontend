@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Song} from "../../../model/song";
+import {SongService} from "../../../service/song.service";
 
 @Component({
   selector: 'app-song-list',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SongListComponent implements OnInit {
 
-  constructor() { }
+  songs: Song[] = [];
+
+  constructor(private songService: SongService) {
+  }
 
   ngOnInit() {
+    this.getAll();
+  }
+
+  getAll() {
+    this.songService.getAll().subscribe(songs=> {
+      console.log(songs)
+      this.songs = songs.content;
+    },error => {console.log("error", error)});
   }
 
 }

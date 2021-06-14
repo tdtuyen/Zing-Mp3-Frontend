@@ -18,6 +18,8 @@ import {SongDeleteComponent} from "./song/song-delete/song-delete.component";
 import {SongListComponent} from "./song/song-list/song-list.component";
 import {SongEditComponent} from "./song/song-edit/song-edit.component";
 import {SongCreateComponent} from "./song/song-create/song-create.component";
+import {UploadModule} from "../upload/upload.module";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -52,10 +54,12 @@ import {SongCreateComponent} from "./song/song-create/song-create.component";
     EditPlaylistComponent,
     ListPlaylistComponent
   ],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-  ],
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        UploadModule,
+        ReactiveFormsModule,
+    ],
 
 })
 export class UserModule { }

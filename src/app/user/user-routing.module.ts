@@ -8,6 +8,7 @@ import {SongDeleteComponent} from "./song/song-delete/song-delete.component";
 import {CreatePlaylistComponent} from './playlist/create-playlist/create-playlist.component';
 import {EditPlaylistComponent} from './playlist/edit-playlist/edit-playlist.component';
 import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.component';
+import {TopSongComponent} from "./song/top-song/top-song.component";
 
 
 const routes: Routes = [
@@ -32,20 +33,24 @@ const routes: Routes = [
     component: SongDetailComponent,
   },
   {
-    path:"list",
+    path:"songs/list",
     component: SongListComponent,
   },
   {
-    path:"edit",
+    path:"songs/edit",
     component: SongEditComponent,
   },
   {
-    path:"create",
+    path:"songs/create",
     component: SongCreateComponent,
   },
   {
-    path:"delete",
+    path:"songs/delete",
     component: SongDeleteComponent
+  },
+  {
+    path:"songs/top",
+    component: TopSongComponent
   }
 ];
 
