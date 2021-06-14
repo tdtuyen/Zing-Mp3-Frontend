@@ -30,7 +30,7 @@ const routes: Routes = [
   //   component: RegisterComponent
   // },
   {
-    path: 'logout',
+    path: 'allsongs',
     component: LogoutComponent
   },
   {
