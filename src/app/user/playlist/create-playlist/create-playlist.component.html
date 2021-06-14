@@ -1,129 +1,32 @@
-
-<!-- treanding song wrapper start -->
-<div class="treanding_songs_wrapper m24_cover">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="m24_heading_wrapper">
-          <h1>your Playlists</h1>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-        <div class="treanding_slider_main_box playlist_wrapper m24_cover">
-          <img src="assets/images/play3.jpg" alt="img">
-
-          <div class="m24_treanding_box_overlay">
-            <div class="m24_tranding_box_overlay"></div>
-
-            <div class="tranding_play_icon various_concert_icon">
-              <a href="#">
-                <i class="flaticon-play-button"></i>
-              </a>
-            </div>
-          </div>
-          <div class="various_song_playlist">
-            <p><a href="#">my favourites</a></p>
-            <p class="various_artist_text"><a href="#">30 songs</a></p>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-        <div class="treanding_slider_main_box playlist_wrapper m24_cover">
-          <img src="assets/images/td11.png" alt="img">
-
-          <div class="m24_treanding_box_overlay">
-            <div class="m24_tranding_box_overlay"></div>
-
-            <div class="tranding_play_icon various_concert_icon">
-              <a href="#">
-                <i class="flaticon-play-button"></i>
-              </a>
-            </div>
-          </div>
-          <div class="various_song_playlist">
-            <p><a href="#">mixup playlist</a></p>
-            <p class="various_artist_text"><a href="#">30 songs</a></p>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-        <div class="treanding_slider_main_box playlist_wrapper m24_cover">
-          <img src="assets/images/play2.jpg" alt="img">
-
-          <div class="m24_treanding_box_overlay">
-            <div class="m24_tranding_box_overlay"></div>
-
-            <div class="tranding_play_icon various_concert_icon">
-              <a href="#">
-                <i class="flaticon-play-button"></i>
-              </a>
-            </div>
-          </div>
-          <div class="various_song_playlist">
-            <p><a href="#">my music list</a></p>
-            <p class="various_artist_text"><a href="#">100 songs</a></p>
-
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-        <div class="treanding_slider_main_box playlist_wrapper m24_cover">
-                            <span><a href="#">
-								   <i class="flaticon-playlist-3">
-								   </i></a></span>
-
-          <div class="various_song_playlist">
-            <p><a href="#">create new playlist</a></p>
-            <div class="lang_m24_banner" id="login_modal" role="dialog">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-
-                      <div class="m24_language_box m24_cover">
-                        <h1>Add Nem Playlist</h1>
-                      </div>
-                      <div class="login_form_wrapper">
-
-                        <div class="icon_form comments_form">
-
-                          <input type="text" class="form-control" name="name_playlist" placeholder="Nhập tên playlist">
-                          <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="icon_form comments_form">
-                          <input type="text" class="form-control" placeholder="Nhập thể loại ">
-                          <i class="fas fa-lock"></i>
-                        </div>
-                        <div class="icon_form comments_form">
-                          <textarea type="text" class="form-control" placeholder=" Nhập mô tả "></textarea>
-                          <i class="fas fa-lock"></i>
-                        </div>
-                        <div>
-                          <input type="file" (change)="onFileChanged($event)">
-                          <!--  <mat-progress-bar *ngIf="checkUploadAvatar" mode="indeterminate"></mat-progress-bar>-->
-                          <div style="margin-bottom: 10px; margin-top: 10px ">
-                            <button (click)="onUpload()" class="btn btn-primary"
-                                    *ngIf="downloadURL?!selectedFile:selectedFile">Upload Avatar Playlist</button>
-                          </div>
-                          <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
-                            <img [src]="downloadURL" style="width: 300px; height: auto">
-                          </div>
-                        </div>
-
-                        <div class="lang_apply_btn_wrapper m24_cover">
-                        <div class="lang_apply_btn">
-
-                          <a href="#">Add Playlist</a>
-
-                        </div>
-                        <div class="cancel_wrapper">
-                          <a href="#" class="" data-dismiss="modal">cancel</a>
-                        </div>
-                      </div>
-
+<form (ngSubmit)="createPlayList()">
+  <div class="lang_m24_banner" id="login_modal" role="dialog">
+    <div id="register_modal" role="dialog">
+      <div class="col-10" style="margin: auto">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal">&times</button>
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="m24_language_box m24_cover">
+                <h1>Tạo playlist mới</h1>
+              </div>
+              <div class="login_form_wrapper">
+                <div class="icon_form comments_form">
+                  <label class="labels">Tên Playlist</label><input type="text" class="form-control" placeholder="Tên playlist" name="name" [(ngModel)]="playlist.name">
+                  <i class="fas fa-music"></i>
+                </div>
+                <div class="icon_form comments_form">
+                  <label class="labels">Dòng nhạc</label><input type="text" class="form-control" placeholder="Dòng nhạc" name="type" [(ngModel)]="playlist.type">
+                  <i class="flaticon-files-and-folders"></i>
+                </div>
+                <div class="icon_form comments_form">
+                  <label class="labels">Mô tả</label><input type="text" class="form-control" placeholder="Mô tả" name="description" [(ngModel)]="playlist.description">
+                  <i class="fas fa-file"></i>
+                  <div class="lang_apply_btn_wrapper m24_cover">
+                    <div class="lang_apply_btn">
+                      <button class="btn btn-primary profile-button" type="submit">Save</button>
+                    </div>
+                    <div class="cancel_wrapper">
+                      <a routerLink="/" class="" data-dismiss="modal">cancel</a>
                     </div>
                   </div>
                 </div>
@@ -134,4 +37,4 @@
       </div>
     </div>
   </div>
-</div>
+</form>

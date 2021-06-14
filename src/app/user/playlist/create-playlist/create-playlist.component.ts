@@ -1,6 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/storage';
 import {HttpClient} from '@angular/common/http';
+import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {PlaylistService} from '../../../service/playlist.service';
+import {Playlist} from '../../../model/playlist';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-playlist',
@@ -8,7 +12,12 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./create-playlist.component.css']
 })
 export class CreatePlaylistComponent implements OnInit {
-  DateOfBirth = new Date();
+  playlist: Playlist = {};
+  // playlistForm: FormGroup = new FormGroup({
+  //   namePlaylist: new FormControl('',[Validators.required]),
+  //   type: new FormControl(),
+  //   description: new FormControl()
+  // });
   selectedFile: File;
   ref: AngularFireStorageReference;
   downloadURL: string;
@@ -17,14 +26,20 @@ export class CreatePlaylistComponent implements OnInit {
   giveURLtoCreate = new EventEmitter<string>();
   @Output()
   sendAvatarUrl = new EventEmitter<string>();
+
   constructor(private httClient: HttpClient,
-              private afStorage: AngularFireStorage) { }
+              private afStorage: AngularFireStorage,
+              private playlistService: PlaylistService,
+              private router: Router) {
+  }
 
   ngOnInit(): void {
   }
+
   onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
+
   onUpload() {
     this.checkUploadAvatar = true;
     const id = Math.random().toString(36).substring(2); // upload file tao 1 string random
@@ -44,5 +59,12 @@ export class CreatePlaylistComponent implements OnInit {
       .catch(error => {
         console.log(`Failed to upload avatar and get link -${error}`);
       });
+  }
+
+  createPlayList(): any {
+    return this.playlistService.createNewPlaylisst(this.playlist).subscribe(() => {
+      console.log(this.playlist);
+      this.router.navigate(['/playlists']);
+    });
   }
 }

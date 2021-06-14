@@ -31,7 +31,7 @@ import {LogoutModule} from './logout/logout.module';
         AngularFireStorageModule,
         AngularFireDatabaseModule,
         UploadModule,
-      LogoutModule
+        LogoutModule
 
 
     ],
