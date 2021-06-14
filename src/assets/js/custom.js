@@ -10,7 +10,6 @@
         revapi24;
     $(document).ready(function (){
 
-
 		// Preloader //
     jQuery(window).on("load", function() {
             jQuery("#status").fadeOut(), jQuery("#preloader").delay(350).fadeOut("slow")
