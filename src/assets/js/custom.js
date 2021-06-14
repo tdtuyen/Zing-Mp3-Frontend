@@ -5,43 +5,43 @@
 ---------------------------------------*/
 //----- custom js  code --------//
 ! function($) {
-    "use strict";
-    var tpj = jQuery,
-        revapi24;
-    $(document).ready(function (){
+  "use strict";
+  var tpj = jQuery,
+    revapi24;
+  $(document).ready(function () {
 
+    // Preloader //
+    jQuery(window).on("load", function () {
+      jQuery("#status").fadeOut(), jQuery("#preloader").delay(350).fadeOut("slow")
+    }),
 
-		// Preloader //
-    jQuery(window).on("load", function() {
-            jQuery("#status").fadeOut(), jQuery("#preloader").delay(350).fadeOut("slow")
-        }),
-
- /*--- Responsive Menu Start ----*/
-		$("#toggle").on("click", function() {
-            $("#sidebar").width(), 0 == $("#sidebar").offset().left ? $("#sidebar").animate({
-                left: -500
-            }, "slow") : $("#sidebar").animate({
-                left: "0"
-            }, "slow")
-        }), $("#toggle_close").on("click", function() {
-            $("#sidebar").width(), 0 == $("#sidebar").offset().left ? $("#sidebar").animate({
-                left: -500
-            }, "slow") : $("#sidebar").animate({
-                left: "0"
-            }, "slow")
-        }),
-        function(e) {
-            e(document).ready(function() {
-                e("#cssmenu li.active").addClass("open").children("ul").show(), e("#cssmenu li.has-sub>a").on("click", function() {
-                    e(this).removeAttr("href");
-                    var t = e(this).parent("li");
-                    t.hasClass("open") ? (t.removeClass("open"), t.find("li").removeClass("open"), t.find("ul").slideUp(200)) : (t.addClass("open"), t.children("ul").slideDown(200), t.siblings("li").children("ul").slideUp(200), t.siblings("li").removeClass("open"), t.siblings("li").find("li").removeClass("open"), t.siblings("li").find("ul").slideUp(200))
-                })
-            })
-        }(jQuery), $("#toggle").on("click", function() {
-            this.classList.toggle("change"), $(".ss_menu").slideToggle()
+      /*--- Responsive Menu Start ----*/
+      $("#toggle").on("click", function () {
+        $("#sidebar").width(), 0 == $("#sidebar").offset().left ? $("#sidebar").animate({
+          left: -500
+        }, "slow") : $("#sidebar").animate({
+          left: "0"
+        }, "slow")
+      }), $("#toggle_close").on("click", function () {
+      $("#sidebar").width(), 0 == $("#sidebar").offset().left ? $("#sidebar").animate({
+        left: -500
+      }, "slow") : $("#sidebar").animate({
+        left: "0"
+      }, "slow")
+    }),
+      function (e) {
+        e(document).ready(function () {
+          e("#cssmenu li.active").addClass("open").children("ul").show(), e("#cssmenu li.has-sub>a").on("click", function () {
+            e(this).removeAttr("href");
+            var t = e(this).parent("li");
+            t.hasClass("open") ? (t.removeClass("open"), t.find("li").removeClass("open"), t.find("ul").slideUp(200)) : (t.addClass("open"), t.children("ul").slideDown(200), t.siblings("li").children("ul").slideUp(200), t.siblings("li").removeClass("open"), t.siblings("li").find("li").removeClass("open"), t.siblings("li").find("ul").slideUp(200))
+          })
         })
-    });
+      }(jQuery), $("#toggle").on("click", function () {
+      this.classList.toggle("change"), $(".ss_menu").slideToggle()
+    })
+  });
+
 		// Main Slider Animation //
 		jQuery(document).ready(function($) {
             ! function(e) {
