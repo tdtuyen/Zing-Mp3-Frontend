@@ -9,7 +9,18 @@ export class SongCreateComponent implements OnInit {
 
   constructor() { }
 
+  avatar = '';
+  files = '';
+
   ngOnInit() {
+  }
+  onChangeAvatar($event) {
+    this.avatar = $event;
+    console.log('avatar ===>', this.avatar);
+  }
+  onChangeFile($event) {
+    this.files = $event;
+    console.log('files ===>', this.files);
   }
 
 }

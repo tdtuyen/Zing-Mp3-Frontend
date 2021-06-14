@@ -37,11 +37,11 @@
                 <textarea class="form-control" name="full_name" placeholder="Mô tả bài hát"></textarea>
                 <i class="fas fa-file"></i>
               </div>
-              <div class="icon_form comments_form">
-                <input type="button" class="form-control"  value="tải ảnh" >
+              <div class="icon_form comments_form" >
+                <app-file (giveURLtoCreate)="onChangeAvatar($event)"></app-file>
               </div>
               <div class="icon_form comments_form">
-                <input type="button" class="form-control" value="Ảnh đại diện">
+                <app-image (giveURLtoCreate)="onChangeFile($event)"></app-image>
               </div>
             </div>
             </div>
@@ -60,3 +60,4 @@
       </div>
     </div>
   </div>
+
