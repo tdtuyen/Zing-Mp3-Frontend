@@ -3,6 +3,7 @@ import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../../model/user';
+import {any} from 'codelyzer/util/function';
 
 const API_URL = `${environment.apiUrl}`;
 @Injectable({
@@ -18,6 +19,9 @@ export class UserService {
   }
 
   saveUser(user: User): Observable<User> {
+    const obj = JSON.parse(localStorage.getItem('currentUser'));
+    obj.avatar = user.avatar;
+    localStorage.setItem('currentUser', JSON.stringify(obj));
     return this.http.put<User>(API_URL + '/users', user);
   }
 

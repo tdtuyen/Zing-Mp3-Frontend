@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {UserService} from '../../service/user/user.service';
+import * as $ from 'jquery';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-edit',
@@ -9,7 +11,7 @@ import {UserService} from '../../service/user/user.service';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
-
+  avatar = '';
   status = '';
   editForm: FormGroup = new FormGroup({
     username: new FormControl(''),
@@ -35,19 +37,45 @@ export class UserEditComponent implements OnInit {
         phone: [user.phone, [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
         avatar: [user.avatar]
       });
-    }, error => {console.log(error); });
+    }, error => {
+      console.log(error);
+    });
   }
 
   ngOnInit() {
   }
 
-  onSubmit() {
+  onChangeAvatar($event) {
+    this.avatar = $event;
+    console.log('avatar ===>', this.avatar);
+  }
+
+  onUpdate() {
     this.submitted = true;
     if (this.editForm.valid) {
       const user = this.editForm.value;
+      user.avatar = this.avatar;
       console.log(user);
       this.userService.saveUser(user).subscribe(() => {
         this.submitted = true;
+        // // @ts-ignore
+        // this.router.navigateByUrl(['']);
+        // tslint:disable-next-line:only-arrow-functions
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+          // @ts-ignore
+          Toast.fire({
+            icon: 'success',
+            type: 'success',
+            title: 'update User successfully',
+          });
+        });
       }, e => {
         console.log(e);
       });

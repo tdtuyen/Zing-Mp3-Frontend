@@ -53,6 +53,7 @@ export class NavbarComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.currentUser  = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   openMenu() {
