@@ -42,8 +42,8 @@ import {SongUserComponent} from "./song/song-user/song-user.component";
     EditPlaylistComponent,
     ListPlaylistComponent,
     UserEditComponent,
-  SongUserComponent,
-    ListenMusicComponent
+    SongUserComponent,
+    ListenMusicComponent,
   ],
 
 
@@ -63,7 +63,8 @@ import {SongUserComponent} from "./song/song-user/song-user.component";
     EditPlaylistComponent,
     ListPlaylistComponent,
     UserEditComponent,
-    SongUserComponent
+    SongUserComponent,
+    ListenMusicComponent
   ],
     imports: [
         CommonModule,

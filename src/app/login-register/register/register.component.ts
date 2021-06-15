@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild, DoCheck} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../service/user/user.service';
 import {User} from '../../model/user';
@@ -59,14 +59,16 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      username: ['', [Validators.required, Validators.min(6), Validators.max(8)]],
-      phone: ['', [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
+      username: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10), Validators.pattern(/^[A-Za-z0-9]+$/)]],
+      phone: ['', [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/
+      )]],
       pwGroup: this.fb.group({
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
       }, {validator: comparePassword})
     });
   }
+
   get f() {
     return this.registerForm.controls;
   }
@@ -77,8 +79,9 @@ export class RegisterComponent implements OnInit {
       message: '',
       status: false
     };
+    console.log(this.registerForm);
     if (this.registerForm.valid) {
-
+      console.log('form valid');
       const user: User = {
         username: this.registerForm.value.username,
         password: this.registerForm.value.pwGroup.password,
@@ -108,10 +111,6 @@ export class RegisterComponent implements OnInit {
         this.showlogin.nativeElement.click();
 
       }, (data) => {
-        console.log('data === ', data);
-        console.log('json data ===', data.error);
-        console.log('json data ===', this.error1.message);
-
         if (data.error === this.error1.message) {
           this.checkSuccess.messagedb = this.error1.message;
           this.checkSuccess.message = 'The username is existed! Please try again!';
@@ -124,7 +123,9 @@ export class RegisterComponent implements OnInit {
         console.log(this.checkSuccess);
       });
     }
-
   }
 
+  testvalue($event: Event) {
+    console.log($event);
+  }
 }
