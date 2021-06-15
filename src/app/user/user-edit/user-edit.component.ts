@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 
@@ -15,68 +15,48 @@ export class UserEditComponent implements OnInit {
     message: '',
   };
   error1: any = {
-    message : 'dbusername'
+    message: 'dbusername'
   };
   error2: any = {
     message: 'dbphone'
   };
-  registerForm: FormGroup = new FormGroup({
+  editForm: FormGroup = new FormGroup({
     username: new FormControl(''),
+    address: new FormControl(''),
+    email: new FormControl(''),
     phone: new FormControl(''),
-    pwGroup: this.fb.group({
-      password: new FormControl(''),
-      confirmPassword: new FormControl('')
-    })
+    avatar: new FormControl(''),
   });
   submitted = false;
-  constructor(private fb: FormBuilder, private router: Router) { }
+
+  constructor(private fb: FormBuilder, private router: Router) {
+  }
 
   ngOnInit() {
-    this.registerForm = this.fb.group({
+    this.editForm = this.fb.group({
       username: ['', [Validators.required, Validators.min(6), Validators.max(8)]],
+      address: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
-      pwGroup: this.fb.group({
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
-      })
+      avatar: ['', [Validators.required]]
     });
   }
-  get f() {
-    return this.registerForm.controls;
-  }
+
   onSubmit() {
     this.submitted = true;
     this.checkSuccess = {
       messagedb: '',
       message: '',
     };
-    if (this.registerForm.valid) {
+    if (this.editForm.valid) {
 
       const user: any = {
-        username: this.registerForm.value.username,
-        password: this.registerForm.value.pwGroup.password,
-        phone: this.registerForm.value.phone
+        username: this.editForm.value.username,
+        address: this.editForm.value.address,
+        email: this.editForm.value.email,
+        phone: this.editForm.value.phone,
+        avatar: this.editForm.value.avatar
       };
-      // this.userService.register(user).subscribe((data) => {
-      //   this.submitted = false;
-      //   this.registerForm.reset();
-      // }, (data) => {
-      //   console.log('data === ', data);
-      //   console.log('json data ===', data.error);
-      //   console.log('json data ===', this.error1.message);
-      //
-      //   if (data.error === this.error1.message) {
-      //     this.checkSuccess.messagedb = this.error1.message;
-      //     this.checkSuccess.message = 'The username is existed! Please try again!';
-      //   } else if (data.error === this.error2.message) {
-      //     this.checkSuccess.messagedb = this.error2.message;
-      //     this.checkSuccess.message = 'The phone is existed! Please try again!';
-      //   } else {
-      //     this.checkSuccess.message = 'Registration failed!';
-      //   }
-      //   console.log(this.checkSuccess);
-      // });
     }
   }
-
 }

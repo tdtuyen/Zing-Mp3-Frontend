@@ -1,272 +1,56 @@
 <!-- top songs wrapper start -->
 
 
-        <div class="song_heading_wrapper m24_cover">
-          <div class="m24_heading_wrapper">
-            <h1>top songs (like nhiều nhất)</h1>
-          </div>
-          <div class="relaese_viewall_wrapper">
-            <a href="#"> view all <i class="flaticon-right-arrow"></i></a>
-          </div>
-          <div class="top_songs_list m24_cover">
-            <div class="top_songs_list_left">
-              <div class="treanding_slider_main_box top_lis_left_content">
-                <div class="top_songs_list0img">
-                  <img src="assets/images/tp1.png" alt="img">
-                  <div class="m24_treanding_box_overlay">
-                    <div class="m24_tranding_box_overlay"></div>
+<div class="song_heading_wrapper m24_cover">
+  <div class="m24_heading_wrapper">
+    <h1>top songs (like nhiều nhất)</h1>
+  </div>
+  <div class="relaese_viewall_wrapper">
+    <a href="#"> view all <i class="flaticon-right-arrow"></i></a>
+  </div>
+  <div class="top_songs_list m24_cover" *ngFor="let song of songs; index as i">
+    <div class="top_songs_list_left">
+      <div class="treanding_slider_main_box top_lis_left_content">
+        <div class="top_songs_list0img" >
+          <img src="{{song.imageUrl}}" alt="img" height="50px">
+          <div class="m24_treanding_box_overlay">
+            <div class="m24_tranding_box_overlay"></div>
 
-                    <div class="tranding_play_icon">
-                      <a href="#">
-                        <i class="flaticon-play-button"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="release_content_artist top_list_content_artist">
-                  <p><a href="#">Let me Love You</a></p>
-                  <p class="various_artist_text"><a href="#">Auguste Rodin</a></p>
-                </div>
-
-              </div>
-              <div class="top_list_tract_time">
-                <p>4:22</p>
-              </div>
-            </div>
-            <div class="top_songs_list_right">
-              <div class="top_list_tract_view">
-                <p>8M+ View</p>
-              </div>
-              <div class="top_song_list_picks">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="top_songs_list m24_cover">
-            <div class="top_songs_list_left">
-              <div class="treanding_slider_main_box top_lis_left_content">
-                <div class="top_songs_list0img">
-                  <img src="assets/images/tp2.png" alt="img">
-                  <div class="m24_treanding_box_overlay">
-                    <div class="m24_tranding_box_overlay"></div>
-
-                    <div class="tranding_play_icon">
-                      <a href="#">
-                        <i class="flaticon-play-button"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="release_content_artist top_list_content_artist">
-                  <p><a href="#">
-                    Until I Met You</a></p>
-                  <p class="various_artist_text"><a href="#">Henry Moore</a></p>
-                </div>
-
-              </div>
-              <div class="top_list_tract_time">
-                <p>4:22</p>
-              </div>
-            </div>
-            <div class="top_songs_list_right">
-              <div class="top_list_tract_view">
-                <p>8M+ View</p>
-              </div>
-              <div class="top_song_list_picks">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="top_songs_list m24_cover">
-            <div class="top_songs_list_left">
-              <div class="treanding_slider_main_box top_lis_left_content">
-                <div class="top_songs_list0img">
-                  <img src="assets/images/tp3.png" alt="img">
-                  <div class="m24_treanding_box_overlay">
-                    <div class="m24_tranding_box_overlay"></div>
-
-                    <div class="tranding_play_icon">
-                      <a href="#">
-                        <i class="flaticon-play-button"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="release_content_artist top_list_content_artist">
-                  <p><a href="#">Let me Love You</a></p>
-                  <p class="various_artist_text"><a href="#">Marc Chagall</a></p>
-                </div>
-
-              </div>
-              <div class="top_list_tract_time">
-                <p>4:22</p>
-              </div>
-            </div>
-            <div class="top_songs_list_right">
-              <div class="top_list_tract_view">
-                <p>8M+ View</p>
-              </div>
-              <div class="top_song_list_picks">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="top_songs_list m24_cover">
-            <div class="top_songs_list_left">
-              <div class="treanding_slider_main_box top_lis_left_content">
-                <div class="top_songs_list0img">
-                  <img src="assets/images/tp4.png" alt="img">
-                  <div class="m24_treanding_box_overlay">
-                    <div class="m24_tranding_box_overlay"></div>
-
-                    <div class="tranding_play_icon">
-                      <a href="#">
-                        <i class="flaticon-play-button"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="release_content_artist top_list_content_artist">
-                  <p><a href="#">Dark Alley Acotic</a></p>
-                  <p class="various_artist_text"><a href="#">brian hills</a></p>
-                </div>
-
-              </div>
-              <div class="top_list_tract_time">
-                <p>4:22</p>
-              </div>
-            </div>
-            <div class="top_songs_list_right">
-              <div class="top_list_tract_view">
-                <p>8M+ View</p>
-              </div>
-              <div class="top_song_list_picks">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="top_songs_list m24_cover">
-            <div class="top_songs_list_left">
-              <div class="treanding_slider_main_box top_lis_left_content">
-                <div class="top_songs_list0img">
-                  <img src="assets/images/tp5.png" alt="img">
-                  <div class="m24_treanding_box_overlay">
-                    <div class="m24_tranding_box_overlay"></div>
-
-                    <div class="tranding_play_icon">
-                      <a href="#">
-                        <i class="flaticon-play-button"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="release_content_artist top_list_content_artist">
-                  <p><a href="#">Walking Promises</a></p>
-                  <p class="various_artist_text"><a href="#">Ava Cornish</a></p>
-                </div>
-
-              </div>
-              <div class="top_list_tract_time">
-                <p>4:22</p>
-              </div>
-            </div>
-            <div class="top_songs_list_right">
-              <div class="top_list_tract_view">
-                <p>8M+ View</p>
-              </div>
-              <div class="top_song_list_picks">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="top_songs_list m24_cover">
-            <div class="top_songs_list_left">
-              <div class="treanding_slider_main_box top_lis_left_content">
-                <div class="top_songs_list0img">
-                  <img src="assets/images/tp6.png" alt="img">
-                  <div class="m24_treanding_box_overlay">
-                    <div class="m24_tranding_box_overlay"></div>
-
-                    <div class="tranding_play_icon">
-                      <a href="#">
-                        <i class="flaticon-play-button"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="release_content_artist top_list_content_artist">
-                  <p><a href="#">Gimme Sourage</a></p>
-                  <p class="various_artist_text"><a href="#">Chrissy Costanza</a></p>
-                </div>
-
-              </div>
-              <div class="top_list_tract_time">
-                <p>4:22</p>
-              </div>
-            </div>
-            <div class="top_songs_list_right">
-              <div class="top_list_tract_view">
-                <p>8M+ View</p>
-              </div>
-              <div class="top_song_list_picks">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </div>
+            <div class="tranding_play_icon">
+              <a href="#">
+                <i class="flaticon-play-button"></i>
+              </a>
             </div>
           </div>
         </div>
+        <div class="release_content_artist top_list_content_artist">
+          <p><a href="#">{{song.nameSong}}</a></p>
+          <p class="various_artist_text"><a href="#">{{song?.artists?.nameArtist}}</a></p>
+        </div>
+      </div>
+      <div class="top_list_tract_time">
+        <p>4:22</p>
+      </div>
+    </div>
+    <div class="top_songs_list_right">
+      <div class="top_list_tract_view">
+        <p>8M+ View</p>
+      </div>
+      <div class="top_song_list_picks">
+        <div class="m24_tranding_more_icon">
+          <i class="flaticon-menu"></i>
+        </div>
+        <ul class="tranding_more_option">
+          <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
+          <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
+          <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
+          <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
+          <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- top songs wrapper end -->

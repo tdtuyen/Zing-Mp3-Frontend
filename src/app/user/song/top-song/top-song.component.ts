@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Song} from "../../../model/song";
+import {SongService} from "../../../service/song.service";
 
 @Component({
   selector: 'app-top-song',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopSongComponent implements OnInit {
 
-  constructor() { }
+  songs: Song[] = [];
+
+  constructor(private songService: SongService) {
+  }
 
   ngOnInit() {
+    this.getTopSong();
+  }
+
+  getTopSong() {
+    this.songService.getTopSong().subscribe(songs=> {
+      this.songs = songs;
+    },error => {console.log("error", error)});
   }
 
 }

@@ -9,19 +9,18 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
 import { SongListComponent } from './song-list/song-list.component';
 import { SongDeleteComponent } from './song-delete/song-delete.component';
 import { SongEditComponent } from './song-edit/song-edit.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule} from "@angular/forms";
+import {UploadModule} from "../../upload/upload.module";
 
 
 @NgModule({
-  declarations: [TreandingSongsComponent,
-    SongDetailComponent,
-    SongListComponent,
-    SongDeleteComponent,
-    SongEditComponent],
-  imports: [
-    CommonModule,
-    SongRoutingModule,
-    FormsModule,
-  ]
+  declarations: [
+  ],
+    imports: [
+        CommonModule,
+        SongRoutingModule,
+        FormsModule,
+        UploadModule,
+    ]
 })
 export class SongModule { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Artist} from "../../../model/artist";
+import {ArtistService} from "../../../service/artist.service";
 
 @Component({
   selector: 'app-feature-artits',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeatureArtitsComponent implements OnInit {
 
-  constructor() { }
+  artists: Artist[] = [];
 
-  ngOnInit() {
+  constructor(private artistService: ArtistService) {
   }
 
+  ngOnInit() {
+    this.getTopArtist();
+  }
+
+  getTopArtist() {
+    this.artistService.getTopArtis().subscribe(artists=> {
+      console.log(artists)
+      this.artists = artists;
+    },error => {console.log("error", error)});
+  }
 }
