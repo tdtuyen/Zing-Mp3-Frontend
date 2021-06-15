@@ -21,6 +21,7 @@ import {SongCreateComponent} from './song/song-create/song-create.component';
 import {UploadModule} from '../upload/upload.module';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ListenMusicComponent } from './listen-music/listen-music.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     CreatePlaylistComponent,
     EditPlaylistComponent,
     ListPlaylistComponent,
-    UserEditComponent],
+    UserEditComponent,
+    ListenMusicComponent],
 
   exports: [
     FeatureArtitsComponent,
