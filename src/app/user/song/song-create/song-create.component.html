@@ -1,4 +1,4 @@
-<form [formGroup]="songForm" (ngSubmit)="submit()">
+<form [formGroup]="songForm" (ngSubmit)="createSong()">
 <div class="lang_m24_banner" id="login_modal" role="dialog">
   <div id="register_modal" role="dialog">
     <div class="col-10" style="margin: auto">
@@ -18,19 +18,25 @@
               </div>
               <div style="color: chocolate">Tên Tác Giả</div>
               <div class="icon_form comments_form">
-                <input type="password" class="form-control" name="first_name" >
+                <input type="text" class="form-control" formControlName="author" >
                 <i class="far fa-address-card"></i>
               </div>
               <div style="color: chocolate">Tên Ca Sĩ</div>
-              <div class="icon_form comments_form">
-                <input type="password" class="form-control" name="first_name" >
-                <i class="flaticon-speaker"></i>
+              <div>
+                <select class="browser-default custom-select" formControlName="artist"  >
+                    <option disabled>Chọn danh mục sản phẩm</option>
+                    <option *ngFor="let artist of artists" [value]="artist.id">{{artist.nameArtist}}</option>
+                </select>
               </div>
+              <br>
               <div style="color: chocolate">Dòng Nhạc</div>
-              <div class="icon_form comments_form">
-                <input type="text" class="form-control" name="first_name" >
-                <i class="flaticon-files-and-folders"></i>
+              <div class="icon_form comments_form" style="color: chocolate">
+                <select class="browser-default custom-select" formControlName="genre"  >
+                  <option disabled>Chọn danh mục sản phẩm</option>
+                  <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
+                </select>
               </div>
+              <br>
               <div style="color: chocolate">Album</div>
               <div class="icon_form comments_form">
                 <input type="text" class="form-control" formControlName="album">

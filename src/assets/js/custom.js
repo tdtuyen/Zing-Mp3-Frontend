@@ -396,27 +396,28 @@
                         1 == e ? (t.find("input").val(""), t.find("textarea").val(""), a.html('<p style="color:green;">Mail has been sent successfully.</p>')) : a.html('<p style="color:red;">Something went wrong please try again latter.</p>')
                     })
                 }
-            }), $("select").niceSelect();
-            var adonisObj = {};
-            jQuery(document).ready(function(t) {
-                adonisObj.toggleOffCanvas = function(e) {
-                    var a = t(e).hasClass("show") ? "hide" : "show";
-                    return "show" == a ? (t(e).addClass("show"), t("body").addClass("off-canvas-overlay-on")) : (t(e).removeClass("show"), t("body").removeClass("off-canvas-overlay-on")), "" == t(".off-canvas-overlay").attr("data-target") || void 0 === t(".off-canvas-overlay").attr("data-target") ? t(".off-canvas-overlay").attr("data-target", e) : t(".off-canvas-overlay").removeAttr("data-target"), a
-                }, adonisObj.ajaxify = function() {
-                    if (!0 === filterlinks(_url)) {
-                        if (t(this).parents(".off-canvas").length > 0) {
-                            var a = t(this).parents(".off-canvas"),
-                                o = void 0 !== a.attr("data-close-offcanvas-below") ? a.attr("data-close-offcanvas-below") : "";
-                            t(window).outerWidth() < parseInt(o) && adonisObj.toggleOffCanvas(a)
-                        }
-                        e.preventDefault(), adonisObj.hideOffCanvas()
-                    }
-                }, t(document).on("click", ".toggle-off-canvas,.off-canvas-overlay,.close-offcanvas", function(e) {
-                    e.preventDefault(), adonisObj.toggleOffCanvas(t(this).attr("data-target"))
-                })
-            });
-            const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]'),
-                currentTheme = localStorage.getItem("theme");
+           }),
+        // $("select").niceSelect();
+            // var adonisObj = {};
+            // jQuery(document).ready(function(t) {
+            //     adonisObj.toggleOffCanvas = function(e) {
+            //         var a = t(e).hasClass("show") ? "hide" : "show";
+            //         return "show" == a ? (t(e).addClass("show"), t("body").addClass("off-canvas-overlay-on")) : (t(e).removeClass("show"), t("body").removeClass("off-canvas-overlay-on")), "" == t(".off-canvas-overlay").attr("data-target") || void 0 === t(".off-canvas-overlay").attr("data-target") ? t(".off-canvas-overlay").attr("data-target", e) : t(".off-canvas-overlay").removeAttr("data-target"), a
+            //     }, adonisObj.ajaxify = function() {
+            //         if (!0 === filterlinks(_url)) {
+            //             if (t(this).parents(".off-canvas").length > 0) {
+            //                 var a = t(this).parents(".off-canvas"),
+            //                     o = void 0 !== a.attr("data-close-offcanvas-below") ? a.attr("data-close-offcanvas-below") : "";
+            //                 t(window).outerWidth() < parseInt(o) && adonisObj.toggleOffCanvas(a)
+            //             }
+            //             e.preventDefault(), adonisObj.hideOffCanvas()
+            //         }
+            //     }, t(document).on("click", ".toggle-off-canvas,.off-canvas-overlay,.close-offcanvas", function(e) {
+            //         e.preventDefault(), adonisObj.toggleOffCanvas(t(this).attr("data-target"))
+            //     })
+            // });
+            // const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]'),
+            //     currentTheme = localStorage.getItem("theme");
 
             function switchTheme(e) {
                 e.target.checked ? (document.documentElement.setAttribute("data-theme", "dark"), localStorage.setItem("theme", "dark")) : (document.documentElement.setAttribute("data-theme", "light"), localStorage.setItem("theme", "light"))

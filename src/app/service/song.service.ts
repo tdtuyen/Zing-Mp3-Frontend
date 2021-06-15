@@ -18,6 +18,11 @@ export class SongService {
     return this.http.get<any>(API_URL + '/songs');
   }
 
+
+  getYourSong(): Observable<any> {
+    return this.http.get<any>(API_URL + '/songs/yoursongs');
+  }
+
   getTopSong(): Observable<any> {
     return this.http.get<any>(API_URL + '/songs/top');
   }

@@ -14,12 +14,12 @@ export class ArtistService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-    return this.http.get<any>(API_URL + '/artists');
+  getAll(): Observable<Artist[]> {
+    return this.http.get<Artist[]>(API_URL + '/artists');
   }
 
-  getTopArtis(): Observable<any> {
-    return this.http.get<any>(API_URL + '/artists/top');
+  getTopArtis(): Observable<Artist[]> {
+    return this.http.get<Artist[]>(API_URL + '/artists/top');
   }
 
   saveArtist(artist: Artist): Observable<Artist> {

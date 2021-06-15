@@ -1,16 +1,13 @@
 export interface Song {
   id?: number;
-  nameSong?: String;
-  description?: String;
-  imageUrl?: String;
-  songUrl?: String;
-  album?: String;
+  nameSong?: string;
+  description?: string;
+  imageUrl?: string;
+  songUrl?: string;
+  album?: string;
   author?: string;
   likes?: number;
   views?: number;
-  artists?: {
-    nameArtist : String,
-    likes: number
-  };
-  genre?: number;
+  artist?:any;
+  genre?: any;
 }
