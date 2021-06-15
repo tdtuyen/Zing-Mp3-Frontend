@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import {Artist} from "../model/artist";
-import {Genre} from "../model/genre";
-import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {Observable} from 'rxjs';
+import {Artist} from '../model/artist';
+import {Genre} from '../model/genre';
+import {environment} from '../../environments/environment.prod';
+import {HttpClient} from '@angular/common/http';
 
 
 const API_URL = `${environment.apiUrl}`;
