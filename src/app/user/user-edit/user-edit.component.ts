@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {UserService} from '../../service/user/user.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -10,16 +11,6 @@ import {Router} from '@angular/router';
 export class UserEditComponent implements OnInit {
 
   status = '';
-  checkSuccess: any = {
-    messagedb: '',
-    message: '',
-  };
-  error1: any = {
-    message: 'dbusername'
-  };
-  error2: any = {
-    message: 'dbphone'
-  };
   editForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     address: new FormControl(''),
@@ -29,34 +20,37 @@ export class UserEditComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              private router: Router) {
+    this.getUser();
+  }
+
+  getUser() {
+    return this.userService.getCurrentUser().subscribe(user => {
+      this.editForm = this.fb.group({
+        username: [user.username, [Validators.required, Validators.min(6), Validators.max(8)]],
+        address: [user.address, [Validators.required]],
+        email: [user.email, [Validators.required, Validators.email]],
+        phone: [user.phone, [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
+        avatar: [user.avatar]
+      });
+    }, error => {console.log(error); });
   }
 
   ngOnInit() {
-    this.editForm = this.fb.group({
-      username: ['', [Validators.required, Validators.min(6), Validators.max(8)]],
-      address: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
-      avatar: ['', [Validators.required]]
-    });
   }
 
   onSubmit() {
     this.submitted = true;
-    this.checkSuccess = {
-      messagedb: '',
-      message: '',
-    };
     if (this.editForm.valid) {
-
-      const user: any = {
-        username: this.editForm.value.username,
-        address: this.editForm.value.address,
-        email: this.editForm.value.email,
-        phone: this.editForm.value.phone,
-        avatar: this.editForm.value.avatar
-      };
+      const user = this.editForm.value;
+      console.log(user);
+      this.userService.saveUser(user).subscribe(() => {
+        this.submitted = true;
+      }, e => {
+        console.log(e);
+      });
     }
   }
 }

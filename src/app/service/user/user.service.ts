@@ -16,4 +16,12 @@ export class UserService {
   register(user: User): Observable<any> {
     return this.http.post<any>(API_URL + '/register', user);
   }
+
+  saveUser(user: User): Observable<User> {
+    return this.http.put<User>(API_URL + '/users', user);
+  }
+
+  getCurrentUser(): Observable<User> {
+    return this.http.get<User>(API_URL + '/users');
+  }
 }
