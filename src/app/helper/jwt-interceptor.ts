@@ -7,7 +7,7 @@ import {AuthenticationService} from '../service/authentication.service';
 export class JwtInterceptor implements HttpInterceptor {
   constructor(private authenticationService: AuthenticationService) {
   }
-
+  // user && user.token != null && req.method === 'POST'
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const user = this.authenticationService.currentUserValue;
     if (user && user.token != null) {
