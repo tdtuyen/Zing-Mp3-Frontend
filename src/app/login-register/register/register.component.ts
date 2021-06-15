@@ -4,6 +4,7 @@ import {UserService} from '../../service/user/user.service';
 import {User} from '../../model/user';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
+import * as $ from 'jquery';
 
 
 
@@ -30,6 +31,9 @@ function checkDob(control: AbstractControl) {
 export class RegisterComponent implements OnInit {
   // @ts-ignore
   // @Input() messageEvent: any = false;
+  @ViewChild('closebutton', null) closebutton;
+  @ViewChild('showlogin', null) showlogin;
+
   checkSuccess: any = {
     messagedb: '',
     message: '',
@@ -84,7 +88,26 @@ export class RegisterComponent implements OnInit {
         this.submitted = false;
         this.registerForm.reset();
         this.checkSuccess.status = true;
-        }, (data) => {
+        // tslint:disable-next-line:only-arrow-functions
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+          // @ts-ignore
+          Toast.fire({
+            icon: 'success',
+            type: 'success',
+            title: 'Register successfully',
+          });
+        });
+        this.closebutton.nativeElement.click();
+        this.showlogin.nativeElement.click();
+
+      }, (data) => {
         console.log('data === ', data);
         console.log('json data ===', data.error);
         console.log('json data ===', this.error1.message);
@@ -102,13 +125,6 @@ export class RegisterComponent implements OnInit {
       });
     }
 
-  }
-  opensweetalert() {
-    Swal.fire(
-      'Good job!',
-      'You clicked the button!',
-      'success',
-    );
   }
 
 }
