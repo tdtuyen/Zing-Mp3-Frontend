@@ -18,6 +18,8 @@ import {SongDeleteComponent} from './song/song-delete/song-delete.component';
 import {SongListComponent} from './song/song-list/song-list.component';
 import {SongEditComponent} from './song/song-edit/song-edit.component';
 import {SongCreateComponent} from './song/song-create/song-create.component';
+import {UploadModule} from '../upload/upload.module';
+import { UserEditComponent } from './user-edit/user-edit.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
@@ -35,7 +37,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SongCreateComponent,
     CreatePlaylistComponent,
     EditPlaylistComponent,
-    ListPlaylistComponent],
+    ListPlaylistComponent,
+    UserEditComponent],
 
   exports: [
     FeatureArtitsComponent,
@@ -51,14 +54,16 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     SongCreateComponent,
     CreatePlaylistComponent,
     EditPlaylistComponent,
-    ListPlaylistComponent
+    ListPlaylistComponent,
+    UserEditComponent
   ],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    ReactiveFormsModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        UploadModule,
+        ReactiveFormsModule,
+      FormsModule
+    ],
 
 })
 export class UserModule { }

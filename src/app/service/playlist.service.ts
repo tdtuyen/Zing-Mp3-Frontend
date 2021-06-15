@@ -17,14 +17,18 @@ export class PlaylistService {
   }
 
   createNewPlaylisst(playlist: Playlist): Observable<Playlist> {
-    return this.http.post<Playlist>(API_URL + `/playlists`, playlist);
+    return this.http.post<Playlist>(API_URL + `/playlists/create`, playlist);
   }
 
   getTop10PlaylistNew(): Observable<Playlist[]> {
-    return this.http.get<Playlist[]>('http://localhost:8080/playlists/ratings');
+    return this.http.get<Playlist[]>(API_URL + `/playlists/ratings`);
   }
 
   getTop10PlayListSong(): Observable<Playlist[]> {
     return this.http.get<Playlist[]>(API_URL + `playlists/topview`);
+  }
+
+  editPlaylisst(playlist: Playlist): Observable<Playlist> {
+    return this.http.post<Playlist>(API_URL + `/playlists/create`, playlist);
   }
 }

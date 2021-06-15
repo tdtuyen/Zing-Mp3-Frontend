@@ -8,7 +8,7 @@ import {PlaylistService} from '../../../service/playlist.service';
   styleUrls: ['./top-playlist.component.css']
 })
 export class TopPlaylistComponent implements OnInit {
-  playlists: Playlist[] = [];
+  topPlaylists: Playlist[] = [];
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit() {
@@ -16,7 +16,7 @@ export class TopPlaylistComponent implements OnInit {
   }
   getTopView() {
     this.playlistService.getTop10PlaylistNew().subscribe(views => {
-      this.playlists = views;
+      this.topPlaylists = views;
     });
   }
 }

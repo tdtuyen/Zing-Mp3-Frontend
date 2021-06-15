@@ -13,11 +13,11 @@ import {Router} from '@angular/router';
 })
 export class CreatePlaylistComponent implements OnInit {
   playlist: Playlist = {};
-  // playlistForm: FormGroup = new FormGroup({
-  //   namePlaylist: new FormControl('',[Validators.required]),
-  //   type: new FormControl(),
-  //   description: new FormControl()
-  // });
+  playlistForm: FormGroup = new FormGroup({
+    namePlaylist: new FormControl('', [Validators.required]),
+    type: new FormControl(),
+    description: new FormControl()
+  });
   selectedFile: File;
   ref: AngularFireStorageReference;
   downloadURL: string;
@@ -63,7 +63,7 @@ export class CreatePlaylistComponent implements OnInit {
 
   createPlayList(): any {
     return this.playlistService.createNewPlaylisst(this.playlist).subscribe(() => {
-      console.log(this.playlist);
+      alert('Tạo thành công ');
       this.router.navigate(['/playlists']);
     });
   }

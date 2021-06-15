@@ -8,49 +8,60 @@ import {SongDeleteComponent} from './song/song-delete/song-delete.component';
 import {CreatePlaylistComponent} from './playlist/create-playlist/create-playlist.component';
 import {EditPlaylistComponent} from './playlist/edit-playlist/edit-playlist.component';
 import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.component';
-import {NewPlaylistComponent} from './playlist/new-playlist/new-playlist.component';
+import {AuthGuard} from '../helper/auth-guard';
+import {UserEditComponent} from './user-edit/user-edit.component';
 
 
 const routes: Routes = [
   {
+    path: 'edit' ,
+    component: UserEditComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'playlists/create' ,
-    component: CreatePlaylistComponent
+    component: CreatePlaylistComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'playlists/edits' ,
-    component: EditPlaylistComponent
+    path: 'playlists/edit' ,
+    component: EditPlaylistComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'playlists/list' ,
-    component: ListPlaylistComponent
+    path: 'yourplaylists' ,
+    component: ListPlaylistComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'playlists/delete' ,
-    component: EditPlaylistComponent
-  },
-  {
-    path: 'user/playlists/ratings' ,
-    component: NewPlaylistComponent
+    path: 'playlist/delete' ,
+    component: EditPlaylistComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'songs',
     component: SongDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'list',
+    path: 'yoursongs',
     component: SongListComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'edit',
+    path: 'songs/edit',
     component: SongEditComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'create',
+    path: 'songs/create',
     component: SongCreateComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'delete',
-    component: SongDeleteComponent
+    path: 'songs/delete',
+    component: SongDeleteComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

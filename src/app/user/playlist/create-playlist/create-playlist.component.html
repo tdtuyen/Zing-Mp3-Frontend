@@ -11,15 +11,21 @@
               </div>
               <div class="login_form_wrapper">
                 <div class="icon_form comments_form">
-                  <label class="labels">Tên Playlist</label><input type="text" class="form-control" placeholder="Tên playlist" name="name" [(ngModel)]="playlist.name">
+                  <label class="labels">Tên Playlist</label><input type="text" class="form-control" placeholder="Tên playlist" name="namePlaylist" [(ngModel)]="playlist.namePlaylist">
                   <i class="fas fa-music"></i>
                 </div>
+                <label class="labels">Dòng nhạc</label>
                 <div class="icon_form comments_form">
-                  <label class="labels">Dòng nhạc</label><input type="text" class="form-control" placeholder="Dòng nhạc" name="type" [(ngModel)]="playlist.type">
+                  <select class="form-control" placeholder="Dòng nhạc" name="Dòng nhạc" [(ngModel)]="playlist.type" style="width: 100%; display: none;">
+                    <option value="Trữ tình" style="width: 1110px; display: none;">Trữ tình
+                    <option value="Cách mạng"style="width: 1110px; display: none;">Cách mạng
+                    <option value="Remix"style="width: 1110px; display: none;">Remix
+                  </select>
                   <i class="flaticon-files-and-folders"></i>
                 </div>
+                <label class="labels">Mô tả</label>
                 <div class="icon_form comments_form">
-                  <label class="labels">Mô tả</label><input type="text" class="form-control" placeholder="Mô tả" name="description" [(ngModel)]="playlist.description">
+                  <input type="text" class="form-control" placeholder="Mô tả" name="description" [(ngModel)]="playlist.description">
                   <i class="fas fa-file"></i>
                   <div class="lang_apply_btn_wrapper m24_cover">
                     <div class="lang_apply_btn">

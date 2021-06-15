@@ -24,7 +24,9 @@ export class LoginComponent implements OnInit {
   login() {
     this.authenticationService.login(this.loginForm.value).subscribe(user => {
       localStorage.setItem('ACCESS_TOKEN', user.token);
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('').then(() => {
+        window.location.reload();
+      });
     });
   }
 
