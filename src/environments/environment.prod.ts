@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://zingmp3-backend.herokuapp.com/',
+  apiUrl: 'https://zingmp3-backend.herokuapp.com',
   firebaseConfig : {
     apiKey: 'AIzaSyCMAyDYrQkeD6h3_0clTdESzpPXV6e6MPo',
     authDomain: 'zingmp3-4bcaf.firebaseapp.com',
