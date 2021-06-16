@@ -4,6 +4,7 @@ import {UserService} from '../../service/user/user.service';
 import {User} from '../../model/user';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
+import * as $ from 'jquery';
 
 
 
@@ -30,6 +31,9 @@ function checkDob(control: AbstractControl) {
 export class RegisterComponent implements OnInit {
   // @ts-ignore
   // @Input() messageEvent: any = false;
+  @ViewChild('closebutton', null) closebutton;
+  @ViewChild('showlogin', null) showlogin;
+
   checkSuccess: any = {
     messagedb: '',
     message: '',
@@ -55,8 +59,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.fb.group({
-      username: ['', [Validators.required, Validators.min(6), Validators.max(8)]],
-      phone: ['', [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
+      username: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(8)]],
+      phone: ['', [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
       pwGroup: this.fb.group({
         password: ['', [Validators.required, Validators.minLength(6)]],
         confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
@@ -84,7 +88,26 @@ export class RegisterComponent implements OnInit {
         this.submitted = false;
         this.registerForm.reset();
         this.checkSuccess.status = true;
-        }, (data) => {
+        // tslint:disable-next-line:only-arrow-functions
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+          // @ts-ignore
+          Toast.fire({
+            icon: 'success',
+            type: 'success',
+            title: 'Register successfully',
+          });
+        });
+        this.closebutton.nativeElement.click();
+        this.showlogin.nativeElement.click();
+
+      }, (data) => {
         console.log('data === ', data);
         console.log('json data ===', data.error);
         console.log('json data ===', this.error1.message);
@@ -102,13 +125,6 @@ export class RegisterComponent implements OnInit {
       });
     }
 
-  }
-  opensweetalert() {
-    Swal.fire(
-      'Good job!',
-      'You clicked the button!',
-      'success',
-    );
   }
 
 }

@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {UserService} from '../../service/user/user.service';
+import * as $ from 'jquery';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user-edit',
@@ -8,18 +11,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./user-edit.component.css']
 })
 export class UserEditComponent implements OnInit {
-
+  avatar = '';
   status = '';
-  checkSuccess: any = {
-    messagedb: '',
-    message: '',
-  };
-  error1: any = {
-    message: 'dbusername'
-  };
-  error2: any = {
-    message: 'dbphone'
-  };
   editForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     address: new FormControl(''),
@@ -29,34 +22,63 @@ export class UserEditComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              private router: Router) {
+    this.getUser();
   }
 
-  ngOnInit() {
-    this.editForm = this.fb.group({
-      username: ['', [Validators.required, Validators.min(6), Validators.max(8)]],
-      address: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
-      avatar: ['', [Validators.required]]
+  getUser() {
+    return this.userService.getCurrentUser().subscribe(user => {
+      this.editForm = this.fb.group({
+        username: [user.username, [Validators.required, Validators.minLength(6), Validators.maxLength(8)]],
+        address: [user.address, [Validators.required]],
+        email: [user.email, [Validators.required, Validators.email]],
+        phone: [user.phone, [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
+        avatar: [user.avatar]
+      });
+    }, error => {
+      console.log(error);
     });
   }
 
-  onSubmit() {
-    this.submitted = true;
-    this.checkSuccess = {
-      messagedb: '',
-      message: '',
-    };
-    if (this.editForm.valid) {
+  ngOnInit() {
+  }
 
-      const user: any = {
-        username: this.editForm.value.username,
-        address: this.editForm.value.address,
-        email: this.editForm.value.email,
-        phone: this.editForm.value.phone,
-        avatar: this.editForm.value.avatar
-      };
+  onChangeAvatar($event) {
+    this.avatar = $event;
+    console.log('avatar ===>', this.avatar);
+  }
+
+  onUpdate() {
+    this.submitted = true;
+    if (this.editForm.valid) {
+      const user = this.editForm.value;
+      user.avatar = this.avatar;
+      console.log(user);
+      this.userService.saveUser(user).subscribe(() => {
+        this.submitted = true;
+        // // @ts-ignore
+        // this.router.navigateByUrl(['']);
+        // tslint:disable-next-line:only-arrow-functions
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+          // @ts-ignore
+          Toast.fire({
+            icon: 'success',
+            type: 'success',
+            title: 'update User successfully',
+          });
+        });
+      }, e => {
+        console.log(e);
+      });
     }
   }
 }

@@ -36,7 +36,7 @@ export class AuthenticationService {
     this.currentUserSubject.next(null);
   }
 
-  testJwt() {
-    return this.http.get<string>(`${API_URL}/greetings`);
-  }
+  // testJwt() {
+  //   return this.http.get<string>(`${API_URL}/greetings`);
+  // }
 }

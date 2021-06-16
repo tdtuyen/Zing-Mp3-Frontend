@@ -10,12 +10,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [CreatePlaylistComponent, NewPlaylistComponent , TopPlaylistComponent, EditPlaylistComponent],
+  declarations: [],
   exports: [
-    CreatePlaylistComponent,
-    NewPlaylistComponent,
-    TopPlaylistComponent,
-    EditPlaylistComponent
   ],
   imports: [
     CommonModule,

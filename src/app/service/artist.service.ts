@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import {Artist} from "../model/artist";
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
+import {Artist} from '../model/artist';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -14,12 +14,12 @@ export class ArtistService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<any> {
-    return this.http.get<any>(API_URL + '/artists');
+  getAll(): Observable<Artist[]> {
+    return this.http.get<Artist[]>(API_URL + '/artists');
   }
 
-  getTopArtis(): Observable<any> {
-    return this.http.get<any>(API_URL + '/artists/top');
+  getTopArtis(): Observable<Artist[]> {
+    return this.http.get<Artist[]>(API_URL + '/artists/top');
   }
 
   saveArtist(artist: Artist): Observable<Artist> {

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {LoginComponent} from '../../login-register/login/login.component';
 
 @Component({
   selector: 'app-home-layout',

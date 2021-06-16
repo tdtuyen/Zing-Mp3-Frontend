@@ -20,7 +20,6 @@ export class SongListComponent implements OnInit {
 
   getAll() {
     this.songService.getAll().subscribe(songs=> {
-      console.log(songs)
       this.songs = songs.content;
     },error => {console.log("error", error)});
   }

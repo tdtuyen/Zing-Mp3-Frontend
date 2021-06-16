@@ -3,12 +3,11 @@ import {Song} from "../../../model/song";
 import {SongService} from "../../../service/song.service";
 
 @Component({
-  selector: 'app-treanding-songs',
-  templateUrl: './treanding-songs.component.html',
-  styleUrls: ['./treanding-songs.component.css']
+  selector: 'app-song-user',
+  templateUrl: './song-user.component.html',
+  styleUrls: ['./song-user.component.css']
 })
-export class TreandingSongsComponent implements OnInit {
-
+export class SongUserComponent implements OnInit {
 
   songs: Song[] = [];
 
@@ -16,12 +15,14 @@ export class TreandingSongsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getNewSong();
+    this.getYourSong();
   }
 
-  getNewSong() {
-    this.songService.getNewSong().subscribe(songs=> {
+  getYourSong() {
+    this.songService.getYourSong().subscribe(songs=> {
+      console.log(songs)
       this.songs = songs;
     },error => {console.log("error", error)});
   }
+
 }

@@ -1,11 +1,11 @@
 export interface Artist {
   id?: number;
-  nameArtist?: String;
-  description?: String;
-  avata?: String;
-  songUrl?: String;
+  nameArtist?: string;
+  description?: string;
+  avatar?: string;
+  songUrl?: string;
   dob?: Date;
   likes?: number;
-  genre?: number;
+  gender?: any;
 
 }
