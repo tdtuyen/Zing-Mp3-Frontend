@@ -11,6 +11,9 @@ import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.comp
 import {AuthGuard} from '../helper/auth-guard';
 import {UserEditComponent} from './user-edit/user-edit.component';
 import {SongUserComponent} from './song/song-user/song-user.component';
+import {TopPlaylistComponent} from './playlist/top-playlist/top-playlist.component';
+import {NewPlaylistComponent} from './playlist/new-playlist/new-playlist.component';
+import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.component';
 
 
 const routes: Routes = [
@@ -25,17 +28,22 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'playlists/edit' ,
+    path: 'playlists/edit/:id' ,
     component: EditPlaylistComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'yourplaylists' ,
-    component: ListPlaylistComponent,
+    component: YourPlaylistComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'playlist/delete' ,
+    path: 'playlists/delete' ,
+    component: EditPlaylistComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'playlists/detail/:id' ,
     component: EditPlaylistComponent,
     canActivate: [AuthGuard]
   },
@@ -66,8 +74,19 @@ const routes: Routes = [
   {
     path: 'allsongs',
     component: SongListComponent,
+  },
+  {
+    path: 'playlists/rating',
+    component: TopPlaylistComponent,
+  },
+  {
+    path: 'playlists/news',
+    component: NewPlaylistComponent,
+  },
+  {
+    path: 'allPlaylist',
+    component: ListPlaylistComponent,
   }
-
 ];
 
 @NgModule({

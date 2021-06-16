@@ -14,11 +14,13 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {UploadModule} from './upload/upload.module';
 import {LogoutModule} from './logout/logout.module';
+import { DetailPlaylistComponent } from './user/playlist/detail-playlist/detail-playlist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoAuthGuardComponent,
+    DetailPlaylistComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,5 +42,4 @@ import {LogoutModule} from './logout/logout.module';
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

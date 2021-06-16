@@ -15,7 +15,7 @@ export class TopPlaylistComponent implements OnInit {
     this.getTopView();
   }
   getTopView() {
-    this.playlistService.getTop10PlaylistNew().subscribe(views => {
+    this.playlistService.getTop10PlayListSong().subscribe(views => {
       this.topPlaylists = views;
     });
   }

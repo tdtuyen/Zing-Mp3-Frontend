@@ -1,42 +1,49 @@
-<form (ngSubmit)="createPlayList()">
+
+<form [formGroup]="playlistForm" (ngSubmit)="createSong()">
   <div class="lang_m24_banner" id="login_modal" role="dialog">
     <div id="register_modal" role="dialog">
       <div class="col-10" style="margin: auto">
         <div class="modal-content">
-          <button type="button" class="close" data-dismiss="modal">&times</button>
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+
               <div class="m24_language_box m24_cover">
-                <h1>Tạo playlist mới</h1>
+                <h1 style="margin: auto">Create Song</h1>
+
               </div>
               <div class="login_form_wrapper">
+                <div style="color: chocolate">Tên Bài Hát</div>
                 <div class="icon_form comments_form">
-                  <label class="labels">Tên Playlist</label><input type="text" class="form-control" placeholder="Tên playlist" name="namePlaylist" [(ngModel)]="playlist.namePlaylist">
+                  <input type="text" class="form-control" formControlName="namePlaylist">
                   <i class="fas fa-music"></i>
                 </div>
-                <label class="labels">Dòng nhạc</label>
-                <div class="icon_form comments_form">
-                  <select class="form-control" placeholder="Dòng nhạc" name="Dòng nhạc" [(ngModel)]="playlist.type" style="width: 100%; display: none;">
-                    <option value="Trữ tình" style="width: 1110px; display: none;">Trữ tình
-                    <option value="Cách mạng"style="width: 1110px; display: none;">Cách mạng
-                    <option value="Remix"style="width: 1110px; display: none;">Remix
+                <span style="color: red" *ngIf="submitted && playlistForm.get('namePlaylist').hasError('required')">Title is required!</span>
+                <br>
+                <div style="color: chocolate">Dòng Nhạc</div>
+                <div class="icon_form comments_form" style="color: chocolate">
+                  <select class="browser-default custom-select" formControlName="genre"  >
+                    <option disabled>Chọn danh mục sản phẩm</option>
+                    <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
                   </select>
-                  <i class="flaticon-files-and-folders"></i>
                 </div>
-                <label class="labels">Mô tả</label>
+                <span style="color: red" *ngIf="submitted && playlistForm.get('genre').hasError('required')">Genre is required!</span>
+
+                <br>
+                <div style="color: chocolate">Mô Tả Bài Hát</div>
                 <div class="icon_form comments_form">
-                  <input type="text" class="form-control" placeholder="Mô tả" name="description" [(ngModel)]="playlist.description">
+                  <textarea class="form-control" formControlName="description"></textarea>
                   <i class="fas fa-file"></i>
-                  <div class="lang_apply_btn_wrapper m24_cover">
-                    <div class="lang_apply_btn">
-                      <button class="btn btn-primary profile-button" type="submit">Save</button>
-                    </div>
-                    <div class="cancel_wrapper">
-                      <a routerLink="/" class="" data-dismiss="modal">cancel</a>
-                    </div>
-                  </div>
+                </div>
+                <span style="color: red" *ngIf="submitted && playlistForm.get('description').hasError('required')">Description is required!</span>
+                <div style="color: chocolate">Tải Avatar</div>
+                <div class="icon_form comments_form">
+                  <app-image (giveURLtoCreate)="onChangeAvatar($event)"></app-image>
                 </div>
               </div>
+            </div>
+            <div class="lang_apply_btn_wrapper " style="margin-left: auto">
+              <button type="submit" class="btn btn-danger" style="margin-right: 20px; background: #ff3b1b">Create</button>
+              <button (click)="resetForm()" type="button" class="btn btn-danger"style="margin-right: 20px; background: #ff3b1b">Cancel</button>
             </div>
           </div>
         </div>

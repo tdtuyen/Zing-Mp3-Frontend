@@ -24,6 +24,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { ListenMusicComponent } from './listen-music/listen-music.component';
 import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 import {SongUserComponent} from './song/song-user/song-user.component';
+import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {SongUserComponent} from './song/song-user/song-user.component';
     ListPlaylistComponent,
     UserEditComponent,
   SongUserComponent,
-    ListenMusicComponent
+    ListenMusicComponent,
+    YourPlaylistComponent
   ],
 
 
@@ -69,14 +71,16 @@ import {SongUserComponent} from './song/song-user/song-user.component';
     CreatePlaylistComponent,
     NewPlaylistComponent,
     TopPlaylistComponent,
-    EditPlaylistComponent
+    EditPlaylistComponent,
+    YourPlaylistComponent
   ],
     imports: [
         CommonModule,
         UserRoutingModule,
         UploadModule,
         ReactiveFormsModule,
-        NgbCarouselModule
+        NgbCarouselModule,
+      // NgModule?
     ],
 
 })
