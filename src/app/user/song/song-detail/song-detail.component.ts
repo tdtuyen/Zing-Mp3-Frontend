@@ -12,20 +12,20 @@ import {Subscription} from "rxjs";
 export class SongDetailComponent implements OnInit {
   song?: Song;
   id?: number;
-  sub: Subscription;
 
   constructor(private songService: SongService,
               private activatedRoute: ActivatedRoute) {
-    this.sub = this.activatedRoute.paramMap.subscribe(async (paramMap: ParamMap) => {
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.song = await this.getSong(this.id);
-    })
+      this.getSong(this.id);
+    });
   }
 
   ngOnInit() {
   }
 
   getSong(id: number) {
+    console.log(this.songService.findById(id).toPromise())
     return this.songService.findById(id).toPromise();
   }
 }

@@ -1,4 +1,4 @@
-<form [formGroup]="songForm" (ngSubmit)="editSong()">
+<form [formGroup]="editForm" (ngSubmit)="editSong(editForm.value.id)">
   <div class="lang_m24_banner" id="login_modal" role="dialog">
     <div id="register_modal" role="dialog">
       <div class="col-10" style="margin: auto">
@@ -8,7 +8,7 @@
 
               <div class="m24_language_box m24_cover">
                 <h1 style="margin: auto">Create Song</h1>
-                <p>for unlimited music streaming & a personalised experience</p>
+
               </div>
               <div class="login_form_wrapper">
                 <div style="color: chocolate">Tên Bài Hát</div>
@@ -16,11 +16,15 @@
                   <input type="text" class="form-control" formControlName="nameSong">
                   <i class="fas fa-music"></i>
                 </div>
+                <span style="color: red" *ngIf="submitted && editForm.get('nameSong').hasError('required')">Title is required!</span>
+
                 <div style="color: chocolate">Tên Tác Giả</div>
                 <div class="icon_form comments_form">
                   <input type="text" class="form-control" formControlName="author" >
                   <i class="far fa-address-card"></i>
                 </div>
+                <span style="color: red" *ngIf="submitted && editForm.get('author').hasError('required')">Author is required!</span>
+
                 <div style="color: chocolate">Tên Ca Sĩ</div>
                 <div>
                   <select class="browser-default custom-select" formControlName="artist"  >
@@ -28,6 +32,8 @@
                     <option *ngFor="let artist of artists" [value]="artist.id">{{artist.nameArtist}}</option>
                   </select>
                 </div>
+                <span style="color: red" *ngIf="submitted && editForm.get('artist').hasError('required')">Artist is required!</span>
+
                 <br>
                 <div style="color: chocolate">Dòng Nhạc</div>
                 <div class="icon_form comments_form" style="color: chocolate">
@@ -36,6 +42,8 @@
                     <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
                   </select>
                 </div>
+                <span style="color: red" *ngIf="submitted && editForm.get('genre').hasError('required')">Genre is required!</span>
+
                 <br>
                 <div style="color: chocolate">Album</div>
                 <div class="icon_form comments_form">
@@ -47,18 +55,23 @@
                   <textarea class="form-control" formControlName="description"></textarea>
                   <i class="fas fa-file"></i>
                 </div>
+                <span style="color: red" *ngIf="submitted && editForm.get('description').hasError('required')">Description is required!</span>
+
+
+                <div style="color: chocolate">Tải file nhạc</div>
                 <div class="icon_form comments_form">
-                  <app-file (giveURLtoCreate)="onChangeAvatar($event)"></app-file>
+                  <app-file (giveURLtoCreate)="onChangeFile($event)"></app-file>
                 </div>
+                <div style="color: chocolate">Tải Avatar</div>
                 <div class="icon_form comments_form">
-                  <app-image (giveURLtoCreate)="onChangeFile($event)"></app-image>
+                  <app-image (giveURLtoCreate)="onChangeAvatar($event)"></app-image>
                 </div>
               </div>
             </div>
             <div class="lang_apply_btn_wrapper " style="margin-left: auto">
 
-              <button type="submit" class="btn btn-danger" style="margin-right: 20px; background: #ff3b1b">Create</button>
-              <a routerLink="http://localhost:4200/detail/songs/create"> <button type="button" class="btn btn-danger"style="margin-right: 20px; background: #ff3b1b">Cancel</button></a>
+              <button type="submit" class="btn btn-danger" style="margin-right: 20px; background: #ff3b1b">Edit</button>
+              <a routerLink="/user/yoursongs"> <button type="button" class="btn btn-danger"style="margin-right: 20px; background: #ff3b1b">Cancel</button></a>
             </div>
           </div>
         </div>

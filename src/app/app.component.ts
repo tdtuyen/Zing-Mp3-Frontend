@@ -7,11 +7,11 @@ import {AuthenticationService} from './service/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'demo-jwt-frontend';
+  title = 'vitamin smile';
   message = '';
 
   constructor(private authenticationService: AuthenticationService) {
-    this.authenticationService.testJwt().subscribe(value => this.message = value);
+    // this.authenticationService.testJwt().subscribe(value => this.message = value);
   }
 
   logout() {

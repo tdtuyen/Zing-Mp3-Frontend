@@ -9,12 +9,8 @@ import {EditPlaylistComponent} from './edit-playlist/edit-playlist.component';
 
 
 @NgModule({
-  declarations: [CreatePlaylistComponent, NewPlaylistComponent , TopPlaylistComponent, EditPlaylistComponent],
+  declarations: [],
   exports: [
-    CreatePlaylistComponent,
-    NewPlaylistComponent,
-    TopPlaylistComponent,
-    EditPlaylistComponent
   ],
   imports: [
     CommonModule,

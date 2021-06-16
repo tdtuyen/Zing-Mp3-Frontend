@@ -16,11 +16,11 @@ export class TreandingSongsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTopView();
+    this.getNewSong();
   }
 
-  getTopView() {
-    this.songService.getTopView().subscribe(songs=> {
+  getNewSong() {
+    this.songService.getNewSong().subscribe(songs=> {
       this.songs = songs;
     },error => {console.log("error", error)});
   }
