@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Song} from "../../../model/song";
 import {SongService} from "../../../service/song.service";
 
@@ -10,6 +10,8 @@ import {SongService} from "../../../service/song.service";
 export class SongUserComponent implements OnInit {
 
   songs: Song[] = [];
+  song: Song;
+  id:number;
 
   constructor(private songService: SongService) {
   }
@@ -19,10 +21,20 @@ export class SongUserComponent implements OnInit {
   }
 
   getYourSong() {
-    this.songService.getYourSong().subscribe(songs=> {
+    this.songService.getYourSong().subscribe(songs => {
       console.log(songs)
       this.songs = songs;
-    },error => {console.log("error", error)});
+    }, error => {
+      console.log("error", error)
+    });
   }
 
+  deleteSong(id: number) {
+    this.songService.deleteSong(id).subscribe(song => {
+      this.song = song;
+    this.getYourSong();
+      }, error => {
+      console.log("error", error)
+    })
+  }
 }
