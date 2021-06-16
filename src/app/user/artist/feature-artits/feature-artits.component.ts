@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Artist} from "../../../model/artist";
-import {ArtistService} from "../../../service/artist.service";
+import {Artist} from '../../../model/artist';
+import {ArtistService} from '../../../service/artist.service';
 
 @Component({
   selector: 'app-feature-artits',
@@ -19,9 +19,9 @@ export class FeatureArtitsComponent implements OnInit {
   }
 
   getTopArtist() {
-    this.artistService.getTopArtis().subscribe(artists=> {
-      console.log(artists)
+    this.artistService.getTopArtis().subscribe(artists => {
+      console.log(artists);
       this.artists = artists;
-    },error => {console.log("error", error)});
+    }, error => {console.log('error', error); });
   }
 }
