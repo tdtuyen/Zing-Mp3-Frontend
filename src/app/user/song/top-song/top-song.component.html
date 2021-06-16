@@ -8,19 +8,14 @@
   <div class="relaese_viewall_wrapper">
     <a href="#"> view all <i class="flaticon-right-arrow"></i></a>
   </div>
-  <div class="top_songs_list m24_cover" *ngFor="let song of songs; index as i">
-    <div class="top_songs_list_left">
+  <div class="top_songs_list m24_cover" *ngFor="let song of songs; index as i" >
+    <div class="top_songs_list_left row">
       <div class="treanding_slider_main_box top_lis_left_content">
-        <div class="top_songs_list0img" >
-          <img src="{{song.imageUrl}}" alt="img" height="50px">
+        <div class="top_songs_list0img">
+          <img src="{{song.imageUrl}}" alt="img" height="50px" style="margin-left: 15px">
           <div class="m24_treanding_box_overlay">
             <div class="m24_tranding_box_overlay"></div>
 
-            <div class="tranding_play_icon">
-              <a href="#">
-                <i class="flaticon-play-button"></i>
-              </a>
-            </div>
           </div>
         </div>
         <div class="release_content_artist top_list_content_artist">
@@ -28,27 +23,10 @@
           <p class="various_artist_text"><a href="#">{{song?.artist?.nameArtist}}</a></p>
         </div>
       </div>
-      <div class="top_list_tract_time">
-        <p>4:22</p>
-      </div>
     </div>
-    <div class="top_songs_list_right">
-      <div class="top_list_tract_view">
-        <p>8M+ View</p>
-      </div>
-      <div class="top_song_list_picks">
-        <div class="m24_tranding_more_icon">
-          <i class="flaticon-menu"></i>
-        </div>
-        <ul class="tranding_more_option">
-          <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-          <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-          <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-          <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-          <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-        </ul>
-      </div>
-    </div>
+    <audio controls>
+      <source src="{{song.songUrl}}" style="width: 300px; height: auto">
+    </audio>
   </div>
 </div>
 

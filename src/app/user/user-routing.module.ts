@@ -40,9 +40,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'songs/detail',
+    path: 'songs/detail/:id',
     component: SongDetailComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'yoursongs',
@@ -50,7 +49,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'songs/edit',
+    path: 'songs/edit/:id',
     component: SongEditComponent,
     canActivate: [AuthGuard]
   },
@@ -60,7 +59,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'songs/delete',
+    path: 'songs/delete/:id',
     component: SongDeleteComponent,
     canActivate: [AuthGuard]
   },
@@ -68,6 +67,7 @@ const routes: Routes = [
     path: 'songs',
     component: SongListComponent,
   }
+
 ];
 
 @NgModule({

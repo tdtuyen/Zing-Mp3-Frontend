@@ -1,23 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../service/authentication.service";
 import {SongService} from "../../../service/song.service";
-import {
-  FormBuilder,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import {  FormBuilder,  FormGroup,  Validators} from '@angular/forms';
 import {ArtistService} from "../../../service/artist.service";
 import {Artist} from "../../../model/artist";
 import {Genre} from "../../../model/genre";
 import {GenreService} from "../../../service/genre.service";
 
+
+declare var $: any;
+declare var Swal: any;
+let isValidated = true;
+let artistId: number = null;
 @Component({
   selector: 'app-song-create',
   templateUrl: './song-create.component.html',
   styleUrls: ['./song-create.component.css']
 })
 export class SongCreateComponent implements OnInit {
-
   success: boolean;
   submitted = false;
   avatar = '';
@@ -29,6 +29,7 @@ export class SongCreateComponent implements OnInit {
   constructor(private auth: AuthenticationService, private songService: SongService,
               private artistService: ArtistService, private genreService: GenreService,
               private fb: FormBuilder) {
+
   }
 
 
@@ -46,14 +47,14 @@ export class SongCreateComponent implements OnInit {
     this.getAllGenre();
     this.getAllArtist();
     this.songForm = this.fb.group({
-      nameSong: ['', [Validators.required]],
-      description: ['', [Validators.required]],
+      nameSong: ['', [Validators.required,Validators.max(30)]],
+      description: ['', [Validators.required,Validators.max(500)]],
       author: ['', [Validators.required]],
       artist: ['', [Validators.required]],
       genre: ['', [Validators.required]],
       imageUrl: [''],
       songUrl: [''],
-      album: ['', [Validators.required]],
+      album: [''],
     })
   };
 
@@ -62,7 +63,10 @@ export class SongCreateComponent implements OnInit {
     if (this.songForm.valid) {
       const song = this.songForm.value;
       song.imageUrl = this.avatar;
+      console.log("test++",song.imageUrl);
       song.songUrl = this.files;
+      console.log("test++",song.songUrl);
+
       song.artist = {
         id: song.artist
       }
@@ -71,14 +75,28 @@ export class SongCreateComponent implements OnInit {
       }
       console.log(song);
       this.songService.saveSong(song).subscribe(() => {
-        console.log(this.songForm)
         this.success = true;
         this.submitted = false;
+        this.songForm.reset();
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+
+          Toast.fire({
+            icon: 'success',
+            type: 'success',
+            title: ' Successful song creation',
+          });
+        });
       }, e => {
         console.log(e);
       });
     }
-    this.songForm.reset();
     this.success = false;
   }
 
@@ -92,5 +110,9 @@ export class SongCreateComponent implements OnInit {
     this.genreService.getAll().subscribe(genres => {
       this.genres = genres;
     })
+  }
+
+  resetForm(){
+    this.songForm.reset();
   }
 }

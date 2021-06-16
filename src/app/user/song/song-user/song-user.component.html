@@ -5,7 +5,7 @@
       <input type="text" id="justAnotherInputBox" placeholder="search"/>
     </div>
     <div class="navi_searchbar_wrapper col-md-12 col-lg-6">
-      <a href="#"><i class="flaticon-playlist-3">Create</i></a>
+      <a  [routerLink]="['/user/songs/create']"><i class="flaticon-playlist-3">Create</i></a>
     </div>
   </div>
 </div>
@@ -50,17 +50,9 @@
                 <div class="m24_tranding_more_icon">
                   <i class="flaticon-menu"></i>
                 </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a>
-                  </li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view
-                    lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
+                <a style="text-decoration: none"  [routerLink]="['/user/songs/edit',song.id]">Edit</a>
               </li>
-              <li class="text-center cancel_times"><a href="#"><i class="fas fa-times-circle"></i></a></li>
+              <li class="text-center cancel_times"><a [routerLink]="['/user/songs/delete',song.id]"><i class="fas fa-times-circle"></i></a></li>
             </ul>
           </div>
           <div class="lang_apply_btn home_btn m24_cover">

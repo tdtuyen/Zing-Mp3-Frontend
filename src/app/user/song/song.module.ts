@@ -8,8 +8,7 @@ import { SongUserComponent } from './song-user/song-user.component';
 
 
 @NgModule({
-  declarations: [
-  SongUserComponent],
+  declarations: [],
     imports: [
         CommonModule,
         SongRoutingModule,
