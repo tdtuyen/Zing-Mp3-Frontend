@@ -11,6 +11,9 @@ import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.comp
 import {AuthGuard} from '../helper/auth-guard';
 import {UserEditComponent} from './user-edit/user-edit.component';
 import {SongUserComponent} from './song/song-user/song-user.component';
+import {ListenMusicComponent} from './listen-music/listen-music.component';
+import {SongPlayComponent} from './song/song-play/song-play.component';
+
 import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.component';
 
 
