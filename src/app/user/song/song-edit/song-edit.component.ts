@@ -1,13 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from "../../../service/authentication.service";
-import {Artist} from "../../../model/artist";
-import {Genre} from "../../../model/genre";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {SongService} from "../../../service/song.service";
-import {ArtistService} from "../../../service/artist.service";
-import {GenreService} from "../../../service/genre.service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {Song} from "../../../model/song";
+import {AuthenticationService} from '../../../service/authentication.service';
+import {Artist} from '../../../model/artist';
+import {Genre} from '../../../model/genre';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {SongService} from '../../../service/song.service';
+import {ArtistService} from '../../../service/artist.service';
+import {GenreService} from '../../../service/genre.service';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {Song} from '../../../model/song';
+import * as $ from 'jquery';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-song-edit',
@@ -20,8 +22,8 @@ export class SongEditComponent implements OnInit {
   submitted = false;
   avatar = '';
   files = '';
-  artists: Artist[] = []
-  genres: Genre[] = []
+  artists: Artist[] = [];
+  genres: Genre[] = [];
   editForm: FormGroup = new FormGroup({
     nameSong: new FormControl(''),
     description: new FormControl(''),
@@ -58,7 +60,7 @@ export class SongEditComponent implements OnInit {
   ngOnInit() {
     this.getAllArtist();
     this.getAllGenre();
-  };
+  }
 
   getSong(id: number) {
     return this.songService.findById(id).subscribe(song => {
@@ -83,15 +85,31 @@ export class SongEditComponent implements OnInit {
       song.songUrl = this.files;
       song.artist = {
         id: song.artist
-      }
+      };
       song.genre = {
         id: song.genre
-      }
+      };
       console.log(song);
       this.songService.updateSong(this.id, song).subscribe(() => {
-        console.log(this.editForm)
+        console.log(this.editForm);
         this.success = true;
         this.submitted = false;
+        // tslint:disable-next-line:only-arrow-functions
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+
+          // @ts-ignore
+          Toast.fire({
+            icon: 'success',
+            type: 'success',
+            title: 'Update Song Successfully',
+          });
+        });
       }, e => {
         console.log(e);
       });
@@ -102,12 +120,12 @@ export class SongEditComponent implements OnInit {
   getAllArtist() {
     this.artistService.getAll().subscribe(artists => {
       this.artists = artists;
-    })
+    });
   }
 
   getAllGenre() {
     this.genreService.getAll().subscribe(genres => {
       this.genres = genres;
-    })
+    });
   }
 }
