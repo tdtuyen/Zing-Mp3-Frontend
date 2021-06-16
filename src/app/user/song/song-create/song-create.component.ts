@@ -1,17 +1,17 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../../../service/authentication.service';
-import {SongService} from '../../../service/song.service';
-import {  FormBuilder,  FormGroup,  Validators} from '@angular/forms';
-import {ArtistService} from '../../../service/artist.service';
-import {Artist} from '../../../model/artist';
-import {Genre} from '../../../model/genre';
-import {GenreService} from '../../../service/genre.service';
+import {AuthenticationService} from "../../../service/authentication.service";
+import {SongService} from "../../../service/song.service";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ArtistService} from "../../../service/artist.service";
+import {Artist} from "../../../model/artist";
+import {Genre} from "../../../model/genre";
+import {GenreService} from "../../../service/genre.service";
+import * as $ from "jquery";
+import Swal from "sweetalert2";
 
 
-declare var $: any;
-declare var Swal: any;
-const isValidated = true;
-const artistId: number = null;
+
+
 @Component({
   selector: 'app-song-create',
   templateUrl: './song-create.component.html',
@@ -22,13 +22,15 @@ export class SongCreateComponent implements OnInit {
   submitted = false;
   avatar = '';
   files = '';
-  artists: Artist[] = [];
-  genres: Genre[] = [];
+  artists: Artist[] = []
+  genres: Genre[] = []
   songForm: FormGroup;
 
   constructor(private auth: AuthenticationService, private songService: SongService,
               private artistService: ArtistService, private genreService: GenreService,
               private fb: FormBuilder) {
+    this.getAllGenre();
+    this.getAllArtist();
 
   }
 
@@ -43,19 +45,19 @@ export class SongCreateComponent implements OnInit {
     console.log('files ===>', this.files);
   }
 
-  ngOnInit(): void {
-    this.getAllGenre();
-    this.getAllArtist();
+  ngOnInit() {
     this.songForm = this.fb.group({
       nameSong: ['', [Validators.required, Validators.max(30)]],
       description: ['', [Validators.required, Validators.max(500)]],
       author: ['', [Validators.required]],
       artist: ['', [Validators.required]],
       genre: ['', [Validators.required]],
+      album: [''],
       imageUrl: [''],
       songUrl: [''],
-      album: [''],
-    });
+
+    })
+
   }
 
   createSong() {
@@ -63,22 +65,16 @@ export class SongCreateComponent implements OnInit {
     if (this.songForm.valid) {
       const song = this.songForm.value;
       song.imageUrl = this.avatar;
-      console.log('test++', song.imageUrl);
       song.songUrl = this.files;
-      console.log('test++', song.songUrl);
-
       song.artist = {
         id: song.artist
-      };
+      }
       song.genre = {
         id: song.genre
-      };
-      console.log(song);
+      }
       this.songService.saveSong(song).subscribe(() => {
         this.success = true;
         this.submitted = false;
-        this.songForm.reset();
-        // tslint:disable-next-line:only-arrow-functions
         $(function() {
           const Toast = Swal.mixin({
             toast: true,
@@ -86,33 +82,30 @@ export class SongCreateComponent implements OnInit {
             showConfirmButton: false,
             timer: 3000
           });
-
-
+          // @ts-ignore
           Toast.fire({
             icon: 'success',
             type: 'success',
-            title: ' Successful song creation',
+            title: 'update Song successfully',
           });
         });
+        this.songForm.reset();
       }, e => {
         console.log(e);
       });
     }
     this.success = false;
   }
-
   getAllArtist() {
     this.artistService.getAll().subscribe(artists => {
       this.artists = artists;
-    });
+    })
   }
-
   getAllGenre() {
     this.genreService.getAll().subscribe(genres => {
       this.genres = genres;
-    });
+    })
   }
-
   resetForm() {
     this.songForm.reset();
   }
