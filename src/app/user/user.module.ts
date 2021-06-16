@@ -21,9 +21,10 @@ import {SongCreateComponent} from './song/song-create/song-create.component';
 import {UploadModule} from '../upload/upload.module';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { ListenMusicComponent } from './listen-music/listen-music.component';
 import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 import {SongUserComponent} from './song/song-user/song-user.component';
+import {SongPlayComponent} from './song/song-play/song-play.component';
+import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.component';
 
 
 @NgModule({
@@ -42,8 +43,9 @@ import {SongUserComponent} from './song/song-user/song-user.component';
     EditPlaylistComponent,
     ListPlaylistComponent,
     UserEditComponent,
-  SongUserComponent,
-    ListenMusicComponent
+    SongUserComponent,
+    SongPlayComponent,
+    YourPlaylistComponent
   ],
 
 
@@ -60,8 +62,10 @@ import {SongUserComponent} from './song/song-user/song-user.component';
     SongEditComponent,
     SongCreateComponent,
     CreatePlaylistComponent,
+    EditPlaylistComponent,
     ListPlaylistComponent,
     UserEditComponent,
+    SongUserComponent,
     SongUserComponent,
     CreatePlaylistComponent,
     NewPlaylistComponent,
@@ -69,7 +73,9 @@ import {SongUserComponent} from './song/song-user/song-user.component';
     CreatePlaylistComponent,
     NewPlaylistComponent,
     TopPlaylistComponent,
-    EditPlaylistComponent
+    EditPlaylistComponent,
+    SongPlayComponent,
+    YourPlaylistComponent
   ],
     imports: [
         CommonModule,

@@ -43,7 +43,7 @@
               <li class="text-center">remove</li>
             </ul>
             <ul class="album_inner_list_padding" *ngFor="let song of songs; index as i">
-              <li><a href="#"><span class="play_no">{{i + 1}}</span><span class="play_hover"><i
+              <li><a style="cursor:pointer;" (click)="getInforSong(song)"><span class="play_no">{{i + 1}}</span><span class="play_hover"><i
                 class="flaticon-play-button"></i></span></a></li>
               <li class="song_title_width">
                 <div class="top_song_artist_wrapper">

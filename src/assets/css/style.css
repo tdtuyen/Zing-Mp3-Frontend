@@ -3713,7 +3713,7 @@ body.off-canvas-overlay-on {
 .adonis-player-wrap .jp-play-bar {
   position: relative;
 }
-.adonis-player-wrap .jp-volume-bar-value::after,
+
 .adonis-player-wrap .jp-play-bar::after {
   content: "";
   height: 10px;

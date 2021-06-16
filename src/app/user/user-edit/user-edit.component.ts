@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {UserService} from '../../service/user/user.service';
 import * as $ from 'jquery';
 import Swal from 'sweetalert2';
+import {AuthenticationService} from '../../service/authentication.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -24,6 +25,7 @@ export class UserEditComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private userService: UserService,
+              private authService: AuthenticationService,
               private router: Router) {
     this.getUser();
   }
@@ -57,6 +59,9 @@ export class UserEditComponent implements OnInit {
       user.avatar = this.avatar;
       console.log(user);
       this.userService.saveUser(user).subscribe(() => {
+        const jwtResponse = this.authService.currentUserValue;
+        jwtResponse.avatar = user.avatar;
+        this.authService.currentUserSubject.next(jwtResponse);
         this.submitted = true;
         // // @ts-ignore
         // this.router.navigateByUrl(['']);

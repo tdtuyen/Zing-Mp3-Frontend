@@ -10,7 +10,12 @@ import {EditPlaylistComponent} from './playlist/edit-playlist/edit-playlist.comp
 import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.component';
 import {AuthGuard} from '../helper/auth-guard';
 import {UserEditComponent} from './user-edit/user-edit.component';
-import {SongUserComponent} from "./song/song-user/song-user.component";
+import {SongUserComponent} from './song/song-user/song-user.component';
+import {ListenMusicComponent} from './listen-music/listen-music.component';
+import {SongPlayComponent} from './song/song-play/song-play.component';
+
+import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.component';
+
 
 
 const routes: Routes = [
@@ -25,19 +30,28 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'playlists/edit' ,
+    path: 'playlists/edit/:id' ,
     component: EditPlaylistComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'yourplaylists' ,
-    component: ListPlaylistComponent,
+    component: YourPlaylistComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'playlist/delete' ,
+    path: 'playlists/delete' ,
     component: EditPlaylistComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'playlists/detail/:id' ,
+    component: EditPlaylistComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'allplaylists',
+    component: ListPlaylistComponent,
   },
   {
     path: 'songs/detail/:id',
