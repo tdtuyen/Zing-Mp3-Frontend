@@ -8,6 +8,6 @@ export interface Song {
   author?: string;
   likes?: number;
   views?: number;
-  artist?:any;
+  artist?: any;
   genre?: any;
 }
