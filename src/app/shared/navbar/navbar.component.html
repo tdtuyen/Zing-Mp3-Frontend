@@ -19,19 +19,26 @@
       </div>
       <div *ngIf="currentUser">
         <div class="crm_message_dropbox_wrapper" *ngIf="currentUser" style="padding-left: 20px">
-          <div class="nice-select budge_noti_wrapper" tabindex="0">
-            <a  class="blog_image" ><img style="width: 45px;height: 45px;border-radius: 50%;display: inline" src="{{currentUser.avatar}}" alt="img"></a>
-            <p style="display: inline"> </p>
+          <div class="nice-select budge_noti_wrapper w3-container" tabindex="0">
+            <img style="width: 45px;height: 45px;border-radius: 50%;display: inline" src="{{currentUser.avatar}}" alt="img">
+
             <ul class="list pullDown" style="height: 100px;width: 200px">
-              <li><a routerLink="/user/edit">Edit profile</a>
+              <li>
               </li>
-              <li><a style="padding-left: 17px;font-size:17px;" routerLink="#" (click)="logout()">Logout</a>
+              <li>
               </li>
             </ul>
           </div>
         </div>
         <div class="m24_signin_wrapper" style="margin-top: 7px;">
-          <a href="#" >{{currentUser.username}}</a>
+          <a  class="w3-dropdown-hover" style="background:none ">{{currentUser.username}}
+            <div class="w3-dropdown-content w3-bar-block w3-border" style="margin-right: 500px;border-radius: 50%;
+">
+              <a class="w3-bar-item w3-button"  routerLink="/user/edit">Edit profile <i class="fa fa-gear"></i></a>
+              <a class="w3-bar-item w3-button" (click)="logout()">Logout &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"></i> </a>
+            </div>
+          </a>
+<!--          <a href="#" ></a>-->
         </div>
       </div>
 

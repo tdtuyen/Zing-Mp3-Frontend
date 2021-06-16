@@ -91,6 +91,7 @@ export class RegisterComponent implements OnInit {
         this.submitted = false;
         this.registerForm.reset();
         this.checkSuccess.status = true;
+        console.log(data);
         // tslint:disable-next-line:only-arrow-functions
         $(function() {
           const Toast = Swal.mixin({
@@ -111,6 +112,7 @@ export class RegisterComponent implements OnInit {
         this.showlogin.nativeElement.click();
 
       }, (data) => {
+        console.log(data);
         if (data.error === this.error1.message) {
           this.checkSuccess.messagedb = this.error1.message;
           this.checkSuccess.message = 'The username is existed! Please try again!';
@@ -125,7 +127,4 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  testvalue($event: Event) {
-    console.log($event);
-  }
 }
