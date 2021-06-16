@@ -10,7 +10,7 @@
           </div>
           <div class="login_form_wrapper">
               <div class="icon_form comments_form">
-                <input type="text" formControlName="username" class="form-control" name="first_name" placeholder="Enter your user name">
+                <input type="text" formControlName="username" class="form-control" placeholder="Enter your user name">
                 <i class="fas fa-user"></i>
               </div>
 
@@ -23,13 +23,13 @@
               </div>
 
               <div class="icon_form comments_form">
-                <input type="text" formControlName="phone" class="form-control" name="full_name" placeholder="Enter phone*">
+                <input type="text" formControlName="phone" class="form-control" placeholder="Enter phone*">
                 <i class="fas fa-envelope"></i>
               </div>
 
               <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && registerForm.get('phone').errors">
                 <span style="color: red" *ngIf="registerForm.get('phone').hasError('required')">Phone is required</span>
-                <span style="color: red" *ngIf="registerForm.get('phone').hasError('pattern')">Phone must start with +84 followed by 9 or 10 digits.</span>
+                <span style="color: red" *ngIf="registerForm.get('phone').hasError('pattern')">Phone invalid.</span>
               </div>
               <div style="color: red" class="alert alert-danger" role="alert" *ngIf="checkSuccess.messagedb === 'dbphone'">
                 <span style="color: red" >{{checkSuccess.message}}</span>

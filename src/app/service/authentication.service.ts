@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {environment} from '../../environments/environment.prod';
+import {environment} from '../../environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
@@ -36,7 +36,7 @@ export class AuthenticationService {
     this.currentUserSubject.next(null);
   }
 
-  testJwt() {
-    return this.http.get<string>(`${API_URL}/greetings`);
-  }
+  // testJwt() {
+  //   return this.http.get<string>(`${API_URL}/greetings`);
+  // }
 }

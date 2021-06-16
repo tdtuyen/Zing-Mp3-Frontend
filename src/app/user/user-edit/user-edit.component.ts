@@ -31,10 +31,10 @@ export class UserEditComponent implements OnInit {
   getUser() {
     return this.userService.getCurrentUser().subscribe(user => {
       this.editForm = this.fb.group({
-        username: [user.username, [Validators.required, Validators.min(6), Validators.max(8)]],
+        username: [user.username, [Validators.required, Validators.minLength(6), Validators.maxLength(8)]],
         address: [user.address, [Validators.required]],
         email: [user.email, [Validators.required, Validators.email]],
-        phone: [user.phone, [Validators.required, Validators.pattern(/^\+84\d{9,10}$/)]],
+        phone: [user.phone, [Validators.required, Validators.pattern(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/)]],
         avatar: [user.avatar]
       });
     }, error => {
