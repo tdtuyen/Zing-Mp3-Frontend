@@ -11,11 +11,12 @@ import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.comp
 import {AuthGuard} from '../helper/auth-guard';
 import {UserEditComponent} from './user-edit/user-edit.component';
 import {SongUserComponent} from './song/song-user/song-user.component';
-import {ListenMusicComponent} from './listen-music/listen-music.component';
 import {SongPlayComponent} from './song/song-play/song-play.component';
 
 import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.component';
 
+import {TopPlaylistComponent} from './playlist/top-playlist/top-playlist.component';
+import {NewPlaylistComponent} from './playlist/new-playlist/new-playlist.component';
 
 
 const routes: Routes = [
@@ -40,18 +41,9 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'playlists/delete' ,
+    path: 'playlist/delete' ,
     component: EditPlaylistComponent,
     canActivate: [AuthGuard]
-  },
-  {
-    path: 'playlists/detail/:id' ,
-    component: EditPlaylistComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'allplaylists',
-    component: ListPlaylistComponent,
   },
   {
     path: 'songs/detail/:id',
@@ -80,6 +72,18 @@ const routes: Routes = [
   {
     path: 'allsongs',
     component: SongListComponent,
+  },
+  {
+    path: 'playlists/rating',
+    component: TopPlaylistComponent,
+  },
+  {
+    path: 'playlists/news',
+    component: NewPlaylistComponent,
+  },
+  {
+    path: 'allplaylists',
+    component: ListPlaylistComponent,
   }
 
 ];

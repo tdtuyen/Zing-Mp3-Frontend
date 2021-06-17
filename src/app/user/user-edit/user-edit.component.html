@@ -6,7 +6,7 @@
         <div class="indx_title_left_wrapper m24_cover">
           <h2>Profile</h2>
           <ul>
-            <li><a routerLink="">Home</a>/</li>
+            <li><a routerLink="/">Home</a>/</li>
             <li>Update Profile</li>
           </ul>
         </div>
@@ -46,7 +46,7 @@
               <label>Address</label>
               <div class="icon_form comments_form">
                 <input type="text" formControlName="address" class="form-control">
-                <i class="fas fa-envelope"></i>
+                <i class="far fa-address-card"></i>
               </div>
 
               <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && editForm.get('address').errors">
@@ -74,7 +74,7 @@
               <label>Phone</label>
               <div class="icon_form comments_form">
                 <input type="text" formControlName="phone" class="form-control">
-                <i class="fas fa-envelope"></i>
+                <i class="fas fa-phone"></i>
               </div>
 
               <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && editForm.get('phone').errors">
@@ -89,7 +89,7 @@
               <div class="icon_form comments_form">
                 <app-image (giveURLtoCreate)="onChangeAvatar($event)"></app-image>
 <!--                <input type="text" formControlName="avatar" class="form-control" name="full_name">-->
-                <i class="fas fa-envelope"></i>
+                <i class="fas fa-image"></i>
               </div>
 
               <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && editForm.get('phone').errors">
