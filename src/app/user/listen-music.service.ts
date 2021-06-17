@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 import * as moment from 'moment';
 import {Song} from '../model/song';
@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class ListenMusicService {
-  public statusSong: boolean;
+  public statusSong: Subject<any> = new Subject<boolean>();
   public song: Observable<Song>;
   public songObject: BehaviorSubject<Song>;
   constructor(private http: HttpClient) {

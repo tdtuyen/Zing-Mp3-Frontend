@@ -28,7 +28,7 @@ export class SongUserComponent implements OnInit {
   }
 
   getInforSong(song) {
-    this.listenMusicService.statusSong = true;
+    this.listenMusicService.statusSong.next(true);
     this.listenMusicService.songObject.next(song);
     this.listenMusicService.openFile(song);
   }
