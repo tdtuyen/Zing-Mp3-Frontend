@@ -13,7 +13,7 @@ export class SongUserComponent implements OnInit {
 
   songs: Song[] = [];
   song: Song;
-  id:number;
+  id: number;
 
   constructor(private songService: SongService, private router: Router,
               private listenMusicService: ListenMusicService) {
@@ -25,19 +25,18 @@ export class SongUserComponent implements OnInit {
 
   getYourSong() {
     this.songService.getYourSong().subscribe(songs => {
-      console.log(songs)
       this.songs = songs;
     }, error => {
-      console.log("error", error)
+      console.log('error', error);
     });
   }
 
   deleteSong(id: number) {
     this.songService.deleteSong(id).subscribe(song => {
       this.song = song;
-    this.getYourSong();
+      this.getYourSong();
       }, error => {
-      console.log("error", error)
+      console.log('error', error);
     })
   }
   getInforSong(song) {
