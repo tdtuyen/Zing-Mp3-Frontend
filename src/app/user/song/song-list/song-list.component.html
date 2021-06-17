@@ -47,9 +47,16 @@
               <li class="song_title_width"><a href="#">{{song?.artist?.nameArtist}}</a></li>
 
               <li>
-                <audio controls>
-                  <source src="{{song.songUrl}}" style="width: 350px; height: auto">
-                </audio>
+                <div>
+
+                  <div *ngFor="let playlist of playLists">
+                    <button type="button"
+                            (click)="addSongToPlaylist(playlist.id,song.id)" >{{playlist.namePlaylist}}</button></div>
+
+                </div>
+<!--                <audio controls>-->
+<!--                  <source src="{{song.songUrl}}" style="width: 350px; height: auto">-->
+<!--                </audio>-->
               </li>
 
               <li class="text-center top_song_artist_playlist">

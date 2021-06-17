@@ -66,32 +66,32 @@
             }),
 
 			//----------- treanding wrapper slider js -------------//
-			$(document).ready(function() {
-                $(".treanding_song_slider .owl-carousel").owlCarousel({
-                    loop: !0,
-                    margin: 15,
-                    autoplay: !1,
-                    smartSpeed: 1200,
-                    responsiveClass: !0,
-                    navText: ['<i class="flaticon-left-arrow"></i>', '<i class="flaticon-right-arrow"></i>'],
-                    responsive: {
-                        0: {
-                            items: 1,
-                            nav: !0
-                        },
-                        600: {
-                            items: 3,
-                            nav: !0
-                        },
-                        1000: {
-                            items: 5,
-                            nav: !0,
-                            loop: !0,
-                            margin: 20
-                        }
-                    }
-                })
-            }),
+			// $(document).ready(function() {
+      //           $(".treanding_song_slider .owl-carousel").owlCarousel({
+      //               loop: !0,
+      //               margin: 15,
+      //               autoplay: !1,
+      //               smartSpeed: 1200,
+      //               responsiveClass: !0,
+      //               navText: ['<i class="flaticon-left-arrow"></i>', '<i class="flaticon-right-arrow"></i>'],
+      //               responsive: {
+      //                   0: {
+      //                       items: 1,
+      //                       nav: !0
+      //                   },
+      //                   600: {
+      //                       items: 3,
+      //                       nav: !0
+      //                   },
+      //                   1000: {
+      //                       items: 5,
+      //                       nav: !0,
+      //                       loop: !0,
+      //                       margin: 20
+      //                   }
+      //               }
+      //           })
+      //       }),
 
 //----------- treanding wrapper slider js -------------//
 			$(document).ready(function() {
@@ -382,24 +382,24 @@
                 }
            })
         // $("select").niceSelect();
-        //     var adonisObj = {};
-        //     jQuery(document).ready(function(t) {
-        //         adonisObj.toggleOffCanvas = function(e) {
-        //             var a = t(e).hasClass("show") ? "hide" : "show";
-        //             return "show" == a ? (t(e).addClass("show"), t("body").addClass("off-canvas-overlay-on")) : (t(e).removeClass("show"), t("body").removeClass("off-canvas-overlay-on")), "" == t(".off-canvas-overlay").attr("data-target") || void 0 === t(".off-canvas-overlay").attr("data-target") ? t(".off-canvas-overlay").attr("data-target", e) : t(".off-canvas-overlay").removeAttr("data-target"), a
-        //         }, adonisObj.ajaxify = function() {
-        //             if (!0 === filterlinks(_url)) {
-        //                 if (t(this).parents(".off-canvas").length > 0) {
-        //                     var a = t(this).parents(".off-canvas"),
-        //                         o = void 0 !== a.attr("data-close-offcanvas-below") ? a.attr("data-close-offcanvas-below") : "";
-        //                     t(window).outerWidth() < parseInt(o) && adonisObj.toggleOffCanvas(a)
-        //                 }
-        //                 e.preventDefault(), adonisObj.hideOffCanvas()
-        //             }
-        //         }, t(document).on("click", ".toggle-off-canvas,.off-canvas-overlay,.close-offcanvas", function(e) {
-        //             e.preventDefault(), adonisObj.toggleOffCanvas(t(this).attr("data-target"))
-        //         })
-        //     });
+            var adonisObj = {};
+            jQuery(document).ready(function(t) {
+                adonisObj.toggleOffCanvas = function(e) {
+                    var a = t(e).hasClass("show") ? "hide" : "show";
+                    return "show" == a ? (t(e).addClass("show"), t("body").addClass("off-canvas-overlay-on")) : (t(e).removeClass("show"), t("body").removeClass("off-canvas-overlay-on")), "" == t(".off-canvas-overlay").attr("data-target") || void 0 === t(".off-canvas-overlay").attr("data-target") ? t(".off-canvas-overlay").attr("data-target", e) : t(".off-canvas-overlay").removeAttr("data-target"), a
+                }, adonisObj.ajaxify = function() {
+                    if (!0 === filterlinks(_url)) {
+                        if (t(this).parents(".off-canvas").length > 0) {
+                            var a = t(this).parents(".off-canvas"),
+                                o = void 0 !== a.attr("data-close-offcanvas-below") ? a.attr("data-close-offcanvas-below") : "";
+                            t(window).outerWidth() < parseInt(o) && adonisObj.toggleOffCanvas(a)
+                        }
+                        e.preventDefault(), adonisObj.hideOffCanvas()
+                    }
+                }, t(document).on("click", ".toggle-off-canvas,.off-canvas-overlay,.close-offcanvas", function(e) {
+                    e.preventDefault(), adonisObj.toggleOffCanvas(t(this).attr("data-target"))
+                })
+            });
             const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]'),
                 currentTheme = localStorage.getItem("theme");
 

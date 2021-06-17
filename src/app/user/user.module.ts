@@ -25,6 +25,7 @@ import {NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
 import {SongUserComponent} from './song/song-user/song-user.component';
 import {SongPlayComponent} from './song/song-play/song-play.component';
 import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.component';
+import {CarouselModule} from "ngx-owl-carousel-o";
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.comp
     SongUserComponent,
     SongPlayComponent,
     YourPlaylistComponent
+
   ],
 
 
@@ -82,7 +84,8 @@ import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.comp
         UserRoutingModule,
         UploadModule,
         ReactiveFormsModule,
-        NgbCarouselModule
+        NgbCarouselModule,
+        CarouselModule
     ],
 
 })

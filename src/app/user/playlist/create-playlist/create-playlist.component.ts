@@ -49,7 +49,7 @@ export class CreatePlaylistComponent implements OnInit {
         id: playlists.genre
       };
       console.log(playlists);
-      this.playlistService.createNewPlaylisst(playlists).subscribe(() => {
+      this.playlistService.createNewPlaylist(playlists).subscribe(() => {
         this.success = true;
         this.submitted = false;
         this.playlistForm.reset();
