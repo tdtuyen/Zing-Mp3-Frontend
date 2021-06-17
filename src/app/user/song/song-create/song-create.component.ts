@@ -36,8 +36,9 @@ export class SongCreateComponent implements OnInit {
 
 
   onChangeAvatar($event) {
-    this.avatar = $event;
-    console.log('avatar ===>', this.avatar);
+      this.avatar = $event;
+      if(this.avatar != ""){
+      }
   }
 
   onChangeFile($event) {
