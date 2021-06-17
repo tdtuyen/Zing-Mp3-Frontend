@@ -7,7 +7,8 @@ import {SongService} from "../../../service/song.service";
 import {ArtistService} from "../../../service/artist.service";
 import {GenreService} from "../../../service/genre.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
-import {Song} from "../../../model/song";
+import * as $ from "jquery";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-song-edit',
@@ -15,7 +16,6 @@ import {Song} from "../../../model/song";
   styleUrls: ['./song-edit.component.css']
 })
 export class SongEditComponent implements OnInit {
-
   success: boolean;
   submitted = false;
   avatar = '';
@@ -87,11 +87,25 @@ export class SongEditComponent implements OnInit {
       song.genre = {
         id: song.genre
       }
-      console.log(song);
       this.songService.updateSong(this.id, song).subscribe(() => {
         console.log(this.editForm)
         this.success = true;
         this.submitted = false;
+
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+          // @ts-ignore
+          Toast.fire({
+            icon: 'success',
+            type: 'success',
+            title: 'update Song successfully',
+          });
+        });
       }, e => {
         console.log(e);
       });

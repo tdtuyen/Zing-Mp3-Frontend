@@ -3,7 +3,7 @@
   <div class="container-fluid">
     <div class="m24_logo_wrapper">
       <div class="m24_logo_div">
-        <a href="index.html">
+        <a routerLink="/">
           <img src="assets/images/logo.png" alt="logo">
         </a>
       </div>
@@ -14,14 +14,14 @@
 
     <div class="m24_header_right_Wrapper d-none d-sm-none d-md-none d-lg-none d-xl-block">
       <div class="m24_signin_wrapper" style="margin-top: 7px;cursor: pointer;" *ngIf="!currentUser">
-        <a  data-toggle="modal" data-target="#login_modal">Login / </a>
-        <a  data-toggle="modal" data-target="#register_modal">Register</a>
+        <a data-toggle="modal" data-target="#login_modal">Login / </a>
+        <a data-toggle="modal" data-target="#register_modal">Register</a>
       </div>
       <div *ngIf="currentUser">
         <div class="crm_message_dropbox_wrapper" *ngIf="currentUser" style="padding-left: 20px">
           <div class="nice-select budge_noti_wrapper" tabindex="0">
-            <a  class="blog_image" ><img style="width: 45px;height: 45px;border-radius: 50%;display: inline" src="{{currentUser.avatar}}" alt="img"></a>
-            <p style="display: inline"> </p>
+            <a class="blog_image"><img style="width: 45px;height: 45px;border-radius: 50%;display: inline" src="{{currentUser.avatar}}" alt="img"></a>
+            <p style="display: inline"></p>
             <ul class="list pullDown" style="height: 100px;width: 200px">
               <li><a routerLink="/user/edit">Edit profile</a>
               </li>
@@ -31,28 +31,27 @@
           </div>
         </div>
         <div class="m24_signin_wrapper" style="margin-top: 7px;">
-          <a  >{{currentUser.username}}</a>
+          <a>{{currentUser.username}}</a>
         </div>
       </div>
-
     </div>
 
     <div class="m24_navigation_wrapper">
       <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
         <ul class="main_nav_ul">
-          <li class="has-mega gc_main_navigation"><a href="#" class="gc_main_navigation">more <i class="flaticon-down-arrow"></i></a>
+          <li class="has-mega gc_main_navigation"><a class="gc_main_navigation">Quick Link <i class="flaticon-down-arrow"></i></a>
             <ul class="navi_2_dropdown">
               <li class="parent">
-                <a href="contact_us.html"><i class="fas fa-caret-right"></i>contact</a>
+                <a routerLink="/user/allplaylists"><i class="fas fa-caret-right"></i>All Playlists</a>
               </li>
               <li class="parent">
-                <a href="pricing_plan.html"><i class="fas fa-caret-right"></i> pricing plan </a>
+                <a routerLink="/user/allsongs"><i class="fas fa-caret-right"></i>All Songs</a>
               </li>
               <li class="parent">
-                <a href="error_page.html"><i class="fas fa-caret-right"></i> error page </a>
+                <a routerLink="/user/yourplaylists"><i class="fas fa-caret-right"></i>My Playlists</a>
               </li>
               <li class="parent">
-                <a href="favourite.html"><i class="fas fa-caret-right"></i> favourite song </a>
+                <a routerLink="/user/yoursongs"><i class="fas fa-caret-right"></i>My Songs</a>
               </li>
             </ul>
           </li>
@@ -62,85 +61,85 @@
       <!-- mainmenu end -->
       <div class="navi_searchbar_wrapper">
         <i class="flaticon-magnifying-glass"></i>
-
-        <input type="text" id="justAnotherInputBox" placeholder="Search for Songs, Artists, Playlists and More.." />
+        <input type="text" id="" placeholder="Search for Songs, Artists, Playlists And More..." style="width: 450px"/>
       </div>
       <div class="d-block d-sm-block d-md-block d-lg-block d-xl-none">
         <div class="search_bar">
-          <div class="res_search_bar" id="search_button"> <i class="fa fa-ellipsis-v"></i>
+          <div class="res_search_bar" id="search_button"><i class="fa fa-ellipsis-v"></i>
           </div>
           <div id="search_open" class="res_search_box">
 
             <div class="lang_list_wrapper responsive_search_toggle">
-              <a href="#" data-toggle="modal" data-target="#myModal">languages <i class="fas fa-language"></i></a>
+              <a  data-toggle="modal" data-target="#myModal">languages <i class="fas fa-language"></i></a>
             </div>
 
             <div class="m24_signin_wrapper responsive_search_toggle">
 
-              <a href="#" data-toggle="modal" data-target="#login_modal"><img src="images/pf.png" alt="img">
+              <a  data-toggle="modal" data-target="#login_modal"><img src="assets/images/pf.png" alt="img">
                 <div class="login_top_wrapper">
                   <p>login/register</p>
 
                 </div>
               </a>
             </div>
-            <div class="crm_message_dropbox_wrapper responsive_search_toggle">
-              <div class="nice-select budge_noti_wrapper" tabindex="0"> <span class="current budge_noti"><i class="flaticon-bell"></i></span>
-                <p class="notify_para">notifications</p>
+<!--            <div class="crm_message_dropbox_wrapper responsive_search_toggle">-->
+<!--              <div class="nice-select budge_noti_wrapper" tabindex="0"><span class="current budge_noti"><i-->
+<!--                class="flaticon-bell"></i></span>-->
+<!--                <p class="notify_para">notifications</p>-->
 
-                <ul class="list">
-                  <li><a href="#"></a>
-                  </li>
-                  <li>
-                    <div class="crm_mess_main_box_wrapper">
-                      <div class="crm_mess_img_wrapper">
-                        <img src="images/nt1.jpg" alt="img">
-                      </div>
-                      <div class="crm_mess_img_cont_wrapper">
-                        <h4>Walking Promises <span>01:30PM</span></h4>
-                        <p>Ava Cornish</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="crm_mess_main_box_wrapper">
-                      <div class="crm_mess_img_wrapper">
-                        <img src="images/nt2.jpg" alt="img">
-                      </div>
-                      <div class="crm_mess_img_cont_wrapper">
-                        <h4>Until I Met You <span>01:30PM</span></h4>
-                        <p>diu pokal</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="crm_mess_main_box_wrapper">
-                      <div class="crm_mess_img_wrapper">
-                        <img src="images/nt3.jpg" alt="img">
-                      </div>
-                      <div class="crm_mess_img_cont_wrapper">
-                        <h4>merry with you<span>01:30PM</span></h4>
-                        <p>love song</p>
-                      </div>
-                    </div>
-                  </li>
+<!--                <ul class="list">-->
+<!--                  <li><a href="#"></a>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <div class="crm_mess_main_box_wrapper">-->
+<!--                      <div class="crm_mess_img_wrapper">-->
+<!--                        <img src="assets/images/nt1.jpg" alt="img">-->
+<!--                      </div>-->
+<!--                      <div class="crm_mess_img_cont_wrapper">-->
+<!--                        <h4>Walking Promises <span>01:30PM</span></h4>-->
+<!--                        <p>Ava Cornish</p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <div class="crm_mess_main_box_wrapper">-->
+<!--                      <div class="crm_mess_img_wrapper">-->
+<!--                        <img src="assets/images/nt2.jpg" alt="img">-->
+<!--                      </div>-->
+<!--                      <div class="crm_mess_img_cont_wrapper">-->
+<!--                        <h4>Until I Met You <span>01:30PM</span></h4>-->
+<!--                        <p>diu pokal</p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </li>-->
+<!--                  <li>-->
+<!--                    <div class="crm_mess_main_box_wrapper">-->
+<!--                      <div class="crm_mess_img_wrapper">-->
+<!--                        <img src="assets/images/nt3.jpg" alt="img">-->
+<!--                      </div>-->
+<!--                      <div class="crm_mess_img_cont_wrapper">-->
+<!--                        <h4>merry with you<span>01:30PM</span></h4>-->
+<!--                        <p>love song</p>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </li>-->
 
-                  <li>
-                    <div class="crm_mess_all_main_box_wrapper">
-                      <p><a href="#">See All</a>
-                      </p>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
+<!--                  <li>-->
+<!--                    <div class="crm_mess_all_main_box_wrapper">-->
+<!--                      <p><a href="#">See All</a>-->
+<!--                      </p>-->
+<!--                    </div>-->
+<!--                  </li>-->
+<!--                </ul>-->
+<!--              </div>-->
+<!--            </div>-->
           </div>
         </div>
       </div>
       <div class="m24_navi_langauage_box">
         <div class="theme-switch-wrapper">
           <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
+            <input type="checkbox" id="checkbox"/>
             <span class="slider round"></span>
           </label>
         </div>

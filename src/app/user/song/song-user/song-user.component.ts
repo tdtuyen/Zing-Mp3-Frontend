@@ -10,7 +10,10 @@ import {ListenMusicService} from '../../listen-music.service';
   styleUrls: ['./song-user.component.css']
 })
 export class SongUserComponent implements OnInit {
+
   songs: Song[] = [];
+  song: Song;
+  id:number;
 
   constructor(private songService: SongService, private router: Router,
               private listenMusicService: ListenMusicService) {
@@ -22,11 +25,21 @@ export class SongUserComponent implements OnInit {
 
   getYourSong() {
     this.songService.getYourSong().subscribe(songs => {
-      console.log(songs);
+      console.log(songs)
       this.songs = songs;
-    }, error => {console.log('error', error); });
+    }, error => {
+      console.log("error", error)
+    });
   }
 
+  deleteSong(id: number) {
+    this.songService.deleteSong(id).subscribe(song => {
+      this.song = song;
+    this.getYourSong();
+      }, error => {
+      console.log("error", error)
+    })
+  }
   getInforSong(song) {
     this.listenMusicService.statusSong.next(true);
     this.listenMusicService.songObject.next(song);

@@ -12,7 +12,7 @@ const API_URL = `${environment.apiUrl}`;
 })
 export class AuthenticationService {
   public currentUser: Observable<JwtResponse>;
-  private currentUserSubject: BehaviorSubject<JwtResponse>;
+   currentUserSubject: BehaviorSubject<JwtResponse>;
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<JwtResponse>(JSON.parse(localStorage.getItem('currentUser')));

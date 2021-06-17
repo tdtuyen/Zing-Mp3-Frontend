@@ -1,3 +1,20 @@
+<div class="indx_title_main_wrapper">
+  <div class="title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="indx_title_left_wrapper m24_cover">
+          <h2>My Songs</h2>
+          <ul>
+            <li><a routerLink="/user/yoursong">Home</a> &nbsp;&nbsp;&nbsp;/</li>
+            <li>Edit Song</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <form [formGroup]="editForm" (ngSubmit)="editSong(editForm.value.id)">
   <div class="lang_m24_banner" id="login_modal" role="dialog">
     <div id="register_modal" role="dialog">
@@ -7,38 +24,35 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
               <div class="m24_language_box m24_cover">
-                <h1 style="margin: auto">Create Song</h1>
-
+                <h1 style="margin: auto">Edit Song</h1>
               </div>
               <div class="login_form_wrapper">
-                <div style="color: chocolate">Tên Bài Hát</div>
+                <div style="color: chocolate">Title</div>
                 <div class="icon_form comments_form">
                   <input type="text" class="form-control" formControlName="nameSong">
                   <i class="fas fa-music"></i>
                 </div>
                 <span style="color: red" *ngIf="submitted && editForm.get('nameSong').hasError('required')">Title is required!</span>
-
-                <div style="color: chocolate">Tên Tác Giả</div>
+                <div style="color: chocolate">Author</div>
                 <div class="icon_form comments_form">
                   <input type="text" class="form-control" formControlName="author" >
-                  <i class="far fa-address-card"></i>
+                  <i class="far fa-user"></i>
                 </div>
                 <span style="color: red" *ngIf="submitted && editForm.get('author').hasError('required')">Author is required!</span>
 
-                <div style="color: chocolate">Tên Ca Sĩ</div>
+                <div style="color: chocolate">Artist</div>
                 <div>
                   <select class="browser-default custom-select" formControlName="artist"  >
-                    <option disabled>Chọn danh mục sản phẩm</option>
+                    <option disabled>Select Artist</option>
                     <option *ngFor="let artist of artists" [value]="artist.id">{{artist.nameArtist}}</option>
                   </select>
                 </div>
                 <span style="color: red" *ngIf="submitted && editForm.get('artist').hasError('required')">Artist is required!</span>
-
                 <br>
-                <div style="color: chocolate">Dòng Nhạc</div>
+                <div style="color: chocolate">Genre</div>
                 <div class="icon_form comments_form" style="color: chocolate">
                   <select class="browser-default custom-select" formControlName="genre"  >
-                    <option disabled>Chọn danh mục sản phẩm</option>
+                    <option disabled>Selection Genre</option>
                     <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
                   </select>
                 </div>
@@ -50,21 +64,22 @@
                   <input type="text" class="form-control" formControlName="album">
                   <i class="flaticon-vinyl"></i>
                 </div>
-                <div style="color: chocolate">Mô Tả Bài Hát</div>
+                <div style="color: chocolate">Description</div>
                 <div class="icon_form comments_form">
                   <textarea class="form-control" formControlName="description"></textarea>
                   <i class="fas fa-file"></i>
                 </div>
                 <span style="color: red" *ngIf="submitted && editForm.get('description').hasError('required')">Description is required!</span>
 
-
-                <div style="color: chocolate">Tải file nhạc</div>
+                <div style="color: chocolate">Select Music</div>
                 <div class="icon_form comments_form">
                   <app-file (giveURLtoCreate)="onChangeFile($event)"></app-file>
+                  <i class="fas fa-music"></i>
                 </div>
-                <div style="color: chocolate">Tải Avatar</div>
+                <div style="color: chocolate">Select Avatar</div>
                 <div class="icon_form comments_form">
                   <app-image (giveURLtoCreate)="onChangeAvatar($event)"></app-image>
+                  <i class="fas fa-image"></i>
                 </div>
               </div>
             </div>

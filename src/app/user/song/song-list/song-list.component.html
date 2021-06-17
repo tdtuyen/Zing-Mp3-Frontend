@@ -1,5 +1,21 @@
 
+<div class="indx_title_main_wrapper">
+  <div class="title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="indx_title_left_wrapper m24_cover">
+          <h2>album</h2>
 
+          <ul>
+            <li><a routerLink="">Home</a> &nbsp;&nbsp;&nbsp;/</li>
+            <li>All Songs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="album_inner_list auti m24_cover">
   <div class="container">
     <div class="row">
@@ -31,9 +47,16 @@
               <li class="song_title_width"><a href="#">{{song?.artist?.nameArtist}}</a></li>
 
               <li>
-                <audio controls>
-                  <source src="{{song.songUrl}}" style="width: 350px; height: auto">
-                </audio>
+                <div>
+
+                  <div *ngFor="let playlist of playLists">
+                    <button type="button"
+                            (click)="addSongToPlaylist(playlist.id,song.id)" >{{playlist.namePlaylist}}</button></div>
+
+                </div>
+<!--                <audio controls>-->
+<!--                  <source src="{{song.songUrl}}" style="width: 350px; height: auto">-->
+<!--                </audio>-->
               </li>
 
               <li class="text-center top_song_artist_playlist">

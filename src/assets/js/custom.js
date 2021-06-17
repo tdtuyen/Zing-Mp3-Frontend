@@ -66,32 +66,32 @@
             }),
 
 			//----------- treanding wrapper slider js -------------//
-			$(document).ready(function() {
-                $(".treanding_song_slider .owl-carousel").owlCarousel({
-                    loop: !0,
-                    margin: 15,
-                    autoplay: !1,
-                    smartSpeed: 1200,
-                    responsiveClass: !0,
-                    navText: ['<i class="flaticon-left-arrow"></i>', '<i class="flaticon-right-arrow"></i>'],
-                    responsive: {
-                        0: {
-                            items: 1,
-                            nav: !0
-                        },
-                        600: {
-                            items: 3,
-                            nav: !0
-                        },
-                        1000: {
-                            items: 5,
-                            nav: !0,
-                            loop: !0,
-                            margin: 20
-                        }
-                    }
-                })
-            }),
+			// $(document).ready(function() {
+      //           $(".treanding_song_slider .owl-carousel").owlCarousel({
+      //               loop: !0,
+      //               margin: 15,
+      //               autoplay: !1,
+      //               smartSpeed: 1200,
+      //               responsiveClass: !0,
+      //               navText: ['<i class="flaticon-left-arrow"></i>', '<i class="flaticon-right-arrow"></i>'],
+      //               responsive: {
+      //                   0: {
+      //                       items: 1,
+      //                       nav: !0
+      //                   },
+      //                   600: {
+      //                       items: 3,
+      //                       nav: !0
+      //                   },
+      //                   1000: {
+      //                       items: 5,
+      //                       nav: !0,
+      //                       loop: !0,
+      //                       margin: 20
+      //                   }
+      //               }
+      //           })
+      //       }),
 
 //----------- treanding wrapper slider js -------------//
 			$(document).ready(function() {
@@ -380,8 +380,8 @@
                         1 == e ? (t.find("input").val(""), t.find("textarea").val(""), a.html('<p style="color:green;">Mail has been sent successfully.</p>')) : a.html('<p style="color:red;">Something went wrong please try again latter.</p>')
                     })
                 }
-           }),
-        $("select").niceSelect();
+           })
+        // $("select").niceSelect();
             var adonisObj = {};
             jQuery(document).ready(function(t) {
                 adonisObj.toggleOffCanvas = function(e) {

@@ -19,9 +19,9 @@ export class UserService {
   }
 
   saveUser(user: User): Observable<User> {
-    const obj = JSON.parse(localStorage.getItem('currentUser'));
-    obj.avatar = user.avatar;
-    localStorage.setItem('currentUser', JSON.stringify(obj));
+    // const obj = JSON.parse(localStorage.getItem('currentUser'));
+    // obj.avatar = user.avatar;
+    // localStorage.setItem('currentUser', JSON.stringify(obj));
     return this.http.put<User>(API_URL + '/users', user);
   }
 

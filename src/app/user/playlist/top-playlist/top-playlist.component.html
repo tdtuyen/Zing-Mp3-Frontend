@@ -1,192 +1,90 @@
-<div class="treanding_songs_wrapper m24_cover">
+<!--<div class="treanding_songs_wrapper treanding_index_wrapper m24_cover">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-lg-12 col-md-12 col-sm-12">-->
+<!--        <div class="m24_heading_wrapper">-->
+<!--          <h1>Top 10 Playlist</h1>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">-->
+<!--        <div class="treanding_song_slider" style=" width: 1155px;">-->
+<!--          <div class="owl-carousel owl-theme" >-->
+
+<!--            <div class="owl-item active" style="width: 206px; margin-right: 20px;" *ngFor="let playlist of topPlaylists; index as i">-->
+<!--              <div class="item">-->
+
+<!--                <div class="treanding_slider_main_box m24_cover">-->
+<!--                  <img src="{{playlist.image}}" alt="img">-->
+<!--                  &lt;!&ndash;                <img src="assets/images/ms1.jpg" alt="img">&ndash;&gt;-->
+<!--                  <div class="m24_treanding_box_overlay">-->
+<!--                    <div class="m24_tranding_box_overlay"></div>-->
+<!--                    <div class="m24_tranding_more_icon">-->
+<!--                      <i class="flaticon-menu"></i>-->
+<!--                    </div>-->
+<!--                    <ul class="tranding_more_option">-->
+<!--                      <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a>-->
+<!--                      </li>-->
+<!--                      <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>-->
+<!--                      <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>-->
+<!--                      <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view-->
+<!--                        lyrics</a>-->
+<!--                      </li>-->
+<!--                      <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>-->
+<!--                    </ul>-->
+<!--                    <div class="tranding_play_icon">-->
+<!--                      <a href="#">-->
+<!--                        <i class="flaticon-play-button">{{playlist.namePlaylist}}</i>-->
+<!--                      </a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="treanding_songs_wrapper treanding_index_wrapper m24_cover">
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="m24_heading_wrapper">
-          <h1>jazz Playlists</h1>
+          <h1>New Playlist</h1>
         </div>
       </div>
       <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-        <div class="treanding_song_slider">
-          <div class="owl-carousel owl-theme">
-            <div class="item">
-
-              <div class="treanding_slider_main_box m24_cover">
-                <img src="assets/images/jz1.png" alt="img">
-
-                <div class="m24_treanding_box_overlay">
-                  <div class="m24_tranding_box_overlay"></div>
-                  <div class="m24_tranding_more_icon">
-                    <i class="flaticon-menu"></i>
-                  </div>
-                  <ul class="tranding_more_option">
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                  </ul>
-                  <div class="tranding_play_icon various_concert_icon">
-                    <a href="#">
-                      <i class="flaticon-play-button"></i>
-                    </a>
+        <div class="treanding_song_slider" style="width: 1152px; height: auto">
+          <owl-carousel-o [options]="customOptions">
+            <ng-container *ngFor="let playlist of topPlaylists">
+              <ng-template carouselSlide>
+                <div class="item">
+                  <div class="treanding_slider_main_box m24_cover">
+                    <img [src]="playlist.image">
+                    <div class="m24_treanding_box_overlay">
+                      <div class="m24_tranding_box_overlay"></div>
+                      <div class="m24_tranding_more_icon">
+                        <i class="flaticon-menu"></i>
+                      </div>
+                      <div class="tranding_play_icon">
+                        <a [routerLink]="[]">
+                          <i class="flaticon-play-button">{{playlist.namePlaylist}}</i>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="various_song_playlist">
-                  <p><a href="#"> Supernatural Feast</a></p>
-
-                </div>
-              </div>
-
-            </div>
-            <div class="item">
-              <div class="treanding_slider_main_box m24_cover">
-                <img src="assets/images/jz2.png" alt="img">
-
-                <div class="m24_treanding_box_overlay">
-                  <div class="m24_tranding_box_overlay"></div>
-                  <div class="m24_tranding_more_icon">
-                    <i class="flaticon-menu"></i>
-                  </div>
-                  <ul class="tranding_more_option">
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                  </ul>
-                  <div class="tranding_play_icon various_concert_icon">
-                    <a href="#">
-                      <i class="flaticon-play-button"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="various_song_playlist">
-                  <p><a href="#">Antique Sun</a></p>
-
-                </div>
-              </div>
-
-            </div>
-            <div class="item">
-              <div class="treanding_slider_main_box m24_cover">
-                <img src="assets/images/jz3.png" alt="img">
-
-                <div class="m24_treanding_box_overlay">
-                  <div class="m24_tranding_box_overlay"></div>
-                  <div class="m24_tranding_more_icon">
-                    <i class="flaticon-menu"></i>
-                  </div>
-                  <ul class="tranding_more_option">
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                  </ul>
-                  <div class="tranding_play_icon various_concert_icon">
-                    <a href="#">
-                      <i class="flaticon-play-button"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="various_song_playlist">
-                  <p><a href="#">Rocking Star</a></p>
-
-                </div>
-              </div>
-
-            </div>
-            <div class="item">
-              <div class="treanding_slider_main_box m24_cover">
-                <img src="assets/images/jz4.png" alt="img">
-
-                <div class="m24_treanding_box_overlay">
-                  <div class="m24_tranding_box_overlay"></div>
-                  <div class="m24_tranding_more_icon">
-                    <i class="flaticon-menu"></i>
-                  </div>
-                  <ul class="tranding_more_option">
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                  </ul>
-                  <div class="tranding_play_icon various_concert_icon">
-                    <a href="#">
-                      <i class="flaticon-play-button"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="various_song_playlist">
-                  <p><a href="#">Lambiyaan Si</a></p>
-
-                </div>
-              </div>
-
-            </div>
-            <div class="item">
-              <div class="treanding_slider_main_box m24_cover">
-                <img src="assets/images/jz5.png" alt="img">
-
-                <div class="m24_treanding_box_overlay">
-                  <div class="m24_tranding_box_overlay"></div>
-                  <div class="m24_tranding_more_icon">
-                    <i class="flaticon-menu"></i>
-                  </div>
-                  <ul class="tranding_more_option">
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                  </ul>
-                  <div class="tranding_play_icon various_concert_icon">
-                    <a href="#">
-                      <i class="flaticon-play-button"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="various_song_playlist">
-                  <p><a href="#"> Sense Unleashed</a></p>
-
-                </div>
-              </div>
-
-            </div>
-            <div class="item">
-              <div class="treanding_slider_main_box m24_cover">
-                <img src="assets/images/jz6.png" alt="img">
-
-                <div class="m24_treanding_box_overlay">
-                  <div class="m24_tranding_box_overlay"></div>
-                  <div class="m24_tranding_more_icon">
-                    <i class="flaticon-menu"></i>
-                  </div>
-                  <ul class="tranding_more_option">
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                    <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                  </ul>
-                  <div class="tranding_play_icon various_concert_icon">
-                    <a href="#">
-                      <i class="flaticon-play-button"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="various_song_playlist">
-                  <p><a href="#"> Reckless Ruin</a></p>
-
-                </div>
-              </div>
-
-            </div>
-          </div>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
         </div>
       </div>
+
     </div>
   </div>
+
 </div>

@@ -18,8 +18,11 @@ export class NavbarComponent implements OnInit {
   user: User;
   constructor(private router: Router,
               private authenticationService: AuthenticationService) {
-    this.authenticationService.currentUser.subscribe(value => {
-      this.currentUser = value;
+    // this.authenticationService.currentUser.subscribe(value => {
+    //   this.currentUser = value;
+    // });
+    this.authenticationService.currentUserSubject.asObservable().subscribe(user => {
+      this.currentUser = user;
     });
     if (this.currentUser) {
       const roleList = this.currentUser.roles;
