@@ -31,13 +31,13 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'playlists/edit' ,
+    path: 'playlists/edit/:id' ,
     component: EditPlaylistComponent,
     canActivate: [AuthGuard]
   },
   {
     path: 'yourplaylists' ,
-    component: ListPlaylistComponent,
+    component: YourPlaylistComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -82,7 +82,7 @@ const routes: Routes = [
     component: NewPlaylistComponent,
   },
   {
-    path: 'allPlaylist',
+    path: 'allplaylists',
     component: ListPlaylistComponent,
   }
 

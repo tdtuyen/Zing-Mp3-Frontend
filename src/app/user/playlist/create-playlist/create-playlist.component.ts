@@ -7,9 +7,7 @@ import {Playlist} from '../../../model/playlist';
 import {Router} from '@angular/router';
 import {Genre} from '../../../model/genre';
 import {GenreService} from '../../../service/genre.service';
-import {Artist} from '../../../model/artist';
 import {AuthenticationService} from '../../../service/authentication.service';
-import {SongService} from '../../../service/song.service';
 import {ArtistService} from '../../../service/artist.service';
 
 declare var $: any;
