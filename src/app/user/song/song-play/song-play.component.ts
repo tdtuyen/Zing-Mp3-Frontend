@@ -1,7 +1,8 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import {Component, OnInit, DoCheck, OnDestroy} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ListenMusicService} from '../../listen-music.service';
 import {Song} from '../../../model/song';
+import {Subscription} from 'rxjs';
 
 
 @Component({
@@ -9,13 +10,20 @@ import {Song} from '../../../model/song';
   templateUrl: './song-play.component.html',
   styleUrls: ['./song-play.component.css']
 })
-export class SongPlayComponent implements OnInit {
+export class SongPlayComponent implements OnInit, OnDestroy  {
   inforSong: any;
   song: Song;
   status = true;
+  subscription: Subscription;
+
   constructor(private route: ActivatedRoute, private listenMusicService: ListenMusicService) {
     this.listenMusicService.songObject.asObservable().subscribe(song => {
       this.song = song;
+    });
+    this.subscription = this.listenMusicService.getStatusSong().subscribe(status => {
+      if (status) {
+        this.status = false;
+      }
     });
   }
   play() {
@@ -28,5 +36,9 @@ export class SongPlayComponent implements OnInit {
 
   setVolume(event: Event) {
     this.listenMusicService.setVolume(event);
+  }
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
   }
 }

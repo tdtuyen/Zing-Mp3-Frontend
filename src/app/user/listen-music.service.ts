@@ -11,6 +11,7 @@ export class ListenMusicService {
   public statusSong: Subject<any> = new Subject<boolean>();
   public song: Observable<Song>;
   public songObject: BehaviorSubject<Song>;
+  maxInput: number;
   constructor(private http: HttpClient) {
     this.songObject = new BehaviorSubject<Song>(JSON.parse(localStorage.getItem('song')));
     this.song = this.songObject.asObservable();
@@ -62,7 +63,9 @@ export class ListenMusicService {
         this.seek = this.audioObj.currentTime;
         this.duration = this.timeFormat(this.audioObj.duration);
         this.currentTime = this.timeFormat(this.audioObj.currentTime);
-        console.log(eventTarget);
+        const hms = this.duration;   // your input string
+        const a = hms.split(':'); // split it at the colons
+        this.maxInput = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
       };
       this.addEvent(this.audioObj, this.audioEvents, handler);
       return () => {
@@ -84,7 +87,6 @@ export class ListenMusicService {
 
   setVolume(event) {
     this.audioObj.volume = event.target.value;
-    console.log(event);
   }
   openFile(song: Song) {
     this.streamObserver(song.songUrl).subscribe(event => {
@@ -93,7 +95,7 @@ export class ListenMusicService {
     // console.log(url);
   }
   play() {
-    this.audioObj.play().then().catch(error => console.log(error));
+    this.audioObj.play().then().catch(error => console.log('error:', error));
   }
 
   pause() {
@@ -110,5 +112,8 @@ export class ListenMusicService {
   }
   setSeekTo(ev) {
     this.audioObj.currentTime = ev.target.value;
+  }
+  getStatusSong(): Observable<any> {
+    return this.statusSong.asObservable();
   }
 }
