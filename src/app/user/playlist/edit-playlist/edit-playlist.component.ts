@@ -4,9 +4,11 @@ import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/sto
 import {HttpClient} from '@angular/common/http';
 import {PlaylistService} from '../../../service/playlist.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {Playlist} from '../../../model/playlist';
 import {GenreService} from '../../../service/genre.service';
 import {Genre} from '../../../model/genre';
+import {Song} from '../../../model/song';
+import * as $ from 'jquery';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-playlist',
@@ -18,11 +20,13 @@ export class EditPlaylistComponent implements OnInit {
   submitted = false;
   avatar = '';
   genres: Genre[] = [];
+  song: Song[] = [];
   playlistForm: FormGroup = new FormGroup({
     namePlaylist: new FormControl('', [Validators.required, Validators.minLength(6)]),
     type: new FormControl(''),
     description: new FormControl(''),
-    image: new FormControl('')
+    image: new FormControl(''),
+    song: new FormControl('')
   });
   id?: number;
   constructor(private httClient: HttpClient,
@@ -56,12 +60,12 @@ export class EditPlaylistComponent implements OnInit {
         namePlaylist: new FormControl(playlists.namePlaylist, [Validators.required, Validators.minLength(6)]),
         genre: new FormControl(playlists.genre),
         description: new FormControl(playlists.description),
-        image: new FormControl(playlists.image)
+        image: new FormControl(playlists.image),
+        song: new FormControl(playlists.song)
       });
     });
   }
   editPlayList(id: number): any {
-    alert('test');
     this.submitted = true;
     if (this.playlistForm.valid) {
       const playlist = this.playlistForm.value;
@@ -72,9 +76,23 @@ export class EditPlaylistComponent implements OnInit {
       console.log(playlist);
       this.playlistService.editPlaylists(this.id, playlist).subscribe(() => {
         console.log(this.playlistForm);
-        alert('thành công');
         this.success = true;
         this.submitted = false;
+        this.playlistForm.reset(); // tslint:disable-next-line:only-arrow-functions
+        $(function() {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+          // @ts-ignore
+          Toast.fire( {
+            icon: 'success',
+            type: 'success',
+            title: ' Successful playlist creation',
+          });
+        });
       }, e => {
         console.log(e);
       });

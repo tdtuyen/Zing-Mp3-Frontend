@@ -9,6 +9,7 @@ import {PlaylistService} from '../../../service/playlist.service';
 })
 export class YourPlaylistComponent implements OnInit {
   myPlaylist: Playlist[] = [];
+
   constructor(
     private playlistService: PlaylistService
   ) {

@@ -1,21 +1,14 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {AngularFireStorage, AngularFireStorageReference} from '@angular/fire/storage';
-import {HttpClient} from '@angular/common/http';
 import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {PlaylistService} from '../../../service/playlist.service';
-import {Playlist} from '../../../model/playlist';
-import {Router} from '@angular/router';
 import {Genre} from '../../../model/genre';
 import {GenreService} from '../../../service/genre.service';
-import {Artist} from '../../../model/artist';
 import {AuthenticationService} from '../../../service/authentication.service';
-import {SongService} from '../../../service/song.service';
 import {ArtistService} from '../../../service/artist.service';
+import * as $ from 'jquery';
+import Swal from 'sweetalert2';
 
-declare var $: any;
-declare var Swal: any;
-const isValidated = true;
-const artistId: number = null;
+
 @Component({
   selector: 'app-create-playlist',
   templateUrl: './create-playlist.component.html',
@@ -41,7 +34,7 @@ export class CreatePlaylistComponent implements OnInit {
     this.getAllGenre();
     this.playlistForm = this.fb.group({
       namePlaylist: ['', [Validators.required, Validators.max(30)]],
-      description: ['', [Validators.required, Validators.max(500)]],
+      description: ['', [Validators.required, Validators.max(50)]],
       genre: ['', [Validators.required]],
       image: ['']
     });
@@ -68,12 +61,11 @@ export class CreatePlaylistComponent implements OnInit {
             showConfirmButton: false,
             timer: 3000
           });
-
-
-          Toast.fire({
+          // @ts-ignore
+          Toast.fire( {
             icon: 'success',
             type: 'success',
-            title: ' Successful song creation',
+            title: ' Successful playlist creation',
           });
         });
       }, e => {
