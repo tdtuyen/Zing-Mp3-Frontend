@@ -23,8 +23,8 @@ export class EditPlaylistComponent implements OnInit {
   song: Song[] = [];
   playlistForm: FormGroup = new FormGroup({
     namePlaylist: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    type: new FormControl(''),
-    description: new FormControl(''),
+    genre: new FormControl('',[Validators.required]),
+    description: new FormControl('',[Validators.required]),
     image: new FormControl(''),
     song: new FormControl('')
   });
@@ -58,8 +58,8 @@ export class EditPlaylistComponent implements OnInit {
     return this.playlistService.findById(id).subscribe(playlists => {
       this.playlistForm = new FormGroup({
         namePlaylist: new FormControl(playlists.namePlaylist, [Validators.required, Validators.minLength(6)]),
-        genre: new FormControl(playlists.genre),
-        description: new FormControl(playlists.description),
+        genre: new FormControl(playlists.genre.id,[Validators.required]),
+        description: new FormControl(playlists.description, [Validators.required]),
         image: new FormControl(playlists.image),
         song: new FormControl(playlists.song)
       });

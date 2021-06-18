@@ -10,6 +10,7 @@ import {OwlOptions} from "ngx-owl-carousel-o";
 })
 export class TopPlaylistComponent implements OnInit {
   customOptions: OwlOptions= {
+    lazyLoad: false,
     loop: true,
     margin: 15,
     autoplay: false,

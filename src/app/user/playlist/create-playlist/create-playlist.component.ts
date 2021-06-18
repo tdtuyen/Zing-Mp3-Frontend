@@ -40,7 +40,7 @@ export class CreatePlaylistComponent implements OnInit {
     });
   }
 
-  createSong() {
+  createPlaylist() {
     this.submitted = true;
     if (this.playlistForm.valid) {
       const playlists = this.playlistForm.value;
@@ -48,12 +48,10 @@ export class CreatePlaylistComponent implements OnInit {
       playlists.genre = {
         id: playlists.genre
       };
-      console.log(playlists);
       this.playlistService.createNewPlaylist(playlists).subscribe(() => {
         this.success = true;
         this.submitted = false;
-        this.playlistForm.reset();
-        // tslint:disable-next-line:only-arrow-functions
+
         $(function() {
           const Toast = Swal.mixin({
             toast: true,
@@ -68,6 +66,7 @@ export class CreatePlaylistComponent implements OnInit {
             title: ' Successful playlist creation',
           });
         });
+        this.playlistForm.reset();
       }, e => {
         console.log(e);
       });

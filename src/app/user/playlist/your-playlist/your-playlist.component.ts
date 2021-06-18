@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Playlist} from '../../../model/playlist';
 import {PlaylistService} from '../../../service/playlist.service';
 
@@ -9,6 +9,7 @@ import {PlaylistService} from '../../../service/playlist.service';
 })
 export class YourPlaylistComponent implements OnInit {
   myPlaylist: Playlist[] = [];
+  playlist: Playlist;
 
   constructor(
     private playlistService: PlaylistService
@@ -16,13 +17,21 @@ export class YourPlaylistComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getAllPlayList();
+    this.getMyPlayList();
   }
 
-  getAllPlayList() {
-    this.playlistService.myPlaylists().subscribe(playLists => {
+  getMyPlayList() {
+    this.playlistService.showMyPlaylist().subscribe(playLists => {
       this.myPlaylist = playLists;
     });
   }
 
+  deletePlaylist(id: number) {
+    this.playlistService.deletePlaylist(id).subscribe(playlist => {
+      this.playlist = playlist;
+      this.getMyPlayList()
+    }, error => {
+      console.log("error", error)
+    })
+  }
 }
