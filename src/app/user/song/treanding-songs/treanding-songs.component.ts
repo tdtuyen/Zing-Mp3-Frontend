@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Song} from "../../../model/song";
-import {SongService} from "../../../service/song.service";
+import {Song} from '../../../model/song';
+import {SongService} from '../../../service/song.service';
 declare var $: any;
 
 @Component({
@@ -19,8 +19,8 @@ export class TreandingSongsComponent implements OnInit {
   ngOnInit() {
     this.getNewSong();
     this.songs;
-    $(function (){
-      $(".treanding_song_slider .owl-carousel").owlCarousel({
+    $(function() {
+      $('.treanding_song_slider .owl-carousel').owlCarousel({
         loop: !0,
         margin: 15,
         autoplay: !1,
@@ -43,14 +43,14 @@ export class TreandingSongsComponent implements OnInit {
             margin: 20
           }
         }
-      })
+      });
     });
   }
 
   getNewSong() {
-    this.songService.getNewSong().subscribe(songs=> {
+    this.songService.getNewSong().subscribe(songs => {
       this.songs = songs;
-    },error => {console.log("error", error)});
+    }, error => {console.log('error', error); });
   }
 
 
