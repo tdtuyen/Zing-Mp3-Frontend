@@ -78,7 +78,6 @@ export class EditPlaylistComponent implements OnInit {
         console.log(this.playlistForm);
         this.success = true;
         this.submitted = false;
-        // tslint:disable-next-line:only-arrow-functions
         $(function() {
           const Toast = Swal.mixin({
             toast: true,

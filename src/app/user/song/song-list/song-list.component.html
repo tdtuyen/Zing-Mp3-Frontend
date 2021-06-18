@@ -43,26 +43,24 @@
                 </div>
               </li>
               <li class="song_title_width"><a href="#">{{song?.artist?.nameArtist}}</a></li>
-              <li>
-                <div>
-          </div>
-          <!--                <audio controls>-->
-          <!--                  <source src="{{song.songUrl}}" style="width: 350px; height: auto">-->
-          <!--                </audio>-->
-          </li>
+             <li>
+                <select>
+                  <option *ngFor="let playlist of playlists" [value]="playlist.id">{{playlist.namePlaylist}}</option>
+                </select>
+              </li>
 
-          <li class="text-center top_song_artist_playlist">
+              <li class="text-center top_song_artist_playlist">
             </ul>
-        </div>
-        <div class="lang_apply_btn home_btn m24_cover">
-          <ul>
-            <li>
-              <a href="#">view all</a>
-            </li>
-          </ul>
+          </div>
+          <div class="lang_apply_btn home_btn m24_cover">
+            <ul>
+              <li>
+                <a href="#">view all</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
