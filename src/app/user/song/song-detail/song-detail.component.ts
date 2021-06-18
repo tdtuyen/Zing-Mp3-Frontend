@@ -15,9 +15,9 @@ export class SongDetailComponent implements OnInit {
 
   constructor(private songService: SongService,
               private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+    this.activatedRoute.paramMap.subscribe(async (paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      this.getSong(this.id);
+      this.song = await this.getSong(this.id);
     });
   }
 
@@ -25,7 +25,6 @@ export class SongDetailComponent implements OnInit {
   }
 
   getSong(id: number) {
-    console.log(this.songService.findById(id).toPromise())
     return this.songService.findById(id).toPromise();
   }
 }

@@ -380,7 +380,7 @@
                         1 == e ? (t.find("input").val(""), t.find("textarea").val(""), a.html('<p style="color:green;">Mail has been sent successfully.</p>')) : a.html('<p style="color:red;">Something went wrong please try again latter.</p>')
                     })
                 }
-           }),
+           })
         $("select").niceSelect();
             var adonisObj = {};
             jQuery(document).ready(function(t) {

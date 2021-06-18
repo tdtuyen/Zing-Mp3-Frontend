@@ -6,10 +6,11 @@ import {FormsModule} from '@angular/forms';
 import {UploadModule} from '../../upload/upload.module';
 import { SongUserComponent } from './song-user/song-user.component';
 import { SongPlayComponent } from './song-play/song-play.component';
+import { AddSongComponent } from './add-song/add-song.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [AddSongComponent],
     imports: [
         CommonModule,
         SongRoutingModule,

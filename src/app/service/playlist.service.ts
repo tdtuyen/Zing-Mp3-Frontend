@@ -17,7 +17,7 @@ export class PlaylistService {
     return this.http.get<Playlist[]>(API_URL + `/playlists/list?page=${page}&size=${size}`);
   }
 
-  createNewPlaylist(playlist: Playlist): Observable<Playlist> {
+  createNewPlaylisst(playlist: Playlist): Observable<Playlist> {
     return this.http.post<Playlist>(API_URL + `/playlists/create`, playlist);
   }
 
@@ -32,9 +32,8 @@ export class PlaylistService {
     return this.http.get<Playlist[]>(`${API_URL}/playlists/myplaylists`);
   }
 
-  editPlaylists(p: number, id: Playlist): Observable<any> {
-    // @ts-ignore
-    return this.http.get<Playlist[]>(`${API_URL}/playlists/${id}`, p);
+  editPlaylists(id: number, playlist: Playlist): Observable<any> {
+    return this.http.put<any>(`${API_URL}/playlists/${id}`, playlist);
   }
   findById(id: number): Observable<Playlist> {
     return this.http.get<Song>(`${API_URL}/playlists/detail/${id}`);

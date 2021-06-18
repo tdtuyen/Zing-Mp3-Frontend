@@ -1,254 +1,53 @@
-<div class="album_inner_list auti m24_cover">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-12">
-        <div class="album_list_wrapper2 favourit_album_list">
-          <div class="album_list_wrapper album_list_wrapper_shop">
-            <ul class="album_list_name favourite_list m24_cover">
-              <li>#</li>
-              <li class="song_title_width">Song Title</li>
-              <li class="song_title_width">album</li>
-              <li class="text-center">price</li>
-              <li class="text-center">time</li>
-              <li class="text-center">favourites</li>
-              <li class="text-center">More</li>
-              <li class="text-center">remove</li>
-            </ul>
-            <ul class="album_inner_list_padding">
-              <li><a href="#"><span class="play_no">01</span><span class="play_hover"><i class="flaticon-play-button"></i></span></a></li>
-              <li class="song_title_width">
-                <div class="top_song_artist_wrapper">
 
-                  <img src="assets/images/tp1.png" alt="img">
+<form [formGroup]="playlistForm" (ngSubmit)="editPlayList(playlistForm.value.id)">
+  <div class="lang_m24_banner" id="login_modal" role="dialog">
+    <div id="register_modal" role="dialog">
+      <div class="col-10" style="margin: auto">
+        <div class="modal-content">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
 
-                  <div class="top_song_artist_contnt">
-                    <h1><a href="#">Let me Love You</a></h1>
-                    <p class="various_artist_text"><a href="#">Chrissy Costanza</a></p>
-                  </div>
+              <div class="m24_language_box m24_cover">
+                <h1 style="margin: auto">Edit Playlist</h1>
 
+              </div>
+              <div class="login_form_wrapper">
+                <div style="color: chocolate">Tên Playlist</div>
+                <div class="icon_form comments_form">
+                  <input type="text" class="form-control" formControlName="namePlaylist">
+                  <i class="fas fa-music"></i>
                 </div>
-              </li>
-              <li class="song_title_width"><a href="#">Pimila Holliwy</a></li>
-              <li class="text-center"><a href="#">$5</a></li>
-              <li class="text-center"><a href="#">3:26</a></li>
-              <li class="text-center"><a href="#"><i class="fas fa-heart"></i></a></li>
-
-              <li class="text-center top_song_artist_playlist">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
+                <span style="color: red" *ngIf="submitted && playlistForm.get('namePlaylist').hasError('required')">Title is required!</span>
+                <div style="color: chocolate">Dòng Nhạc</div>
+                <div class="icon_form comments_form" style="color: chocolate">
+                  <select class="browser-default custom-select" formControlName="genre"  >
+                    <option disabled>Chọn dòng nhạc</option>
+                    <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
+                  </select>
                 </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </li>
-              <li class="text-center cancel_times"><a href="#"><i class="fas fa-times-circle"></i></a></li>
-            </ul>
-            <ul class="album_inner_list_padding">
-              <li><a href="#"><span class="play_no">02</span><span class="play_hover"><i class="flaticon-play-button"></i></span></a></li>
-              <li class="song_title_width">
-                <div class="top_song_artist_wrapper">
-
-                  <img src="assets/images/tp2.png" alt="img">
-
-                  <div class="top_song_artist_contnt">
-                    <h1><a href="#">l wanna you</a></h1>
-                    <p class="various_artist_text"><a href="#">Chrissy artist</a></p>
-                  </div>
-
+                <span style="color: red" *ngIf="submitted && playlistForm.get('genre').hasError('required')">Genre is required!</span>
+                <br>
+                <div style="color: chocolate">Mô Tả Bài Hát</div>
+                <div class="icon_form comments_form">
+                  <textarea class="form-control" formControlName="description"></textarea>
+                  <i class="fas fa-file"></i>
                 </div>
-              </li>
-              <li class="song_title_width"><a href="#">Pimila Holliwy</a></li>
-              <li class="text-center"><a href="#">$5</a></li>
-              <li class="text-center"><a href="#">3:26</a></li>
-              <li class="text-center"><a href="#"><i class="fas fa-heart"></i></a></li>
-              <li class="text-center top_song_artist_playlist">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
+                <span style="color: red" *ngIf="submitted && playlistForm.get('description').hasError('required')">Description is required!</span>
+                <div style="color: chocolate">Tải Ảnh Playlist</div>
+                <div class="icon_form comments_form">
+                  <app-image (giveURLtoCreate)="onChangeAvatar($event)"></app-image>
                 </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </li>
-              <li class="text-center cancel_times"><a href="#"><i class="fas fa-times-circle"></i></a></li>
-            </ul>
-            <ul class="album_inner_list_padding">
-              <li><a href="#"><span class="play_no">03</span><span class="play_hover"><i class="flaticon-play-button"></i></span></a></li>
-              <li class="song_title_width">
-                <div class="top_song_artist_wrapper">
+              </div>
+            </div>
+            <div class="lang_apply_btn_wrapper " style="margin-left: auto">
 
-                  <img src="assets/images/tp3.png" alt="img">
-
-                  <div class="top_song_artist_contnt">
-                    <h1><a href="#">Let me Love You</a></h1>
-                    <p class="various_artist_text"><a href="#">Chrissy Costanza</a></p>
-                  </div>
-
-                </div>
-              </li>
-              <li class="song_title_width"><a href="#">Pimila Holliwy</a></li>
-              <li class="text-center"><a href="#">free</a></li>
-              <li class="text-center"><a href="#">3:26</a></li>
-              <li class="text-center"><a href="#"><i class="fas fa-heart"></i></a></li>
-              <li class="text-center top_song_artist_playlist">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </li>
-              <li class="text-center cancel_times"><a href="#"><i class="fas fa-times-circle"></i></a></li>
-            </ul>
-            <ul class="album_inner_list_padding">
-              <li><a href="#"><span class="play_no">04</span><span class="play_hover"><i class="flaticon-play-button"></i></span></a></li>
-              <li class="song_title_width">
-                <div class="top_song_artist_wrapper">
-
-                  <img src="assets/images/tp4.png" alt="img">
-
-                  <div class="top_song_artist_contnt">
-                    <h1><a href="#">Let me Love You</a></h1>
-                    <p class="various_artist_text"><a href="#">Chrissy Costanza</a></p>
-                  </div>
-
-                </div>
-              </li>
-              <li class="song_title_width"><a href="#"> Dream Your Moments</a></li>
-              <li class="text-center"><a href="#">$5</a></li>
-              <li class="text-center"><a href="#">3:26</a></li>
-              <li class="text-center"><a href="#"><i class="fas fa-heart"></i></a></li>
-              <li class="text-center top_song_artist_playlist">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </li>
-              <li class="text-center cancel_times"><a href="#"><i class="fas fa-times-circle"></i></a></li>
-            </ul>
-            <ul class="album_inner_list_padding">
-              <li><a href="#"><span class="play_no">05</span><span class="play_hover"><i class="flaticon-play-button"></i></span></a></li>
-              <li class="song_title_width">
-                <div class="top_song_artist_wrapper">
-
-                  <img src="assets/images/tp5.png" alt="img">
-
-                  <div class="top_song_artist_contnt">
-                    <h1><a href="#">Let me Love You</a></h1>
-                    <p class="various_artist_text"><a href="#">Chrissy Costanza</a></p>
-                  </div>
-
-                </div>
-              </li>
-              <li class="song_title_width"><a href="#">Pimila Holliwy</a></li>
-              <li class="text-center"><a href="#">free</a></li>
-              <li class="text-center"><a href="#">3:26</a></li>
-              <li class="text-center"><a href="#"><i class="fas fa-heart"></i></a></li>
-              <li class="text-center top_song_artist_playlist">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </li>
-              <li class="text-center cancel_times"><a href="#"><i class="fas fa-times-circle"></i></a></li>
-            </ul>
-            <ul class="album_inner_list_padding">
-              <li><a href="#"><span class="play_no">06</span><span class="play_hover"><i class="flaticon-play-button"></i></span></a></li>
-              <li class="song_title_width">
-                <div class="top_song_artist_wrapper">
-
-                  <img src="assets/images/tp1.png" alt="img">
-
-                  <div class="top_song_artist_contnt">
-                    <h1><a href="#">wanna know more</a></h1>
-                    <p class="various_artist_text"><a href="#"> Cloud Nine</a></p>
-                  </div>
-
-                </div>
-              </li>
-              <li class="song_title_width"><a href="#"> Dream Your Moments</a></li>
-              <li class="text-center"><a href="#">$5</a></li>
-              <li class="text-center"><a href="#">3:26</a></li>
-              <li class="text-center"><a href="#"><i class="fas fa-heart"></i></a></li>
-              <li class="text-center top_song_artist_playlist">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </li>
-              <li class="text-center cancel_times"><a href="#"><i class="fas fa-times-circle"></i></a></li>
-            </ul>
-            <ul class="album_inner_list_padding">
-              <li><a href="#"><span class="play_no">07</span><span class="play_hover"><i class="flaticon-play-button"></i></span></a></li>
-              <li class="song_title_width">
-                <div class="top_song_artist_wrapper">
-
-                  <img src="assets/images/tp3.png" alt="img">
-
-                  <div class="top_song_artist_contnt">
-                    <h1><a href="#"> Desired Games</a></h1>
-                    <p class="various_artist_text"><a href="#"> Endless Things</a></p>
-                  </div>
-
-                </div>
-              </li>
-              <li class="song_title_width"><a href="#"> Dream Your Moments</a></li>
-              <li class="text-center"><a href="#">free</a></li>
-              <li class="text-center"><a href="#">3:26</a></li>
-              <li class="text-center"><a href="#"><i class="fas fa-heart"></i></a></li>
-              <li class="text-center top_song_artist_playlist">
-                <div class="m24_tranding_more_icon">
-                  <i class="flaticon-menu"></i>
-                </div>
-                <ul class="tranding_more_option">
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-playlist"></i></span>Add To playlist</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-star"></i></span>favourite</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-share"></i></span>share</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-files-and-folders"></i></span>view lyrics</a></li>
-                  <li><a href="#"><span class="opt_icon"><i class="flaticon-trash"></i></span>delete</a></li>
-                </ul>
-              </li>
-              <li class="text-center cancel_times"><a href="#"><i class="fas fa-times-circle"></i></a></li>
-            </ul>
-          </div>
-          <div class="lang_apply_btn home_btn m24_cover">
-            <ul>
-              <li>
-                <a href="#">view all</a>
-              </li>
-            </ul>
+              <button type="submit" class="btn btn-danger" style="margin-right: 20px; background: #ff3b1b">Edit</button>
+              <a routerLink="/user/yourplaylists"> <button type="button" class="btn btn-danger"style="margin-right: 20px; background: #ff3b1b">Cancel</button></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>
+
