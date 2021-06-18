@@ -14,6 +14,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {UploadModule} from './upload/upload.module';
 import {LogoutModule} from './logout/logout.module';
+import {HomeLayoutComponent} from './layout/home-layout/home-layout.component';
 
 @NgModule({
   declarations: [
