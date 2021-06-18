@@ -11,7 +11,7 @@
 
           <div class="login_form_wrapper">
               <div class="icon_form comments_form">
-                <input  type="text" formControlName="username" class="form-control"  placeholder="Enter your user name" maxlength="10">
+                <input  type="text" formControlName="username" class="form-control"  placeholder="Enter your username*" maxlength="10">
                 <i class="fas fa-user"></i>
               </div>
 
@@ -25,8 +25,8 @@
               </div>
 
               <div class="icon_form comments_form">
-                <input type="text" formControlName="phone" class="form-control" name="full_name" placeholder="Enter phone*">
-                <i class="fas fa-envelope"></i>
+                <input type="text" formControlName="phone" class="form-control" name="full_name" placeholder="Enter your phone*">
+                <i class="fas fa-phone"></i>
               </div>
 
               <div style="color: red" class="alert alert-danger" role="alert" *ngIf="submitted && registerForm.get('phone').errors">
