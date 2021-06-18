@@ -12,7 +12,7 @@ import {PlaylistService} from "../../../service/playlist.service";
 export class SongListComponent implements OnInit {
 
   songs: Song[] = [];
-  playLists: Playlist[]=[];
+  playlists: Playlist[]=[];
 
 
   constructor(private songService: SongService, private playlistService: PlaylistService) {
@@ -26,7 +26,7 @@ export class SongListComponent implements OnInit {
 
   getMyPlaylist(){
     this.playlistService.showMyPlaylist().subscribe( plasLists=>{
-      this.playLists = plasLists}, error => {
+      this.playlists = plasLists}, error => {
         console.log("error", error)
       });
   }
