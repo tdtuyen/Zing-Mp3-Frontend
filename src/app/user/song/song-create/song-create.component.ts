@@ -36,8 +36,9 @@ export class SongCreateComponent implements OnInit {
 
 
   onChangeAvatar($event) {
-    this.avatar = $event;
-    console.log('avatar ===>', this.avatar);
+      this.avatar = $event;
+      if(this.avatar != ""){
+      }
   }
 
   onChangeFile($event) {
@@ -47,7 +48,7 @@ export class SongCreateComponent implements OnInit {
 
   ngOnInit() {
     this.songForm = this.fb.group({
-      nameSong: ['', [Validators.required, Validators.max(30)]],
+      nameSong: ['', [Validators.required, Validators.max(20)]],
       description: ['', [Validators.required, Validators.max(500)]],
       author: ['', [Validators.required]],
       artist: ['', [Validators.required]],

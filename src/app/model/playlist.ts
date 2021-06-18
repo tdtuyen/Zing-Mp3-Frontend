@@ -8,6 +8,6 @@ export interface Playlist {
   editAt?: any;
   status?: boolean;
   views?: number;
-  like?: number;
+  likes?: number;
   song?: any;
 }

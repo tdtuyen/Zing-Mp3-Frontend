@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -6,18 +6,20 @@ import {Playlist} from '../model/playlist';
 import {Song} from '../model/song';
 
 const API_URL = `${environment.apiUrl}`;
+
 @Injectable({
   providedIn: 'root'
 })
 export class PlaylistService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getAll(page: number, size: number): Observable<Playlist[]> {
     return this.http.get<Playlist[]>(API_URL + `/playlists/list?page=${page}&size=${size}`);
   }
 
-  createNewPlaylisst(playlist: Playlist): Observable<Playlist> {
+  createNewPlaylist(playlist: Playlist): Observable<Playlist> {
     return this.http.post<Playlist>(API_URL + `/playlists/create`, playlist);
   }
 
@@ -28,14 +30,27 @@ export class PlaylistService {
   getTop10PlayListSong(): Observable<Playlist[]> {
     return this.http.get<Playlist[]>(`${API_URL}/playlists/topview`);
   }
+
   myPlaylists(): Observable<any> {
     return this.http.get<Playlist[]>(`${API_URL}/playlists/myplaylists`);
   }
 
-  editPlaylists(id: number, playlist: Playlist): Observable<any> {
-    return this.http.put<any>(`${API_URL}/playlists/${id}`, playlist);
+  editPlaylists(id: number, playlist: Playlist): Observable<Playlist> {
+    return this.http.put<Playlist>(`${API_URL}/playlists/${id}`, playlist);
   }
+
   findById(id: number): Observable<Playlist> {
-    return this.http.get<Song>(`${API_URL}/playlists/detail/${id}`);
+    return this.http.get<Playlist>(`${API_URL}/playlists/detail/${id}`);
+  }
+
+  showMyPlaylist(): Observable<Playlist[]> {
+    return this.http.get<Playlist[]>(`${API_URL}/playlists/myPlaylist`);
+  }
+
+  addSongToPlaylist(idPlaylist:number, idSong:number): Observable<Playlist> {
+    return this.http.get<Playlist>(`${API_URL}/playlists/user/${idPlaylist}/songs/${idSong}`);
+  }
+  deletePlaylist(id: number): Observable<Playlist> {
+    return this.http.get<Playlist>(`${API_URL}/playlists/${id}`);
   }
 }

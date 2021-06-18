@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Song} from "../../../model/song";
 import {SongService} from "../../../service/song.service";
+import {OwlOptions} from "ngx-owl-carousel-o";
 
 @Component({
   selector: 'app-treanding-songs',
@@ -9,7 +10,6 @@ import {SongService} from "../../../service/song.service";
 })
 export class TreandingSongsComponent implements OnInit {
 
-
   songs: Song[] = [];
 
   constructor(private songService: SongService) {
@@ -17,6 +17,7 @@ export class TreandingSongsComponent implements OnInit {
 
   ngOnInit() {
     this.getNewSong();
+    this.songs;
   }
 
   getNewSong() {
@@ -24,4 +25,6 @@ export class TreandingSongsComponent implements OnInit {
       this.songs = songs;
     },error => {console.log("error", error)});
   }
+
+
 }

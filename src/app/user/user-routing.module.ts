@@ -17,6 +17,7 @@ import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.comp
 
 import {TopPlaylistComponent} from './playlist/top-playlist/top-playlist.component';
 import {NewPlaylistComponent} from './playlist/new-playlist/new-playlist.component';
+import {DetailLayoutComponent} from '../layout/detail-layout/detail-layout.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   {
     path: 'songs/detail/:id',
     component: SongDetailComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'yoursongs',
@@ -85,7 +87,6 @@ const routes: Routes = [
     path: 'allplaylists',
     component: ListPlaylistComponent,
   }
-
 ];
 
 @NgModule({
