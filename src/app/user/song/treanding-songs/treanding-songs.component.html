@@ -20,44 +20,121 @@
 <!--</div>-->
 
 
+<!--<div class="treanding_songs_wrapper treanding_index_wrapper m24_cover">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<!--      <div class="col-lg-12 col-md-12 col-sm-12">-->
+<!--        <div class="m24_heading_wrapper">-->
+<!--          <h1>treanding songs (bài hát nghe nhiều nhất)</h1>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">-->
+<!--        <div class="treanding_song_slider" style=" width: 1155px; height: auto" >-->
+<!--&lt;!&ndash;          <div class="owl-carousel owl-theme" >&ndash;&gt;-->
+<!--            <div class="owl-item cloned" style="width: 206px; margin-right: 20px;" *ngFor="let song of songs; index as i">-->
+<!--              <div class="item">-->
 
+<!--                <div class="treanding_slider_main_box m24_cover">-->
+<!--                  <img src="{{song.imageUrl}}" alt="img">-->
+<!--                  <div class="m24_treanding_box_overlay">-->
+<!--                    <div class="m24_tranding_box_overlay"></div>-->
+<!--                    <div class="m24_tranding_more_icon">-->
+<!--                      <i class="flaticon-menu"></i>-->
+<!--                    </div>-->
+<!--                    <div class="tranding_play_icon">-->
+<!--                      <a [routerLink]="['/user/songs/detail',song.id]">-->
+<!--                        <i class="flaticon-play-button"></i>-->
+<!--                      </a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
 
-<div class="treanding_songs_wrapper treanding_index_wrapper m24_cover">
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="blog_category_wrapper blog_single_wrapper m24_cover">
+
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="m24_heading_wrapper">
-          <h1>treanding songs (bài hát nghe nhiều nhất)</h1>
-        </div>
-      </div>
-      <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-        <div class="treanding_song_slider" style=" width: 1155px; height: auto" >
-          <div class="owl-carousel owl-theme" >
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 blog_responsive" *ngFor="let song of songs">
+        <div class="blog_category_box_wrapper blog_box_wrapper float_left" >
+          <!--          <div class="blog_news_img_wrapper float_left">-->
 
-            <div class="owl-item cloned" style="width: 206px; margin-right: 20px;" *ngFor="let song of songs; index as i">
-              <div class="item">
+                      <img src="images/blog_cat1.jpg" alt="blog_img" style="width: 200px;height: ">
 
-                <div class="treanding_slider_main_box m24_cover">
-                  <img src="{{song.imageUrl}}" alt="img">
-                  <div class="m24_treanding_box_overlay">
-                    <div class="m24_tranding_box_overlay"></div>
-                    <div class="m24_tranding_more_icon">
-                      <i class="flaticon-menu"></i>
-                    </div>
-                    <div class="tranding_play_icon">
-                      <a [routerLink]="['/user/songs/detail',song.id]">
-                        <i class="flaticon-play-button"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <!--          </div>-->
+          <div class="lest_news_cont_wrapper float_left">
+
+<!--            <div class="blog_heaidng_top">-->
+<!--              <span> <i class="flaticon-calendar"></i>3 May, 2019</span>-->
+<!--              <h3><a href="#">Celebrating Winter Holidays-->
+<!--              </a></h3>-->
+
+<!--            </div>-->
+            <div class="blog-single_cntnt">
+<!--              <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean-->
+<!--                sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis-->
+<!--                sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a-->
+<!--                This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean-->
+<!--                sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis-->
+<!--                sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a-->
+<!--                This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean-->
+<!--                sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis-->
+<!--                sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a-->
+<!--                <br>-->
+<!--                <br> amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a This is Photoshop's version of Lorem-->
+<!--                Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,-->
+<!--                nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a-->
+<!--                sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a</p>-->
+              <ul class="icon_list_news  detail_icon_lists m24_cover">
+                <li>
+                  <a href="#" class="fb">
+                    <img src="{{song.imageUrl}}" alt="img">
+<!--                    <i class="fab fa-facebook-f"></i>-->
+                    <br> 4.1 M
+                    <br> fans
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="twit"> <i class="fab fa-twitter"></i>
+                    <br> 178
+                    <br> followers
+                  </a>
+                </li>
+                <li><a href="#" class="linkd"><i class="fab fa-linkedin-in"></i><br>
+                  232
+                  <br>
+                  subscriber
+                </a></li>
+                <li><a href="#" class="google"><i class="fab fa-google-plus-g"></i><br>
+                  7.5 M
+                  <br>
+                  followers
+                </a></li>
+                <li><a href="#" class="vimo"><i class="fab fa-vimeo-v"></i><br>
+                  1000k
+                  <br>
+                  subscriber
+                </a></li>
+                <li><a href="#" class="share"><i class="fas fa-share-alt"></i><br>
+                  7.5 M
+                  <br>
+                  shares
+                </a></li>
+              </ul>
             </div>
+
           </div>
 
         </div>
       </div>
-
     </div>
   </div>
 </div>

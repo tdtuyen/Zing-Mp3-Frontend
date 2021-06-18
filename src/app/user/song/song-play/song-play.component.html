@@ -7,7 +7,7 @@
           <div class="col-sm-4 col-lg-4 col-xl-3 col-4">
             <div class="media current-item">
               <div class="song-poster">
-                <img class="box-rounded-sm" src="js/mp3/browse/browse-overview-4.jpg" alt="">
+                <img class="box-rounded-sm" src="assets/js/mp3/browse/browse-overview-4.jpg" alt="">
               </div>
               <div class="des">
 <!--                <div class="" aria-label="title">{{song.nameSong}}</div>-->
@@ -72,7 +72,7 @@
       </div>
       <!--./ container-fluid-->
       <div class="jp-progress d-flex align-items-center jp-progress-pos-top">
-          <input style="background:" class="jp-seek-bar" type="range" min="0" [value]="this.listenMusicService.seek" max="{{this.listenMusicService.duration}}" (input)="this.listenMusicService.setSeekTo($event)">
+          <input style="background:red" class="jp-seek-bar" type="range" min="0" [value]="this.listenMusicService.seek" max="{{this.listenMusicService.duration}}" (input)="this.listenMusicService.setSeekTo($event)">
       </div>
     </div>
 
