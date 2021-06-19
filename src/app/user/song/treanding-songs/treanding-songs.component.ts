@@ -18,7 +18,6 @@ export class TreandingSongsComponent implements OnInit {
 
   ngOnInit() {
     this.getNewSong();
-    this.songs;
     $(function() {
       $('.treanding_song_slider .owl-carousel').owlCarousel({
         loop: !0,

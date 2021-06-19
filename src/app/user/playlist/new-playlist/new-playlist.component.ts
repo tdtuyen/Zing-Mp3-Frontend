@@ -15,8 +15,8 @@ export class NewPlaylistComponent implements OnInit {
 
   ngOnInit() {
     this.getNewPlaylist();
-    $(function (){
-      $(".treanding_song_slider .owl-carousel").owlCarousel({
+    $(function() {
+      $('.treanding_song_slider .owl-carousel').owlCarousel({
         loop: !0,
         margin: 15,
         autoplay: !1,
@@ -39,7 +39,7 @@ export class NewPlaylistComponent implements OnInit {
             margin: 20
           }
         }
-      })
+      });
     });
   }
 

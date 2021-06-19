@@ -1,20 +1,32 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 import * as moment from 'moment';
 import {Song} from '../model/song';
 import {HttpClient} from '@angular/common/http';
+
+class StateSong {
+  state: string;
+  currentTime: number;
+  duration: number;
+  statusSong?: boolean;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class ListenMusicService {
-  public statusSong: boolean;
+  private state: StateSong = {
+    state: 'pause',
+    currentTime: undefined,
+    duration: undefined,
+  };
+  private state$: BehaviorSubject<StateSong> = new BehaviorSubject<StateSong>(this.state);
+  public statusSong: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public song: Observable<Song>;
   public songObject: BehaviorSubject<Song>;
-  constructor(private http: HttpClient) {
-    this.songObject = new BehaviorSubject<Song>(JSON.parse(localStorage.getItem('song')));
-    this.song = this.songObject.asObservable();
-  }
+  public songs: Song[] = [];
+  maxInput: number;
   audioObj = new Audio();
   audioEvents = [
     'ended',
@@ -28,23 +40,18 @@ export class ListenMusicService {
     'loadstart'
   ];
   title = 'AudioApp';
-  files = [
-    {
-      url: './assets/LamLem_HaiSam.mp3',
-      name: 'Lấm lem'
-    },
-    {
-      url: './assets/docthan.mp3',
-      name: 'Độc thân'
-    },
-    {
-      url: './assets/CoEmDoiBongVui.mp3',
-      name: 'Có em bên đời bỗng vui'
-    },
-  ];
   currentTime = '00:00:00';
   duration = '00:00:00';
   seek = 0;
+
+  constructor(private http: HttpClient) {
+    this.songObject = new BehaviorSubject<Song>(JSON.parse(localStorage.getItem('song')));
+    this.song = this.songObject.asObservable();
+  }
+
+  getState(): Observable<StateSong> {
+    return this.state$.asObservable();
+  }
   removeEvent(obj, events, handlerr) {
     events.forEach(event => {
       obj.removeEventListener(event, handlerr);
@@ -59,10 +66,28 @@ export class ListenMusicService {
       this.audioObj.play();
       // this.duration = this.audioObj.duration;
       const handler = (eventTarget: Event) => {
+        switch (eventTarget.type) {
+          case 'pause':
+            this.state$.next({
+              state: 'pause',
+              currentTime: this.audioObj.currentTime,
+              duration: this.audioObj.duration
+            });
+            break;
+          case 'playing':
+            this.state$.next({
+              state: 'playing',
+              currentTime: this.audioObj.currentTime,
+              duration: this.audioObj.duration
+            });
+            break;
+        }
         this.seek = this.audioObj.currentTime;
         this.duration = this.timeFormat(this.audioObj.duration);
         this.currentTime = this.timeFormat(this.audioObj.currentTime);
-        console.log(eventTarget);
+        const hms = this.duration;   // your input string
+        const a = hms.split(':'); // split it at the colons
+        this.maxInput = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
       };
       this.addEvent(this.audioObj, this.audioEvents, handler);
       return () => {
@@ -73,8 +98,31 @@ export class ListenMusicService {
     });
   }
 
+  // @ts-ignore
+  streamObserverMutilSong(url: string): Observable<any> {
+      this.audioObj.src = url;
+      this.audioObj.load();
+      this.audioObj.play();
+    //   // this.duration = this.audioObj.duration;
+    //   const handler = (eventTarget: Event) => {
+    //     this.seek = this.audioObj.currentTime;
+    //     this.duration = this.timeFormat(this.audioObj.duration);
+    //     this.currentTime = this.timeFormat(this.audioObj.currentTime);
+    //     const hms = this.duration;   // your input string
+    //     const a = hms.split(':'); // split it at the colons
+    //     this.maxInput = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
+    //   };
+    //   this.addEvent(this.audioObj, this.audioEvents, handler);
+    //   return () => {
+    //     this.audioObj.pause();
+    //     this.audioObj.currentTime = 0;
+    //     this.removeEvent(this.audioObj, this.audioEvents, handler);
+    //   };
+    // });
+  }
+
+
   addEvent(obj, events, handlerr: any) {
-    // tslint:disable-next-line:no-shadowed-variable
     events.forEach( element => {
       obj.addEventListener(element, handlerr); // Khi nay e de sai tham so element thanh events
       // trong khi events da foreach o tren
@@ -84,16 +132,16 @@ export class ListenMusicService {
 
   setVolume(event) {
     this.audioObj.volume = event.target.value;
-    console.log(event);
   }
-  openFile(song: Song) {
-    this.streamObserver(song.songUrl).subscribe(event => {
+  async openFile(song: Song) {
+   const a = await this.streamObserver(song.songUrl).subscribe(event => {
       this.songObject.next(song);
     });
-    // console.log(url);
   }
+  // @ts-ignore
+
   play() {
-    this.audioObj.play().then().catch(error => console.log(error));
+    this.audioObj.play().then().catch(error => console.log('error:', error));
   }
 
   pause() {
@@ -110,5 +158,19 @@ export class ListenMusicService {
   }
   setSeekTo(ev) {
     this.audioObj.currentTime = ev.target.value;
+  }
+  getStatusSong(): Observable<boolean> {
+    return this.statusSong.asObservable();
+  }
+  getSong(): Observable<Song> {
+    return this.songObject.asObservable();
+  }
+
+  getCurrentTimeInMillisecond(): number {
+    return this.audioObj.currentTime;
+  }
+
+  getDurationTimeInMillisecond(): number {
+    return this.audioObj.duration;
   }
 }

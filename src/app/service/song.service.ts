@@ -47,4 +47,7 @@ export class SongService {
   deleteSong(id: number): Observable<Song> {
     return this.http.get<Song>(`${API_URL}/songs/${id}`);
   }
+  getAllSongByPlaylistId(id: number): Observable<any> {
+    return this.http.get<any>(`${API_URL}/playlists/${id}/songs`);
+  }
 }
