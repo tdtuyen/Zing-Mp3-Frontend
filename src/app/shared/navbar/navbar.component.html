@@ -61,8 +61,10 @@
       <!-- mainmenu end -->
       <div class="navi_searchbar_wrapper">
         <i class="flaticon-magnifying-glass"></i>
-        <input type="text" id="" placeholder="Search for Songs, Artists, Playlists And More..." style="width: 450px"/>
-      </div>
+        <input [(ngModel)]="value" name="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+<!--        <button (click)="searchPlaylist()"-->
+<!--                [routerLink]="'/user/search',value" class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </div>-->
       <div class="d-block d-sm-block d-md-block d-lg-block d-xl-none">
         <div class="search_bar">
           <div class="res_search_bar" id="search_button"><i class="fa fa-ellipsis-v"></i>

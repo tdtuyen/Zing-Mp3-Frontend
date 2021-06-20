@@ -14,11 +14,14 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {UploadModule} from './upload/upload.module';
 import {LogoutModule} from './logout/logout.module';
+import { CommentSongComponent } from './user/song/comment-song/comment-song.component';
+import { SearchComponent } from './user/search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoAuthGuardComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

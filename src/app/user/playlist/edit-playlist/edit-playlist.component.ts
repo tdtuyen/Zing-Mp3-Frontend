@@ -61,7 +61,7 @@ export class EditPlaylistComponent implements OnInit {
         genre: new FormControl(playlists.genre),
         description: new FormControl(playlists.description),
         image: new FormControl(playlists.image),
-        song: new FormControl(playlists.song)
+        song: new FormControl(playlists.songs)
       });
     });
   }

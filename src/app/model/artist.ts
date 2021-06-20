@@ -1,11 +1,13 @@
+import {Song} from './song';
+
 export interface Artist {
   id?: number;
   nameArtist?: string;
   description?: string;
   avatar?: string;
-  songUrl?: string;
+  songUrl?: Song[];
   dob?: Date;
   likes?: number;
-  gender?: any;
+  gender?: string;
 
 }

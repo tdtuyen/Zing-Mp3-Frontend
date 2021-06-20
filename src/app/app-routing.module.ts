@@ -7,6 +7,10 @@ import {HomeLayoutComponent} from './layout/home-layout/home-layout.component';
 
 import {DetailLayoutComponent} from './layout/detail-layout/detail-layout.component';
 import {LogoutComponent} from './logout/logout/logout.component';
+import {FeatureArtitsComponent} from './user/artist/feature-artits/feature-artits.component';
+import {NavbarComponent} from './shared/navbar/navbar.component';
+import {ListPlaylistComponent} from './user/playlist/list-playlist/list-playlist.component';
+import {SearchComponent} from './user/search/search.component';
 
 
 
@@ -33,6 +37,10 @@ const routes: Routes = [
     path: 'demo',
     canActivate: [AuthGuard],
     component: DemoAuthGuardComponent
+  },
+  {
+    path: 'user/search/:namePlaylist',
+    component: SearchComponent
   }
 ];
 

@@ -11,13 +11,16 @@ import {ListPlaylistComponent} from './playlist/list-playlist/list-playlist.comp
 import {AuthGuard} from '../helper/auth-guard';
 import {UserEditComponent} from './user-edit/user-edit.component';
 import {SongUserComponent} from './song/song-user/song-user.component';
-import {SongPlayComponent} from './song/song-play/song-play.component';
 
 import {YourPlaylistComponent} from './playlist/your-playlist/your-playlist.component';
 
 import {TopPlaylistComponent} from './playlist/top-playlist/top-playlist.component';
 import {NewPlaylistComponent} from './playlist/new-playlist/new-playlist.component';
-import {DetailLayoutComponent} from '../layout/detail-layout/detail-layout.component';
+import {FeatureArtitsComponent} from './artist/feature-artits/feature-artits.component';
+import {DetailPlaylistComponent} from './playlist/detail-playlist/detail-playlist.component';
+import {CommentPlaylistComponent} from './playlist/comment-playlist/comment-playlist.component';
+import {CommentSongComponent} from './song/comment-song/comment-song.component';
+import {CommentArtistComponent} from './artist/comment-artist/comment-artist.component';
 
 
 const routes: Routes = [
@@ -86,7 +89,30 @@ const routes: Routes = [
   {
     path: 'allplaylists',
     component: ListPlaylistComponent,
-  }
+  },
+  {
+  path: 'playlists/comment/:id',
+  component: CommentPlaylistComponent
+},
+  {
+    path: 'playlists/detail/:id',
+    component: DetailPlaylistComponent
+  },
+  {
+    path: 'playlists/1111',
+    component: FeatureArtitsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'songs/comment/:id',
+    component: CommentSongComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'arits/comment/:id',
+    component: CommentArtistComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

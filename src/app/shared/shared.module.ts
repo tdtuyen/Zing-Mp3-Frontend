@@ -9,6 +9,7 @@ import { BannerComponent } from './banner/banner.component';
 import { QuicklinkComponent } from './quicklink/quicklink.component';
 import {LoginRegisterModule} from '../login-register/login-register.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     imports: [
         CommonModule,
         SharedRoutingModule,
-        LoginRegisterModule
+        LoginRegisterModule,
+        FormsModule
     ]
 })
 export class SharedModule { }

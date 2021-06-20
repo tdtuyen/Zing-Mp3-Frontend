@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import {JwtResponse} from '../../interface/jwt-response';
 import {User} from '../../model/user';
+import {Playlist} from '../../model/playlist';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../../service/authentication.service';
-import * as $ from 'jquery';
-import Swal from 'sweetalert2';
 import {PlaylistService} from '../../service/playlist.service';
-import {Playlist} from '../../model/playlist';
+import * as $ from 'jquery';
+import Swal from "sweetalert2";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class SearchComponent implements OnInit {
+
   currentUser: JwtResponse;
   hasRoleAdmin = false;
   hasRoleUser = false;
@@ -66,11 +67,11 @@ export class NavbarComponent implements OnInit {
   }
 
   openMenu() {
-      $('#sidebar').width(), 0 === $('#sidebar').offset().left ? $('#sidebar').animate({
-        left: -500
-      }, 'slow') : $('#sidebar').animate({
-        left: '0'
-      }, 'slow');
+    $('#sidebar').width(), 0 === $('#sidebar').offset().left ? $('#sidebar').animate({
+      left: -500
+    }, 'slow') : $('#sidebar').animate({
+      left: '0'
+    }, 'slow');
   }
   searchPlaylist(): any{
     this.playlistService.searchPlaylisst(this.value).subscribe(playlist => {

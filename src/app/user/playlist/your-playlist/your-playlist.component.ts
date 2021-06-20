@@ -9,6 +9,7 @@ import {PlaylistService} from '../../../service/playlist.service';
 })
 export class YourPlaylistComponent implements OnInit {
   myPlaylist: Playlist[] = [];
+  value?: any
 
   constructor(
     private playlistService: PlaylistService
@@ -23,6 +24,11 @@ export class YourPlaylistComponent implements OnInit {
     this.playlistService.myPlaylists().subscribe(playLists => {
       this.myPlaylist = playLists;
     });
+  }
+  searchPlaylist(): any{
+    this.playlistService.searchPlaylisst(this.value).subscribe(playlist => {
+      this.myPlaylist = playlist;
+    })
   }
 
 }
