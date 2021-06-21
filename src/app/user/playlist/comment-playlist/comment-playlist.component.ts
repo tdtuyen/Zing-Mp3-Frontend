@@ -18,7 +18,6 @@ export class CommentPlaylistComponent implements OnInit {
   commentplaylists: Commentplaylist[] = [];
   playlistSong: Playlist = {
     likes:null,
-    songs:null
   };
   commentForm: FormGroup;
   likePlaylist: Likeplaylist = {
@@ -29,6 +28,7 @@ export class CommentPlaylistComponent implements OnInit {
   // @ts-ignore
   @ViewChild('likeElement') likeElement : ElementRef;
   constructor(private playlistService: PlaylistService,
+              private comment
               private httClient: HttpClient,
               private fb: FormBuilder,
               private activatedRoute: ActivatedRoute) {

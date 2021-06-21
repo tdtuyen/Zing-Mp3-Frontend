@@ -4,8 +4,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Playlist} from '../model/playlist';
 import {Song} from '../model/song';
-import {Commentplaylist} from '../model/commentplaylist';
-import {Likeplaylist} from '../model/likeplaylist';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -49,22 +47,10 @@ export class PlaylistService {
     return this.http.get<Playlist[]>(`${API_URL}/playlists/myPlaylist`);
   }
 
-  addSongToPlaylist(idPlaylist: number, idSong: number): Observable<Playlist> {
+  addSongToPlaylist(idPlaylist:number, idSong:number): Observable<Playlist> {
     return this.http.get<Playlist>(`${API_URL}/playlists/user/${idPlaylist}/songs/${idSong}`);
   }
-
-  allCommentInPlaylist(id: number): Observable<any> {
-    return this.http.get<Commentplaylist[]>(`${API_URL}/comments/playlists/${id}`);
-  }
-
-  postComment(comment: Commentplaylist, id: number): Observable<Commentplaylist> {
-    return this.http.post<Commentplaylist>(`${API_URL}/comments/playlists/${id}`, comment);
-  }
-
-  likePlaylist(id: number): Observable<Likeplaylist> {
-    return this.http.post<Likeplaylist>(`${API_URL}/likes/playlists/${id}`, id);
-  }
-  searchPlaylisst(namePlaylist: string): Observable<Playlist[]> {
-    return this.http.get<Playlist[]>(`${API_URL}/playlists/search/${namePlaylist}`);
+  deletePlaylist(id: number): Observable<Playlist> {
+    return this.http.get<Playlist>(`${API_URL}/playlists/${id}`);
   }
 }

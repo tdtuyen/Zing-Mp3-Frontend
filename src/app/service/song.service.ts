@@ -3,11 +3,6 @@ import {Song} from '../model/song';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
-import {Playlist} from '../model/playlist';
-import {Commentplaylist} from '../model/commentplaylist';
-import {Likeplaylist} from '../model/likeplaylist';
-import {CommentSong} from '../model/comment-song';
-import {LikeSong} from '../model/like-song';
 
 const API_URL = `${environment.apiUrl}`;
 
@@ -42,7 +37,7 @@ export class SongService {
 
 
   findById(id: number): Observable<Song> {
-    return this.http.get<Song>(`${API_URL}/songs/detail/${id}`);
+    return this.http.get<Song>(`http://localhost:8080/songs/detail/${id}`);
   }
 
   updateSong(id: number, song: Song): Observable<Song> {
@@ -52,20 +47,7 @@ export class SongService {
   deleteSong(id: number): Observable<Song> {
     return this.http.get<Song>(`${API_URL}/songs/${id}`);
   }
-  findPlaylist(id: number): Observable<any> {
-    return this.http.get<Playlist[]>(`${API_URL}/songs/${id}`);
+  getAllSongByPlaylistId(id: number): Observable<any> {
+    return this.http.get<any>(`${API_URL}/playlists/${id}/songs`);
   }
-  allCommentInSong(id: number): Observable<any> {
-    return this.http.get<CommentSong[]>(`${API_URL}/comments/songs/${id}`);
-  }
-
-  postComment(comment: CommentSong, id: number): Observable<CommentSong> {
-    return this.http.post<CommentSong>(`${API_URL}/comments/songs/${id}`, comment);
-  }
-
-  likePlaylist(id: number): Observable<LikeSong> {
-    return this.http.post<LikeSong>(`${API_URL}/likes/songs/${id}`, id);
-  }
-
-
 }

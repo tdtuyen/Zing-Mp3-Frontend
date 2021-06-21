@@ -48,6 +48,8 @@ export class SongEditComponent implements OnInit {
   onChangeAvatar($event) {
     this.avatar = $event;
     console.log('avatar ===>', this.avatar);
+
+
   }
 
   onChangeFile($event) {

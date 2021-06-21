@@ -4,7 +4,7 @@
     <div class="m24_logo_wrapper">
       <div class="m24_logo_div">
         <a routerLink="/">
-          <img src="assets/images/logo.png" alt="logo">
+          <img src="assets/images/logo10.png" alt="logo">
         </a>
       </div>
       <div id="toggle">
@@ -14,14 +14,14 @@
 
     <div class="m24_header_right_Wrapper d-none d-sm-none d-md-none d-lg-none d-xl-block">
       <div class="m24_signin_wrapper" style="margin-top: 7px;cursor: pointer;" *ngIf="!currentUser">
-        <a data-toggle="modal" data-target="#login_modal">Login / </a>
-        <a data-toggle="modal" data-target="#register_modal">Register</a>
+        <a  data-toggle="modal" data-target="#login_modal">Login / </a>
+        <a  data-toggle="modal" data-target="#register_modal">Register</a>
       </div>
       <div *ngIf="currentUser">
         <div class="crm_message_dropbox_wrapper" *ngIf="currentUser" style="padding-left: 20px">
           <div class="nice-select budge_noti_wrapper" tabindex="0">
-            <a class="blog_image"><img style="width: 45px;height: 45px;border-radius: 50%;display: inline" src="{{currentUser.avatar}}" alt="img"></a>
-            <p style="display: inline"></p>
+            <a  class="blog_image" ><img style="width: 45px;height: 45px;border-radius: 50%;display: inline" src="{{currentUser.avatar}}" alt="img"></a>
+            <p style="display: inline"> </p>
             <ul class="list pullDown" style="height: 100px;width: 200px">
               <li><a routerLink="/user/edit">Edit profile</a>
               </li>
@@ -34,12 +34,13 @@
           <a>{{currentUser.username}}</a>
         </div>
       </div>
+
     </div>
 
     <div class="m24_navigation_wrapper">
       <div class="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
         <ul class="main_nav_ul">
-          <li class="has-mega gc_main_navigation"><a class="gc_main_navigation">Quick Link <i class="flaticon-down-arrow"></i></a>
+          <li class="has-mega gc_main_navigation"><a class="gc_main_navigation">Quick Link<i class="flaticon-down-arrow"></i></a>
             <ul class="navi_2_dropdown">
               <li class="parent">
                 <a routerLink="/user/allplaylists"><i class="fas fa-caret-right"></i>All Playlists</a>
@@ -61,32 +62,29 @@
       <!-- mainmenu end -->
       <div class="navi_searchbar_wrapper">
         <i class="flaticon-magnifying-glass"></i>
-        <input [(ngModel)]="value" name="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-<!--        <button (click)="searchPlaylist()"-->
-<!--                [routerLink]="'/user/search',value" class="btn btn-outline-success" type="submit">Search</button>-->
-<!--      </div>-->
+        <input type="text" id="" placeholder="Search for Songs, Artists, Playlists and More.." style="width: 450px" />
+      </div>
       <div class="d-block d-sm-block d-md-block d-lg-block d-xl-none">
         <div class="search_bar">
-          <div class="res_search_bar" id="search_button"><i class="fa fa-ellipsis-v"></i>
+          <div class="res_search_bar" id="search_button"> <i class="fa fa-ellipsis-v"></i>
           </div>
-          <div id="search_open" class="res_search_box">
+<!--          <div id="search_open" class="res_search_box">-->
 
-            <div class="lang_list_wrapper responsive_search_toggle">
-              <a  data-toggle="modal" data-target="#myModal">languages <i class="fas fa-language"></i></a>
-            </div>
+<!--            <div class="lang_list_wrapper responsive_search_toggle">-->
+<!--              <a href="#" data-toggle="modal" data-target="#myModal">languages <i class="fas fa-language"></i></a>-->
+<!--            </div>-->
 
-            <div class="m24_signin_wrapper responsive_search_toggle">
+<!--            <div class="m24_signin_wrapper responsive_search_toggle">-->
 
-              <a  data-toggle="modal" data-target="#login_modal"><img src="assets/images/pf.png" alt="img">
-                <div class="login_top_wrapper">
-                  <p>login/register</p>
+<!--              <a href="#" data-toggle="modal" data-target="#login_modal"><img src="images/pf.png" alt="img">-->
+<!--                <div class="login_top_wrapper">-->
+<!--                  <p>login/register</p>-->
 
-                </div>
-              </a>
-            </div>
+<!--                </div>-->
+<!--              </a>-->
+<!--            </div>-->
 <!--            <div class="crm_message_dropbox_wrapper responsive_search_toggle">-->
-<!--              <div class="nice-select budge_noti_wrapper" tabindex="0"><span class="current budge_noti"><i-->
-<!--                class="flaticon-bell"></i></span>-->
+<!--              <div class="nice-select budge_noti_wrapper" tabindex="0"> <span class="current budge_noti"><i class="flaticon-bell"></i></span>-->
 <!--                <p class="notify_para">notifications</p>-->
 
 <!--                <ul class="list">-->
@@ -95,7 +93,7 @@
 <!--                  <li>-->
 <!--                    <div class="crm_mess_main_box_wrapper">-->
 <!--                      <div class="crm_mess_img_wrapper">-->
-<!--                        <img src="assets/images/nt1.jpg" alt="img">-->
+<!--                        <img src="images/nt1.jpg" alt="img">-->
 <!--                      </div>-->
 <!--                      <div class="crm_mess_img_cont_wrapper">-->
 <!--                        <h4>Walking Promises <span>01:30PM</span></h4>-->
@@ -106,7 +104,7 @@
 <!--                  <li>-->
 <!--                    <div class="crm_mess_main_box_wrapper">-->
 <!--                      <div class="crm_mess_img_wrapper">-->
-<!--                        <img src="assets/images/nt2.jpg" alt="img">-->
+<!--                        <img src="images/nt2.jpg" alt="img">-->
 <!--                      </div>-->
 <!--                      <div class="crm_mess_img_cont_wrapper">-->
 <!--                        <h4>Until I Met You <span>01:30PM</span></h4>-->
@@ -117,7 +115,7 @@
 <!--                  <li>-->
 <!--                    <div class="crm_mess_main_box_wrapper">-->
 <!--                      <div class="crm_mess_img_wrapper">-->
-<!--                        <img src="assets/images/nt3.jpg" alt="img">-->
+<!--                        <img src="images/nt3.jpg" alt="img">-->
 <!--                      </div>-->
 <!--                      <div class="crm_mess_img_cont_wrapper">-->
 <!--                        <h4>merry with you<span>01:30PM</span></h4>-->
@@ -135,22 +133,20 @@
 <!--                </ul>-->
 <!--              </div>-->
 <!--            </div>-->
-          </div>
+<!--          </div>-->
         </div>
       </div>
       <div class="m24_navi_langauage_box">
         <div class="theme-switch-wrapper">
           <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox"/>
+            <input type="checkbox" id="checkbox" />
             <span class="slider round"></span>
           </label>
         </div>
         <div class="lang_list_wrapper d-none d-sm-none d-md-none d-lg-none d-xl-block">
-          <a href="#" data-toggle="modal" data-target="#myModal">languages <i class="fas fa-language"></i></a>
+          <a data-toggle="modal" data-target="#myModal">languages <i class="fas fa-language"></i></a>
         </div>
-
       </div>
-
     </div>
   </div>
 </div>

@@ -1,15 +1,13 @@
-import {Song} from './song';
-
 export interface Playlist {
   id?: number;
   namePlaylist?: string;
   description?: string;
   image?: string;
-  createAt?: Date;
+  createAt?: any;
   genre?: any;
   editAt?: any;
   status?: boolean;
   views?: number;
   likes?: number;
-  songs?: Song[];
+  song?: any;
 }

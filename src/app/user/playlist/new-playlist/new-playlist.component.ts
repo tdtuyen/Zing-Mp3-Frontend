@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Playlist} from '../../../model/playlist';
 import {PlaylistService} from '../../../service/playlist.service';
-import {OwlOptions} from "ngx-owl-carousel-o";
+
+declare var $: any;
 
 @Component({
   selector: 'app-new-playlist',
@@ -9,39 +10,37 @@ import {OwlOptions} from "ngx-owl-carousel-o";
   styleUrls: ['./new-playlist.component.css']
 })
 export class NewPlaylistComponent implements OnInit {
-  customOptions: OwlOptions= {
-    loop: true,
-    margin: 15,
-    autoplay: false,
-    smartSpeed: 1200,
-    mouseDrag:false,
-    touchDrag:false,
-    pullDrag:false,
-    dots:false,
-    navSpeed:700,
-    navText: ['<i class="flaticon-left-arrow"></i>', '<i class="flaticon-right-arrow"></i>'],
-    responsive: {
-      0: {
-        items: 1,
-        nav:true,
-      },
-      600: {
-        items: 3,
-        nav: true,
-      },
-      1000: {
-        items: 5,
-        nav: true,
-        loop: true,
-        margin: 20
-      }
-    }
-  }
   newPlaylists: Playlist[] = [];
   constructor(private playlistService: PlaylistService) { }
 
   ngOnInit() {
     this.getNewPlaylist();
+    $(function() {
+      $('.treanding_song_slider .owl-carousel').owlCarousel({
+        loop: !0,
+        margin: 15,
+        autoplay: !1,
+        smartSpeed: 1200,
+        responsiveClass: !0,
+        navText: ['<i class="flaticon-left-arrow"></i>', '<i class="flaticon-right-arrow"></i>'],
+        responsive: {
+          0: {
+            items: 1,
+            nav: !0
+          },
+          600: {
+            items: 3,
+            nav: !0
+          },
+          1000: {
+            items: 5,
+            nav: !0,
+            loop: !0,
+            margin: 20
+          }
+        }
+      });
+    });
   }
 
   getNewPlaylist() {
